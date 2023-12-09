@@ -1,0 +1,72 @@
+# Demo Robotic Park Formation
+Operation:
+  mode: 'virtual'     # physical, virtual, hybrid
+  tool: 'Gazebo'              # Gazebo, Webots
+  world: 'default_RoboticPark.world' # default_RoboticPark.wbt, default_RoboticPark.world
+
+Experience:
+  type: 'formation'           # identification, formation, navigation
+
+Architecture: 
+  mode: 'test'   # centralized, distributed_ros2, distributed
+  node: 
+    executable: 'centralized_formation_controller'
+    name: 'formation_controller'
+    pkg: 'uned_swarm_task'
+  file: 'config_path'
+
+CPU_Monitoring: 
+  enable: True
+  node: 
+    executable: measure_process
+    name: benchmark
+    pkg: measure_process_ros2_pkg
+  processes: 'webots-bin, driver, ros2, swarm_driver, rviz2, kheperaIV_clien, centralized_for'
+
+Interface: 
+  enable: True
+  rviz2: 
+    enable: False
+    node: 
+      executable: rviz2
+      name: rviz2
+      pkg: rviz2
+    file: rviz_config_path
+  
+  rqt: 
+    enable: True
+    node: 
+      executable: rqt_gui
+      name: interface
+      pkg: rqt_gui
+    file: rqt_config_path
+
+  own: 
+    enable: False
+    node:
+      name:
+      pkg:
+    file:
+
+Data_Logging: 
+  enable: False
+  all: False
+  name: 'date'
+  topics: '/dron01/pose /dron02/pose /ros2_cpu /cpu_stats'
+
+Robots:
+
+Supervisor:
+  node:
+    name:
+    pkg:
+  file:
+
+Other:
+  Agent00:
+  name:
+  node:
+    name:
+    pkg:
+  file:
+

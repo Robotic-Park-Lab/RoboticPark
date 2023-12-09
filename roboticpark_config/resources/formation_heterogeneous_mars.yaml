@@ -1,0 +1,54 @@
+# Demo Robotic Park Formation
+Operation mode: virtual     # physical, virtual, hybrid
+  tool: Webots              # Gazebo, Webots
+  world: default.wbt
+
+Experience:
+  type: formation           # identification, formation, navigation
+
+Architecture: centralized   # centralized, distributed_ros2, distributed
+  node: centralized_formation_controller
+    name: formation_controller
+    pkg: uned_swarm_task
+  file: config_path
+
+CPU Monitoring: True
+  node: measure_process
+    name: benchmark
+    pkg: measure_process_ros2_pkg
+  processes: 'webots-bin, driver, ros2, swarm_driver, rviz2, kheperaIV_clien, centralized_for'
+
+Interface: True
+  rviz2: False
+    node: rviz2
+      name: rviz2
+      pkg: rviz2
+    file: rviz_config_path
+  
+  rqt: False
+    node: rqt_gui
+      name: interface
+      pkg: rqt_gui
+    file: rqt_config_path
+
+  own: False
+    node:
+      name:
+      pkg:
+    file:
+
+Data logging: False
+  all: True
+  name: 'test'
+  topics:
+
+Robots:
+
+Supervisor:
+  node:
+    name:
+    pkg:
+  file:
+
+Other:
+

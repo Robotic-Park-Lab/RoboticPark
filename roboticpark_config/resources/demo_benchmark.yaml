@@ -1,19 +1,19 @@
 # Demo Robotic Park Formation
 Operation:
-  mode: 'physical'     # physical, virtual, hybrid
-  tool: 'Gazebo'              # Gazebo, Webots
-  world: 'default_RoboticPark.world' # default_RoboticPark.wbt, default_RoboticPark.world
+  mode: 'virtual'     # physical, virtual, hybrid
+  tool: 'Webots'              # Gazebo, Webots
+  world: 'default_RoboticPark.wbt' # default_RoboticPark.wbt, default_RoboticPark.world
 
 Experience:
   type: 'formation'           # identification, formation, navigation
 
 Architecture: 
-  mode: 'test'   # centralized, distributed_ros2, distributed
-  node: 
+  mode: 'Centralized'   # centralized, distributed_ros2, distributed
+  node00: 
     executable: 'centralized_formation_controller'
     name: 'formation_controller'
     pkg: 'uned_swarm_task'
-  file: 'config_path'
+    file: 'config_path'
 
 CPU_Monitoring: 
   enable: True
@@ -24,9 +24,9 @@ CPU_Monitoring:
   processes: 'webots-bin, driver, ros2, swarm_driver, rviz2, kheperaIV_clien, centralized_for'
 
 Interface: 
-  enable: False
+  enable: True
   rviz2: 
-    enable: False
+    enable: True
     node: 
       executable: rviz2
       name: rviz2
@@ -146,17 +146,17 @@ Robots:
 
 
 Supervisor:
-  enable:
-  node:
-    name:
-    pkg:
-  file:
+  enable: True
+  node: 
+    executable: test
+    name: test
+    pkg: test
+    file: test_file
 
 Other:
   Agent00:
-  name:
-  node:
-    name:
-    pkg:
-  file:
+    executable: test
+    name: test
+    pkg: test
+    file: test_file
 

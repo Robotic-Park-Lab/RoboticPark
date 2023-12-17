@@ -64,13 +64,12 @@ class Robot:
         self.task_relationship = task_relationship
 
     def dictionary_output(self):
-        aux = {self.id:{'model': self.model, 'type':self.type,'name':self.name,'control_mode':self.control_mode,'positioning':self.positioning,'pose': self.pose, 'yaw': self.yaw,
+        aux = {'model': self.model, 'type':self.type,'name':self.name,'control_mode':self.control_mode,'positioning':self.positioning,'pose': self.pose, 'yaw': self.yaw,
                                  'uri': self.uri,'controller':{'type':self.controller_type,'enable':'True','protocol':'Continuous',
                                  'period':self.controller_period,'threshold':{'type':'Constant','co':self.controller_co,'ai':self.controller_ai}},'communication':{'type':self.communication_type,
                                  'threshold':{'type':'Constant','co':self.communication_co,'ai':0.0}},'local_pose':{'enable':'True','path':self.communication_path,'T':self.communication_period },
                                  'task':{'enable':self.task_enable,'T':self.task_period,'Onboard':self.task_onboard,'controller':{'type':self.task_controller,'protocol':'Continuous','period':self.task_period,'upperLimit':0.1,
                                  'lowerLimit':-0.1,'gain':self.task_gain,'threshold':{'type':'Constant','co':self.task_co,'ai':self.task_ai}},'role':self.task_role,'type':self.task_type,'relationship':self.task_relationship}}
-            }
         return aux
 
 class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -109,6 +108,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.Relationship_Remove_Buttom.clicked.connect(self.RemoveRelationship)
         self.Add_Button.clicked.connect(self.AddRobot)
         self.Remove_Button.clicked.connect(self.RemoveRobot)
+        #
+        self.actionImport_2.triggered.connect(self.importData)
 
         self.dictionary = {
             'Operation': {'mode':'virtual', 'tool':'Null','world':'Null'},
@@ -119,17 +120,153 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                                             'rqt':{'enable':'True', 'node':{'executable':'rqt_gui','name':'rqt','pkg':'rqt_gui'},'file':'rqt_config_path'},
                                             'own':{'enable':'False', 'node':{'executable':'own','name':'own','pkg':'own'},'file':'own_config_path'}},
             'Data_Logging':{'enable': 'False', 'all':'False', 'name':'date','topics':'Null'},
-            'Supervisor':{'enable':'False', 'node':{'executable':'super','name':'super','pkg':'super'},'file':'supervisor_config_path'},
+            'Supervisor':{'enable': 'False', 'node':{'executable':'','name':'','pkg':'', 'file':'config_path'}},
             'Other':{},
-            'Robots':{'Robot00':{'type':'virtual','name':'robot','control_mode':'HighLevel','positioning':'Intern','pose': '0.75 -0.75',
-                                 'uri': 'radio://0/80/2M/E7E7E7E708','controller':{'type':'pid','enable':'True','protocol':'Continuous',
-                                 'period':0.01,'threshold':{'type':'Constant','co':0.01,'ai':0.0}},'communication':{'type':'EventBased',
-                                 'threshold':{'type':'Constant','co':0.01,'ai':0.0}},'local_pose':{'enable':'True','path':'True','T':100},
-                                 'task':{'enable':'False','T':100,'Onboard':'False','controller':{'type':'gradient','protocol':'Continuous','period':0.1,'upperLimit':0.1,
-                                 'lowerLimit':-0.1,'gain':0.25,'threshold':{'type':'Constant','co':0.01,'ai':0.0}},'role':'consensus','type':'distance','relationship':'robot02_0.7'}}}
+            'Robots':{}
         }
         
+    def importData(self):
+        fileName, _ = QFileDialog.getOpenFileName(self, "Open File",r"../../roboticpark_config/resources","Config Files (*.yaml *.yml)")
+        with open(fileName, 'r') as file:
+            documents = yaml.safe_load(file)
+        # Operation mode
+        if documents['Operation']['mode'] == 'physical':
+            self.OperationMode_ComboBox.setCurrentIndex(0)
+        elif documents['Operation']['mode'] == 'virtual':
+            self.OperationMode_ComboBox.setCurrentIndex(1)
+        else:
+            self.OperationMode_ComboBox.setCurrentIndex(2)
+        # Operation tool
+        if documents['Operation']['tool'] == 'Webots':
+            self.OperationMode_Tool_ComboBox.setCurrentIndex(0)
+        elif documents['Operation']['tool'] == 'Gazebo':
+            self.OperationMode_Tool_ComboBox.setCurrentIndex(1)
+        else:
+            self.OperationMode_Tool_ComboBox.setCurrentIndex(2)
+        # Operation world
+        self.OperationMode_World_edit.setText(documents['Operation']['world'])
+        # Experience
+        if documents['Experience']['type'] == 'formation':
+            self.Experience_combo.setCurrentIndex(0)
+        elif documents['Experience']['type'] == 'identification':
+            self.Experience_combo.setCurrentIndex(1)
+        else:
+            self.Experience_combo.setCurrentIndex(2)
+        # Monitoring
+        if documents['CPU_Monitoring']['enable']:
+            self.MonitoringEnable_Check.setChecked(True) 
+            self.processes = documents['CPU_Monitoring']['processes']
+            aux0 = self.processes.split(', ')
+            for topic in aux0:
+                item = QStandardItem(topic)
+                self.model_cpu.appendRow(item)
+        # Data Logging
+        if documents['Data_Logging']['enable']:
+            self.DataLogging_Enable_check.setChecked(True) 
+            if documents['Data_Logging']['all']:
+                self.DataLogging_All_check.setChecked(True)
+            
+            self.DataLogging_Name_edit.setText(documents['Data_Logging']['name'])
+            self.topics = documents['Data_Logging']['topics']
+            aux0 = self.topics.split(' ')
+            for topic in aux0:
+                item = QStandardItem(topic)
+                self.model_data.appendRow(item)
+        # Architecture
+        if documents['Architecture']['mode'] == 'Centralized':
+            self.Architecture_ComboBox.setCurrentIndex(0)
+        elif documents['Architecture']['mode'] == 'Distributed':
+            self.Architecture_ComboBox.setCurrentIndex(1)
+        else:
+            self.Architecture_ComboBox.setCurrentIndex(2)
+        for node in list(documents['Architecture'].keys()):
+            if not node == 'mode':
+                rowPosition = self.Architecture_NodesList.rowCount()
+                self.Architecture_NodesList.insertRow(rowPosition)
+                self.Architecture_NodesList.setItem(rowPosition , 0, QTableWidgetItem(node))
+                self.Architecture_NodesList.setItem(rowPosition , 1, QTableWidgetItem(documents['Architecture'][node]['executable']))
+                self.Architecture_NodesList.setItem(rowPosition , 2, QTableWidgetItem(documents['Architecture'][node]['name']))
+                self.Architecture_NodesList.setItem(rowPosition , 3, QTableWidgetItem(documents['Architecture'][node]['pkg']))
+                self.Architecture_NodesList.setItem(rowPosition , 4, QTableWidgetItem(documents['Architecture'][node]['file']))
+                new_node = Node(node, documents['Architecture'][node]['executable'], documents['Architecture'][node]['name'], documents['Architecture'][node]['pkg'], documents['Architecture'][node]['file'])
+                self.arch_nodes.append(new_node)
         
+        # Interface
+        if documents['Interface']['enable']:
+            self.Interface_Enable_check.setChecked(True)
+            if documents['Interface']['rviz2']['enable']:
+                self.Interface_RVIZ2_check.setChecked(True)
+                self.Interface_RVIZ2_File_edit.setText(documents['Interface']['rviz2']['file'])
+            if documents['Interface']['rqt']['enable']:
+                self.Interface_RQT_check.setChecked(True)
+                self.Interface_RQT_File_edit.setText(documents['Interface']['rqt']['file'])
+        # Supervisor
+        if documents['Supervisor']['enable']:
+            self.Supervisor_check.setChecked(True)
+            self.Supervisor_Executable_edit.setText(documents['Supervisor']['node']['executable'])
+            self.Supervisor_Name_edit.setText(documents['Supervisor']['node']['name'])
+            self.Supervisor_Package_edit.setText(documents['Supervisor']['node']['pkg'])
+            self.Supervisor_File_edit.setText(documents['Supervisor']['node']['file'])
+        # Other
+        for node in list(documents['Other'].keys()):
+            rowPosition = self.Agent_Table.rowCount()
+            self.Agent_Table.insertRow(rowPosition)
+            self.Agent_Table.setItem(rowPosition , 0, QTableWidgetItem(node))
+            self.Agent_Table.setItem(rowPosition , 1, QTableWidgetItem(documents['Other'][node]['executable']))
+            self.Agent_Table.setItem(rowPosition , 2, QTableWidgetItem(documents['Other'][node]['name']))
+            self.Agent_Table.setItem(rowPosition , 3, QTableWidgetItem(documents['Other'][node]['pkg']))
+            self.Agent_Table.setItem(rowPosition , 4, QTableWidgetItem(documents['Other'][node]['file']))
+            new_node = Node(node, documents['Other'][node]['executable'], documents['Other'][node]['name'], documents['Other'][node]['pkg'], documents['Other'][node]['file'])
+            self.agents_nodes.append(new_node)
+        # Robots
+        for robot in list(documents['Robots'].keys()):
+            rowPosition = self.Robot_Table.rowCount()
+            self.Robot_Table.insertRow(rowPosition)
+            id = robot
+            name = documents['Robots'][robot]['name']
+            if "dron" in name:
+                model = 'Crazyflie 2.1'
+            else:
+                model = 'Khepera IV'
+
+            mode = documents['Robots'][robot]['type']
+            control_mode = documents['Robots'][robot]['control_mode']
+            positioning = documents['Robots'][robot]['positioning']
+            pose = documents['Robots'][robot]['pose']
+            yaw = '0.0'
+            uri = documents['Robots'][robot]['uri']
+            controller_type = documents['Robots'][robot]['controller']['type']
+            controller_period = documents['Robots'][robot]['controller']['period']
+            controller_co = documents['Robots'][robot]['controller']['threshold']['co']
+            controller_ai = documents['Robots'][robot]['controller']['threshold']['ai']
+            communication_type = documents['Robots'][robot]['communication']['type']
+            communication_path = documents['Robots'][robot]['local_pose']['path']
+            communication_period = documents['Robots'][robot]['local_pose']['T']
+            communication_co = documents['Robots'][robot]['communication']['threshold']['co']
+            task_enable = documents['Robots'][robot]['task']['enable']
+            task_onboard = documents['Robots'][robot]['task']['Onboard']
+            task_controller = documents['Robots'][robot]['task']['controller']['type']
+            task_period = documents['Robots'][robot]['task']['controller']['period']
+            task_co = documents['Robots'][robot]['task']['controller']['threshold']['co']
+            task_ai = documents['Robots'][robot]['task']['controller']['threshold']['ai']
+            task_gain = documents['Robots'][robot]['task']['controller']['gain']
+            task_role = documents['Robots'][robot]['task']['role']
+            task_type = documents['Robots'][robot]['task']['type']
+            task_relationship = documents['Robots'][robot]['task']['relationship']
+            new_robot = Robot(id, model, mode, name, control_mode, positioning, pose, yaw, uri, controller_type, controller_period, controller_co, controller_ai, communication_type, communication_path, communication_period, communication_co, task_enable, task_onboard, task_controller, task_period, task_co, task_ai, task_gain, task_role, task_type, task_relationship)
+            self.robot_list.append(new_robot)
+
+            self.Robot_Table.setItem(rowPosition , 0, QTableWidgetItem(id))
+            self.Robot_Table.setItem(rowPosition , 1, QTableWidgetItem(positioning))
+            self.Robot_Table.setItem(rowPosition , 2, QTableWidgetItem(controller_type))
+            self.Robot_Table.setItem(rowPosition , 3, QTableWidgetItem(communication_type))
+            self.Robot_Table.setItem(rowPosition , 4, QTableWidgetItem(str(task_enable)))
+            self.Robot_Table.setItem(rowPosition , 5, QTableWidgetItem(task_controller))
+            self.Robot_Table.setItem(rowPosition , 6, QTableWidgetItem(task_type))
+            self.Robot_Table.setItem(rowPosition , 7, QTableWidgetItem(task_relationship))
+            self.relationship = ''
+            self.model_relationship.removeRows( 0, self.model_relationship.rowCount())
+
     def AddRobot(self):
         rowPosition = self.Robot_Table.rowCount()
         self.Robot_Table.insertRow(rowPosition)
@@ -240,7 +377,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.topics == '':
             self.topics = topic
         else:
-            self.topics = self.topics +', '+topic
+            self.topics = self.topics +' '+topic
         
 
     def RemoveTopic2DataLogging(self):
@@ -312,8 +449,17 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             if not self.dictionary['Operation']['mode'] == 'physical':
                 self.dictionary['Operation']['tool'] = self.OperationMode_Tool_ComboBox.currentText()
                 if self.dictionary['Operation']['tool'] == 'Webots':
-                    self.BuildWebotsWorld(file_name)
-                self.dictionary['Operation']['world'] = self.OperationMode_World_edit.text()
+                    if self.OperationMode_World_edit.text() == '':
+                        self.BuildWebotsWorld(file_name)
+                        self.dictionary['Operation']['world'] = file_name+'.wbt'
+                    else:
+                        self.dictionary['Operation']['world'] = self.OperationMode_World_edit.text()
+                else:
+                    if self.OperationMode_World_edit.text() == '':
+                        self.BuildGazeboWorld(file_name)
+                        self.dictionary['Operation']['world'] = file_name+'.world'
+                    else:
+                        self.dictionary['Operation']['world'] = self.OperationMode_World_edit.text()
             
             # Experience
             self.dictionary['Experience']['type'] = self.Experience_combo.currentText()
@@ -335,8 +481,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             if self.Interface_Enable_check.isChecked():
                 if self.Interface_RVIZ2_check.isChecked():
                     self.dictionary['Interface']['rviz2']['enable'] = 'True'
-                    self.BuildRVIZFile()
-                    if self.Interface_RVIZ2_File_edit.text() = '':
+                    if self.Interface_RVIZ2_File_edit.text() == '':
+                        self.BuildRVIZFile(file_name)
                         self.dictionary['Interface']['rviz2']['file'] = file_name+'.rviz'
                     else:
                         self.dictionary['Interface']['rviz2']['file'] = self.Interface_RVIZ2_File_edit.text()
@@ -359,7 +505,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.dictionary['Supervisor']['node']['executable'] = self.Supervisor_Executable_edit.text()
                 self.dictionary['Supervisor']['node']['name'] = self.Supervisor_Name_edit.text()
                 self.dictionary['Supervisor']['node']['pkg'] = self.Supervisor_Package_edit.text()
-                self.dictionary['Supervisor']['file'] = self.Supervisor_File_edit.text()
+                self.dictionary['Supervisor']['node']['file'] = self.Supervisor_File_edit.text()
 
             # Other Agents
             if not len(self.agents_nodes) == 0:
@@ -373,7 +519,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             print(file_name+'.yaml saved')
             yaml_file.close()
 
-        def BuildWebotsWorld(self,name):
+    def BuildWebotsWorld(self,name):
         f = open(name+'.wbt', "w")
         f.write("#VRML_SIM R2023b utf8")
         f.write("\n")
@@ -457,6 +603,11 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                         f.write('\n  ]')
                         f.write('\n}')
                         f.write('\n')
+        f.close()
+
+    def BuildWebotsWorld(self,name):
+        f = open(name+'.world', "w")
+
         f.close()
 
     def BuildRVIZFile(self,name):
@@ -648,10 +799,10 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 aux0 = robot.task_relationship.split(', ')
                 for rel in aux0:
                     aux1 = rel.split('_')
-                    id = aux[0]
+                    id = aux1[0]
                     f.write('\n    - Class: rviz_default_plugins/Marker')
                     f.write('\n      Enabled: true')
-                    f.write('\n      Name: '+robot.name+'-'id)
+                    f.write('\n      Name: '+robot.name+'-'+id)
                     f.write('\n      Namespaces:')
                     f.write('\n        { }')
                     f.write('\n      Topic:')

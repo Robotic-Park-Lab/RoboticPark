@@ -957,22 +957,12 @@
            <widget class="QComboBox" name="TaskController_Combo">
             <item>
              <property name="text">
-              <string>Gradient</string>
+              <string>gradient</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Continuous PID</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>E-B PID (Constant threshold)</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>E-B PID (Adaptive threshold)</string>
+              <string>pid</string>
              </property>
             </item>
            </widget>
@@ -1365,12 +1355,7 @@
             </item>
             <item>
              <property name="text">
-              <string>Event-Based (Constant threshold)</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Event-Based (Adaptive threshold)</string>
+              <string>Event-Based</string>
              </property>
             </item>
            </widget>
@@ -1660,22 +1645,12 @@
            <widget class="QComboBox" name="InternalController_Combo">
             <item>
              <property name="text">
-              <string>Continuous PID</string>
+              <string>pid</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>IPC</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>E-B PID (Constant threshold)</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>E-B PID (Adaptive threshold)</string>
+              <string>ipc</string>
              </property>
             </item>
            </widget>
@@ -1974,6 +1949,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionImport_2"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -1995,6 +1971,11 @@
   <action name="actionClose">
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="actionImport_2">
+   <property name="text">
+    <string>Import</string>
    </property>
   </action>
  </widget>

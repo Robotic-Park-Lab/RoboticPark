@@ -174,6 +174,8 @@ def get_ros2_nodes(context, *args):
     #     Robots     #
     #----------------#
     print('TO-DO: Robots')
+    for x in documents['Robots']:
+        print(x)
 
     #--------------------#
     #     Supervisor     #

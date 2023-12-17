@@ -1,0 +1,2171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>840</width>
+    <height>520</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Bitstream Vera Serif</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Experimental Platform</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <widget class="QWidget" name="central_panel">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <property name="spacing">
+     <number>5</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1898</width>
+         <height>1012</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item row="2" column="1">
+         <widget class="QLabel" name="Uned_logo">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>81</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-image: url(:/logo_uned/uned.gif);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="Uned_icon">
+          <property name="minimumSize">
+           <size>
+            <width>250</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>251</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-image: url(:/logo_uned/logo_informatica.gif);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" colspan="5">
+         <widget class="QLabel" name="Cabecera">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Robotic Park Lab&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <layout class="QGridLayout" name="stateLayout">
+          <item row="0" column="0" alignment="Qt::AlignRight|Qt::AlignBottom">
+           <widget class="QLineEdit" name="stateDisplay">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(243, 243, 243);
+font: 14pt &quot;Ubuntu&quot;;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0" colspan="5">
+         <layout class="QGridLayout" name="panel_global">
+          <item row="0" column="1">
+           <widget class="QTabWidget" name="Viewers">
+            <property name="minimumSize">
+             <size>
+              <width>412</width>
+              <height>420</height>
+             </size>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="simulation_panel">
+             <attribute name="title">
+              <string>Simulation</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="1" column="2">
+               <widget class="QPushButton" name="StopRVIZ_Button">
+                <property name="text">
+                 <string>Stop</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="4">
+               <widget class="QSlider" name="horizontalSlider">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="PlayRVIZ_Button">
+                <property name="text">
+                 <string>Play</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="5">
+               <layout class="QGridLayout" name="rviz_panel"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="ResetRVIZ_Button">
+                <property name="text">
+                 <string>Reset</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLineEdit" name="ROSTime_Text">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="real_panel">
+             <attribute name="title">
+              <string>Real</string>
+             </attribute>
+            </widget>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QTabWidget" name="subpanels">
+            <property name="minimumSize">
+             <size>
+              <width>600</width>
+              <height>420</height>
+             </size>
+            </property>
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>243</red>
+                  <green>243</green>
+                  <blue>243</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
+            </property>
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(243, 243, 243);
+</string>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="general_panel">
+             <attribute name="title">
+              <string>General</string>
+             </attribute>
+             <widget class="QScrollArea" name="scrollArea_General">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>931</width>
+                <height>831</height>
+               </rect>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>420</height>
+               </size>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidget_General">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>929</width>
+                 <height>829</height>
+                </rect>
+               </property>
+               <widget class="QLabel" name="mode_text">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>30</y>
+                  <width>121</width>
+                  <height>17</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Operation Mode&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="mode_box">
+                <property name="geometry">
+                 <rect>
+                  <x>160</x>
+                  <y>20</y>
+                  <width>141</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Real</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Simulation</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Hybrid</string>
+                 </property>
+                </item>
+               </widget>
+               <widget class="QPushButton" name="LoadDataset_Button">
+                <property name="geometry">
+                 <rect>
+                  <x>170</x>
+                  <y>70</y>
+                  <width>131</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Load Dataset</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="AddRobot_Button">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>70</y>
+                  <width>111</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Add Robot</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="GazeboLaunch_Button">
+                <property name="geometry">
+                 <rect>
+                  <x>260</x>
+                  <y>180</y>
+                  <width>89</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Launch</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="GazeboTitle">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>180</y>
+                  <width>67</width>
+                  <height>17</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Gazebo:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="Line" name="line_1">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>140</y>
+                  <width>831</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="WorldList_Box">
+                <property name="geometry">
+                 <rect>
+                  <x>110</x>
+                  <y>180</y>
+                  <width>141</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="GazeboClose_Button">
+                <property name="geometry">
+                 <rect>
+                  <x>360</x>
+                  <y>180</y>
+                  <width>89</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Close</string>
+                </property>
+               </widget>
+               <widget class="Line" name="line_2">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>230</y>
+                  <width>831</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+               <widget class="QLabel" name="TestTitle">
+                <property name="geometry">
+                 <rect>
+                  <x>40</x>
+                  <y>370</y>
+                  <width>101</width>
+                  <height>20</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Experiments:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="TestLaunch_Button">
+                <property name="geometry">
+                 <rect>
+                  <x>280</x>
+                  <y>370</y>
+                  <width>89</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Launch</string>
+                </property>
+               </widget>
+               <widget class="Line" name="line_3">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>330</y>
+                  <width>831</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+               <widget class="QLabel" name="RvizTitle">
+                <property name="geometry">
+                 <rect>
+                  <x>30</x>
+                  <y>270</y>
+                  <width>51</width>
+                  <height>17</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;RVIZ:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="RvizList_Box">
+                <property name="geometry">
+                 <rect>
+                  <x>110</x>
+                  <y>260</y>
+                  <width>141</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="Rviz_Button">
+                <property name="geometry">
+                 <rect>
+                  <x>270</x>
+                  <y>260</y>
+                  <width>89</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Update</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="TestStop_Button">
+                <property name="geometry">
+                 <rect>
+                  <x>370</x>
+                  <y>370</y>
+                  <width>89</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Stop</string>
+                </property>
+               </widget>
+               <widget class="QComboBox" name="ExperimentList_Box">
+                <property name="geometry">
+                 <rect>
+                  <x>140</x>
+                  <y>370</y>
+                  <width>141</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                </property>
+               </widget>
+              </widget>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="ros_panel">
+             <attribute name="title">
+              <string>ROS Network</string>
+             </attribute>
+             <widget class="QScrollArea" name="scrollArea_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>941</width>
+                <height>841</height>
+               </rect>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>420</height>
+               </size>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents_4">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>939</width>
+                 <height>839</height>
+                </rect>
+               </property>
+               <widget class="QToolBox" name="ros_pages">
+                <property name="geometry">
+                 <rect>
+                  <x>10</x>
+                  <y>0</y>
+                  <width>771</width>
+                  <height>701</height>
+                 </rect>
+                </property>
+                <property name="palette">
+                 <palette>
+                  <active>
+                   <colorrole role="Button">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Base">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Window">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                  </active>
+                  <inactive>
+                   <colorrole role="Button">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Base">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Window">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                  </inactive>
+                  <disabled>
+                   <colorrole role="Button">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Base">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Window">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>243</red>
+                      <green>243</green>
+                      <blue>243</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                  </disabled>
+                 </palette>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(243, 243, 243);</string>
+                </property>
+                <property name="currentIndex">
+                 <number>1</number>
+                </property>
+                <widget class="QWidget" name="config_page">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>100</width>
+                   <height>30</height>
+                  </rect>
+                 </property>
+                 <attribute name="label">
+                  <string>Configuration</string>
+                 </attribute>
+                 <widget class="QLabel" name="ros_version_text">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>71</width>
+                    <height>17</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;VERSION:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                 </widget>
+                 <widget class="QTextBrowser" name="ros_version_label">
+                  <property name="geometry">
+                   <rect>
+                    <x>130</x>
+                    <y>10</y>
+                    <width>121</width>
+                    <height>31</height>
+                   </rect>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="ros_masteruri_text">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>60</y>
+                    <width>101</width>
+                    <height>21</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;MASTER URI:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                 </widget>
+                 <widget class="QTextEdit" name="ros_masteruri_label">
+                  <property name="geometry">
+                   <rect>
+                    <x>130</x>
+                    <y>50</y>
+                    <width>201</width>
+                    <height>31</height>
+                   </rect>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="ros_hostname_text">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>100</y>
+                    <width>101</width>
+                    <height>17</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;HOSTNAME:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                 </widget>
+                 <widget class="QTextEdit" name="ros_hostname_label">
+                  <property name="geometry">
+                   <rect>
+                    <x>130</x>
+                    <y>90</y>
+                    <width>151</width>
+                    <height>31</height>
+                   </rect>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="rosgraph_Button">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>140</y>
+                    <width>111</width>
+                    <height>31</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>Rosgraph</string>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="update_button">
+                  <property name="geometry">
+                   <rect>
+                    <x>350</x>
+                    <y>50</y>
+                    <width>89</width>
+                    <height>25</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>Update</string>
+                  </property>
+                 </widget>
+                </widget>
+                <widget class="QWidget" name="rosbag_page">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>100</width>
+                   <height>30</height>
+                  </rect>
+                 </property>
+                 <attribute name="label">
+                  <string>Rosbag</string>
+                 </attribute>
+                 <widget class="QWidget" name="layoutWidget">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>0</y>
+                    <width>701</width>
+                    <height>541</height>
+                   </rect>
+                  </property>
+                  <layout class="QGridLayout" name="rosbag_panel">
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="bag_select_Button">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="bag_convert_Button">
+                     <property name="text">
+                      <string>Convert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="Convert_bag2txt_label">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16000</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Convert .bag -&amp;gt;.txt: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QLineEdit" name="bag_name_text">
+                     <property name="text">
+                      <string>Name</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" colspan="5">
+                    <layout class="QGridLayout" name="rqt_bag_panel"/>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+                <widget class="QWidget" name="nodes_page">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>100</width>
+                   <height>30</height>
+                  </rect>
+                 </property>
+                 <attribute name="label">
+                  <string>Nodes</string>
+                 </attribute>
+                 <widget class="QPushButton" name="refreshNodeList_Button">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>0</y>
+                    <width>89</width>
+                    <height>25</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>Refresh</string>
+                  </property>
+                 </widget>
+                 <widget class="QTextBrowser" name="nodeList_Display">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>30</y>
+                    <width>681</width>
+                    <height>331</height>
+                   </rect>
+                  </property>
+                 </widget>
+                </widget>
+                <widget class="QWidget" name="topics_page">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>100</width>
+                   <height>30</height>
+                  </rect>
+                 </property>
+                 <attribute name="label">
+                  <string>Topics</string>
+                 </attribute>
+                 <widget class="QWidget" name="gridLayoutWidget">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>0</y>
+                    <width>751</width>
+                    <height>571</height>
+                   </rect>
+                  </property>
+                  <layout class="QGridLayout" name="rqt_topic_panel"/>
+                 </widget>
+                </widget>
+               </widget>
+              </widget>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="graphs_panel">
+             <attribute name="title">
+              <string>Graphs</string>
+             </attribute>
+             <widget class="QWidget" name="gridLayoutWidget_3">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>20</y>
+                <width>901</width>
+                <height>801</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="rqt_plot_panel"/>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="robot_panel">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <attribute name="title">
+              <string>Robot Parameters</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_8">
+              <item row="0" column="0">
+               <widget class="QScrollArea" name="Robot_scrollArea">
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>810</width>
+                   <height>647</height>
+                  </rect>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_7">
+                  <item row="3" column="0" colspan="3">
+                   <layout class="QGridLayout" name="Robot_controllers_layout">
+                    <item row="0" column="0" colspan="2">
+                     <widget class="QLabel" name="Controller_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Controllers:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="InternalC_label">
+                      <property name="maximumSize">
+                       <size>
+                        <width>70</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Internal:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QComboBox" name="InternalC_combo">
+                      <property name="styleSheet">
+                       <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Continuous PID</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Event-Based PID</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Deep Learning</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Machine Learning</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Fuzzy Logic</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Neural Network</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item row="1" column="2">
+                     <widget class="QPushButton" name="InternalC_Button">
+                      <property name="maximumSize">
+                       <size>
+                        <width>24</width>
+                        <height>24</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="3">
+                     <widget class="QLabel" name="VelocityC_label">
+                      <property name="maximumSize">
+                       <size>
+                        <width>70</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Velocity:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="4">
+                     <widget class="QComboBox" name="VelocityC_combo">
+                      <property name="styleSheet">
+                       <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Continuous PID</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Event-Based PID</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Deep Learning</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Machine Learning</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Fuzzy Logic</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Neural Network</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item row="1" column="5">
+                     <widget class="QPushButton" name="VelocityC_Button">
+                      <property name="maximumSize">
+                       <size>
+                        <width>24</width>
+                        <height>24</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="6">
+                     <widget class="QLabel" name="PositionC_label">
+                      <property name="maximumSize">
+                       <size>
+                        <width>70</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Position:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="7">
+                     <widget class="QComboBox" name="PositionC_combo">
+                      <property name="styleSheet">
+                       <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Continuous PID</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Event-Based PID</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Deep Learning</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Machine Learning</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Fuzzy Logic</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Neural Network</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item row="1" column="8">
+                     <widget class="QPushButton" name="PositionC_Button">
+                      <property name="maximumSize">
+                       <size>
+                        <width>24</width>
+                        <height>24</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="0" column="0">
+                   <layout class="QGridLayout" name="Robot_configuration_layout">
+                    <item row="0" column="8">
+                     <widget class="QPushButton" name="ExportRobot_Button">
+                      <property name="text">
+                       <string>Export</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="3">
+                     <widget class="QComboBox" name="IdRobot_ComboBox">
+                      <property name="minimumSize">
+                       <size>
+                        <width>110</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="6">
+                     <widget class="QPushButton" name="SaveRobot_Button">
+                      <property name="text">
+                       <string>Save</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QPushButton" name="NewRobot_Button">
+                      <property name="text">
+                       <string>New</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="Robot_label">
+                      <property name="maximumSize">
+                       <size>
+                        <width>50</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Robot:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="10">
+                     <spacer name="horizontalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item row="0" column="5">
+                     <widget class="QPushButton" name="DeleteRobot_Button">
+                      <property name="text">
+                       <string>Delete</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="2">
+                     <widget class="QPushButton" name="ImportRobot_Button">
+                      <property name="text">
+                       <string>Import</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="4">
+                     <widget class="QPushButton" name="LoadRobot_Button">
+                      <property name="text">
+                       <string>Load</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="11">
+                     <widget class="QPushButton" name="LaunchRobot_Button">
+                      <property name="text">
+                       <string>Launch</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="1" column="0">
+                   <layout class="QHBoxLayout" name="Robot_id_layout">
+                    <item>
+                     <widget class="QLabel" name="IdRobot_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Id:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="IdRobot_text">
+                      <property name="maximumSize">
+                       <size>
+                        <width>200</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="TypeRobot_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Type:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="TypeRobot_combo">
+                      <property name="styleSheet">
+                       <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Crazyflie 2.1</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Khepera IV</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="InternalRobotConfig_Button">
+                      <property name="text">
+                       <string>Internal Config</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Trajectory:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="RobotTrajectory_comboBox">
+                      <property name="styleSheet">
+                       <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>None</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0" colspan="3">
+                   <layout class="QGridLayout" name="Robot_pose_layout">
+                    <item row="0" column="0" colspan="2">
+                     <widget class="QLabel" name="Robot_pose_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pose:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="Robot_X_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;X:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="Robot_X_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="2">
+                     <widget class="QLabel" name="Robot_Y_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Y:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="3">
+                     <widget class="QLineEdit" name="Robot_Y_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="4">
+                     <widget class="QLabel" name="Robot_Z_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Z:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="5">
+                     <widget class="QLineEdit" name="Robot_Z_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="6" colspan="2">
+                     <widget class="QLabel" name="Robot_inter_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Active:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="8">
+                     <widget class="QCheckBox" name="Robot_inter_checkBox">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="Robot_Qx_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.x:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLineEdit" name="Robot_Qx_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="2">
+                     <widget class="QLabel" name="Robot_Qy_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.y:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="3">
+                     <widget class="QLineEdit" name="Robot_Qy_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="4">
+                     <widget class="QLabel" name="Robot_Qz_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.z:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="5">
+                     <widget class="QLineEdit" name="Robot_Qz_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="6">
+                     <widget class="QLabel" name="Robot_Qw_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.w:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="7" colspan="2">
+                     <widget class="QLineEdit" name="Robot_Qw_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="4" column="0" colspan="4">
+                   <widget class="QTableWidget" name="robots_table">
+                    <property name="minimumSize">
+                     <size>
+                      <width>600</width>
+                      <height>420</height>
+                     </size>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>Id</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Type</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Trayectory</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Internal C.</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Velocity C.</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Position C.</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>X [m]</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Y [m]</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Z[m]</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="trajectory_panel">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <attribute name="title">
+              <string>Trajectory</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QScrollArea" name="Trajectory_scrollArea_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>600</width>
+                  <height>420</height>
+                 </size>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>882</width>
+                   <height>622</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_5">
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="TrajectoryName_text_1">
+                    <property name="maximumSize">
+                     <size>
+                      <width>140</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Current Trajectory:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1" colspan="2">
+                   <widget class="QLabel" name="TrajectoryName_text">
+                    <property name="text">
+                     <string>{Trajectory}</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="3">
+                   <layout class="QGridLayout" name="gridLayout_10">
+                    <item row="0" column="5">
+                     <widget class="QPushButton" name="FunctionTrajectory_Button">
+                      <property name="text">
+                       <string>Function</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="9">
+                     <widget class="QPushButton" name="SaveWaymarker_Button">
+                      <property name="text">
+                       <string>Save</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="6">
+                     <widget class="QPushButton" name="ExchangeWaymarker_Button">
+                      <property name="text">
+                       <string>Exchange</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="8">
+                     <widget class="QPushButton" name="DeleteWaymarker_Button">
+                      <property name="text">
+                       <string>Delete</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="7">
+                     <widget class="QSpinBox" name="Id2Waymarker_spinBox">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="2">
+                     <widget class="QSpinBox" name="IdWaymarker_spinBox">
+                      <property name="maximumSize">
+                       <size>
+                        <width>60</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QPushButton" name="ModifyWaymarker_Button">
+                      <property name="text">
+                       <string>Modify</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="5">
+                     <widget class="QPushButton" name="LoadWaymarker_Button">
+                      <property name="text">
+                       <string>Load</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="2">
+                     <widget class="QPushButton" name="ImportTrajectory_Button">
+                      <property name="text">
+                       <string>Import</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="Waymarker_Label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Way Markers:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QPushButton" name="NewWaymarker_Button">
+                      <property name="text">
+                       <string>New</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="6">
+                     <widget class="QPushButton" name="ExportTrajectory_Button">
+                      <property name="text">
+                       <string>Export</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="3" column="0" colspan="3">
+                   <layout class="QGridLayout" name="WM_point_layout">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="WM_X_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;X:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="WM_X_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="2">
+                     <widget class="QLabel" name="WM_Y_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Y:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="4">
+                     <widget class="QLabel" name="WM_Z_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Z:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="2">
+                     <widget class="QLabel" name="WM_Qy_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.y:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="3">
+                     <widget class="QLineEdit" name="WM_Y_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="7" colspan="2">
+                     <widget class="QLineEdit" name="WM_Qw_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="8">
+                     <widget class="QCheckBox" name="WM_inter_checkBox">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="4">
+                     <widget class="QLabel" name="WM_Qz_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.z:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="WM_Qx_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="5">
+                     <widget class="QLineEdit" name="WM_Qz_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="3">
+                     <widget class="QLineEdit" name="WM_Qy_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="6" colspan="2">
+                     <widget class="QLabel" name="WM_inter_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interactive:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="6">
+                     <widget class="QLabel" name="WM_Qw_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.w:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="WM_Qx_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Q.x:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="5">
+                     <widget class="QLineEdit" name="WM_Z_text">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="0" column="0" colspan="2">
+                   <layout class="QHBoxLayout" name="trajectory_layout">
+                    <item>
+                     <widget class="QLabel" name="Trajectory_label">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Trajectory:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="NewTrajectory_Button">
+                      <property name="text">
+                       <string>New</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="NameTrajectory_Selector">
+                      <property name="maximumSize">
+                       <size>
+                        <width>110</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">selection-background-color: rgb(168,168,168);</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="LoadTrajectory_Button">
+                      <property name="text">
+                       <string>Load</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="ClearTrajectory_Button">
+                      <property name="text">
+                       <string>Clear</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="DrawPath_Button">
+                      <property name="maximumSize">
+                       <size>
+                        <width>100</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Draw</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="DeleteTrajectory_Button">
+                      <property name="text">
+                       <string>Delete</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="5" column="0" colspan="3">
+                   <widget class="QTableWidget" name="trajectory_table">
+                    <property name="minimumSize">
+                     <size>
+                      <width>600</width>
+                      <height>420</height>
+                     </size>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>X [m]</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Y [m]</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Z [m]</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Quat.x</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Quat.y</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Quat.z</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Quat.w</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="label_2">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>81</width>
+            <height>81</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">image: url(:/logo_uned/RoboticPark.png);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNuevo"/>
+    <addaction name="actionCargar_ensayo"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuEdici_n">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuOpciones">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionCargar_configuracin"/>
+    <addaction name="actionExportar_datos"/>
+    <addaction name="actionCargar_trayectoria"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionInformacion"/>
+    <addaction name="actionGithub"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionFull_Screen"/>
+    <addaction name="actionNormal_Size"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuEdici_n"/>
+   <addaction name="menuView"/>
+   <addaction name="menuOpciones"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNuevo">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionCargar_ensayo">
+   <property name="text">
+    <string>Load dataset</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionCargar_configuracin">
+   <property name="text">
+    <string>Load configuration</string>
+   </property>
+  </action>
+  <action name="actionExportar_datos">
+   <property name="text">
+    <string>Export data</string>
+   </property>
+  </action>
+  <action name="actionInformacion">
+   <property name="text">
+    <string>Information</string>
+   </property>
+  </action>
+  <action name="actionCargar_trayectoria">
+   <property name="text">
+    <string>Load Trajectory</string>
+   </property>
+  </action>
+  <action name="actionWeb">
+   <property name="text">
+    <string>Web</string>
+   </property>
+  </action>
+  <action name="actionGithub">
+   <property name="text">
+    <string>Github</string>
+   </property>
+  </action>
+  <action name="actionFull_Screen">
+   <property name="text">
+    <string>Full Screen</string>
+   </property>
+  </action>
+  <action name="actionNormal_Size">
+   <property name="text">
+    <string>Normal Size</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../../../../../Downloads/src/figs/logo.qrc"/>
+ </resources>
+ <connections/>
+</ui>

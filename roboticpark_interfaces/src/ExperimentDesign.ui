@@ -1,0 +1,2005 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>909</width>
+    <height>2081</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>935</width>
+         <height>2025</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="5" column="0" colspan="6">
+         <widget class="Line" name="line_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1" colspan="5">
+         <layout class="QGridLayout" name="Supervisor_Layout">
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Supervisor:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" colspan="3">
+           <widget class="QCheckBox" name="Supervisor_check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5" colspan="5">
+           <spacer name="horizontalSpacer_16">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>478</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Executable:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4" colspan="2">
+           <widget class="QLineEdit" name="Supervisor_Executable_edit"/>
+          </item>
+          <item row="1" column="6">
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="7">
+           <widget class="QLineEdit" name="Supervisor_Name_edit"/>
+          </item>
+          <item row="1" column="8">
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>Package:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="9">
+           <widget class="QLineEdit" name="Supervisor_Package_edit"/>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1" colspan="2">
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>File:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3" colspan="7">
+           <widget class="QLineEdit" name="Supervisor_File_edit"/>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="3" colspan="3">
+         <layout class="QGridLayout" name="Monitoring_Layout">
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="MonitoringEnable_Check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="Monitoring_Process_Edit"/>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1" colspan="4">
+           <widget class="QListView" name="Monitoring_List"/>
+          </item>
+          <item row="1" column="4">
+           <widget class="QPushButton" name="Monitoring_Remove_Button">
+            <property name="text">
+             <string>Remove</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="Monitoring_Add_Button">
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="Monitoring_Label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;CPU Monitoring:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="Monitoring_Process_Label">
+            <property name="text">
+             <string>Process:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="14" column="0" colspan="6">
+         <widget class="Line" name="line_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QLabel" name="UNED_Shield">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-image: url(:/logo_uned/uned.gif);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0" colspan="6">
+         <widget class="Line" name="line_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="6">
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0" colspan="6">
+         <widget class="Line" name="line_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1" colspan="3">
+         <layout class="QGridLayout" name="DataLogging_Layout">
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Data Logging:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="DataLogging_Enable_check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QCheckBox" name="DataLogging_All_check">
+            <property name="text">
+             <string>All</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5" colspan="3">
+           <widget class="QLineEdit" name="DataLogging_Name_edit"/>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Topic:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2" colspan="3">
+           <widget class="QLineEdit" name="DataLogging_Topics_edit"/>
+          </item>
+          <item row="1" column="5">
+           <widget class="QPushButton" name="DataLogging_Add_button">
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="6">
+           <widget class="QPushButton" name="DataLogging_Remove_button">
+            <property name="text">
+             <string>Remove</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="7">
+           <spacer name="horizontalSpacer_12">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>118</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>88</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1" colspan="6">
+           <widget class="QListView" name="DataLogging_Edit_List"/>
+          </item>
+          <item row="2" column="7">
+           <spacer name="horizontalSpacer_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>118</width>
+              <height>88</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="6" column="1" colspan="4">
+         <layout class="QGridLayout" name="Interface_Layout">
+          <item row="3" column="2">
+           <widget class="QCheckBox" name="Interface_Other_check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4" colspan="3">
+           <widget class="QLineEdit" name="Interface_RVIZ2_File_edit"/>
+          </item>
+          <item row="2" column="2">
+           <widget class="QCheckBox" name="Interface_RQT_check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="Interface_Enable_check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>RVIZ2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4" colspan="3">
+           <widget class="QLineEdit" name="Interface_RQT_File_edit"/>
+          </item>
+          <item row="0" column="3" colspan="4">
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>478</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="5">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Package:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Other</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QLineEdit" name="Interface_Other_Executable_edit"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QCheckBox" name="Interface_RVIZ2_check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>RQT</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="6">
+           <widget class="QLineEdit" name="Interface_Other_Package_edit"/>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>File:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Executable:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>File:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interface:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="8" column="0">
+         <widget class="Line" name="line_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1" colspan="5">
+         <layout class="QGridLayout" name="Agents_Layout">
+          <item row="3" column="11" rowspan="2">
+           <widget class="QLineEdit" name="Agent_Package_edit"/>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_18">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="6" rowspan="2" colspan="2">
+           <widget class="QPushButton" name="Agent_Remove_button">
+            <property name="text">
+             <string>Remove</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3" colspan="9">
+           <widget class="QLineEdit" name="Agent_File_edit"/>
+          </item>
+          <item row="3" column="4" rowspan="2" colspan="3">
+           <widget class="QLineEdit" name="Agent_Executable_edit"/>
+          </item>
+          <item row="1" column="8" rowspan="2" colspan="4">
+           <spacer name="horizontalSpacer_22">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>408</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="3" colspan="9">
+           <spacer name="horizontalSpacer_21">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>608</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="0" colspan="12">
+           <widget class="QTableWidget" name="Agent_Table">
+            <column>
+             <property name="text">
+              <string>ID</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Executable</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Package</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>File</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item row="2" column="0" rowspan="2">
+           <spacer name="horizontalSpacer_19">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="0" rowspan="2">
+           <spacer name="horizontalSpacer_20">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="0" colspan="3">
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ROS 2 Agents:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2" rowspan="2" colspan="3">
+           <widget class="QLineEdit" name="Agent_Node_edit"/>
+          </item>
+          <item row="5" column="1" colspan="2">
+           <widget class="QLabel" name="label_23">
+            <property name="text">
+             <string>File:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="9" rowspan="2">
+           <widget class="QLineEdit" name="Agent_Name_edit"/>
+          </item>
+          <item row="1" column="5" rowspan="2">
+           <widget class="QPushButton" name="Agent_Add_button">
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="10" rowspan="2">
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>Package:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="7" rowspan="2" colspan="2">
+           <widget class="QLabel" name="label_20">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" rowspan="2" colspan="3">
+           <widget class="QLabel" name="label_19">
+            <property name="text">
+             <string>Executable:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" rowspan="2">
+           <widget class="QLabel" name="label_18">
+            <property name="text">
+             <string>Node</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <layout class="QGridLayout" name="OperationMode_Layout">
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="OperationMode_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Operation mode:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLineEdit" name="OperationMode_World_edit"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QComboBox" name="OperationMode_Tool_ComboBox">
+            <item>
+             <property name="text">
+              <string>Webots</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gazebo</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>MVSIM</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="OperationMode_Tool_label">
+            <property name="text">
+             <string>Tool:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <spacer name="horizontalSpacer_26">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="OperationMode_World_label">
+            <property name="text">
+             <string>World:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QComboBox" name="OperationMode_ComboBox">
+            <item>
+             <property name="text">
+              <string>physical</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>virtual</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>hybrid</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QLabel" name="label_44">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Experience:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QComboBox" name="Experience_combo">
+            <item>
+             <property name="text">
+              <string>formation</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>identification</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>navigation</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="RoboticPark_Logo">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-image: url(:/logo_uned/RoboticPark.png);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" colspan="3">
+         <widget class="QLabel" name="TittleApp_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:26pt; font-weight:600; color:#506f5d;&quot;&gt;Robotic Park Experiment Design&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0" colspan="6">
+         <widget class="Line" name="line_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="1" colspan="5">
+         <layout class="QGridLayout" name="Robot_Layout">
+          <item row="5" column="1" colspan="12">
+           <widget class="QLabel" name="label_26">
+            <property name="text">
+             <string>Internal Controller:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="24" colspan="2">
+           <widget class="QLineEdit" name="TaskRelationship_value_edit"/>
+          </item>
+          <item row="4" column="18" colspan="6">
+           <widget class="QLineEdit" name="Robot_Roll_edit">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="26" colspan="2">
+           <widget class="QLineEdit" name="Robot_Z_text">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="25">
+           <widget class="QLabel" name="label_46">
+            <property name="text">
+             <string>Mode:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <spacer name="horizontalSpacer_31">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="13" column="12" colspan="3">
+           <widget class="QLabel" name="label_42">
+            <property name="text">
+             <string>Agent:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="5" colspan="4">
+           <widget class="QLabel" name="label_32">
+            <property name="text">
+             <string>Period:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="15" colspan="5">
+           <widget class="QLineEdit" name="TaskRelationship_agent_edit"/>
+          </item>
+          <item row="4" column="15" colspan="3">
+           <widget class="QLabel" name="Robot_Roll_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Roll:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="4" colspan="4">
+           <widget class="QLabel" name="label_37">
+            <property name="text">
+             <string>Period:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="23" colspan="11">
+           <widget class="QComboBox" name="TaskController_Combo">
+            <item>
+             <property name="text">
+              <string>Gradient</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Continuous PID</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>E-B PID (Constant threshold)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>E-B PID (Adaptive threshold)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="3">
+           <widget class="QLabel" name="label_25">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Robots:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="34" colspan="2">
+           <spacer name="horizontalSpacer_38">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>58</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="9" rowspan="2" colspan="9">
+           <widget class="QLineEdit" name="InternalController_Period_label"/>
+          </item>
+          <item row="3" column="2" colspan="2">
+           <widget class="QLabel" name="Robot_X_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;X:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="21" colspan="3">
+           <widget class="QLabel" name="label_43">
+            <property name="text">
+             <string>Value:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="25">
+           <widget class="QLabel" name="Robot_Z_label">
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Z:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="26">
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string>physical</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>virtual</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>digital twin</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>digital shadow</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="20" colspan="16">
+           <widget class="QComboBox" name="Positioning_Combo">
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Intern</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Extern</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="9" column="20" colspan="4">
+           <widget class="QLineEdit" name="Communication_Co_edit"/>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <spacer name="horizontalSpacer_23">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="10" column="1" colspan="4">
+           <widget class="QLabel" name="label_33">
+            <property name="text">
+             <string>Task:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="15" colspan="5">
+           <widget class="QLineEdit" name="Task_co_edit"/>
+          </item>
+          <item row="9" column="24" colspan="12">
+           <spacer name="horizontalSpacer_35">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>178</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="30">
+           <spacer name="horizontalSpacer_45">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="10" column="0">
+           <spacer name="horizontalSpacer_37">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0" colspan="2">
+           <spacer name="horizontalSpacer_24">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="15" colspan="2">
+           <widget class="QPushButton" name="Remove_Button">
+            <property name="text">
+             <string>Remove</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="24" colspan="12">
+           <spacer name="horizontalSpacer_33">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>178</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="6" colspan="9">
+           <widget class="QLineEdit" name="Robot_Pitch_edit">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0" colspan="4">
+           <spacer name="horizontalSpacer_34">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>68</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="10" column="19" colspan="4">
+           <widget class="QLabel" name="label_34">
+            <property name="text">
+             <string>Controller:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="0" colspan="4">
+           <spacer name="horizontalSpacer_36">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>68</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="0">
+           <spacer name="horizontalSpacer_29">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="17" colspan="3">
+           <widget class="QLabel" name="label_45">
+            <property name="text">
+             <string>URI/IP:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="20">
+           <widget class="QLabel" name="label_35">
+            <property name="text">
+             <string>ai:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <spacer name="horizontalSpacer_25">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="17" colspan="8">
+           <widget class="QLineEdit" name="Robot_Y_text">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="24">
+           <widget class="QLabel" name="label_38">
+            <property name="text">
+             <string>Gain:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="21" colspan="3">
+           <widget class="QLineEdit" name="Task_ai_edit"/>
+          </item>
+          <item row="2" column="10" colspan="26">
+           <spacer name="horizontalSpacer_27">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>398</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="25">
+           <widget class="QLabel" name="label_29">
+            <property name="text">
+             <string>ai:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="13">
+           <widget class="QPushButton" name="Add_Button">
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="18" colspan="2">
+           <widget class="QLabel" name="label_31">
+            <property name="text">
+             <string>Co:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="28" colspan="8">
+           <spacer name="horizontalSpacer_44">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="20" colspan="5">
+           <widget class="QLineEdit" name="RobotURI_edit"/>
+          </item>
+          <item row="11" column="25">
+           <widget class="QLineEdit" name="TaskGain_edit"/>
+          </item>
+          <item row="8" column="21" colspan="3">
+           <widget class="QCheckBox" name="TaskPath_check">
+            <property name="text">
+             <string>Path</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2" colspan="4">
+           <widget class="QLabel" name="Robot_Pitch_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pitch:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="14" column="0" colspan="3">
+           <spacer name="horizontalSpacer_43">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>58</width>
+              <height>38</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="10" column="12" colspan="7">
+           <widget class="QCheckBox" name="TaskOnboard_check">
+            <property name="text">
+             <string>Onboard</string>
+            </property>
+           </widget>
+          </item>
+          <item row="14" column="4" colspan="32">
+           <widget class="QListView" name="Relationship_list"/>
+          </item>
+          <item row="8" column="10" colspan="11">
+           <widget class="QComboBox" name="Communication_Combo">
+            <item>
+             <property name="text">
+              <string>Continuous</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Event-Based (Constant threshold)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Event-Based (Adaptive threshold)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="8" colspan="7">
+           <widget class="QComboBox" name="TypeRobot_combo">
+            <property name="styleSheet">
+             <string notr="true">selection-background-color: rgb(168,168,168);</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>None</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Crazyflie 2.1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Khepera IV</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Turtlebot3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Tello</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Limo</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Turtlebot4</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="3" column="15" colspan="2">
+           <widget class="QLabel" name="Robot_Y_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Y:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="13" colspan="2">
+           <widget class="QLabel" name="label_36">
+            <property name="text">
+             <string>Co:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" colspan="10">
+           <widget class="QLineEdit" name="IdRobot_text">
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="26">
+           <widget class="QLineEdit" name="InternalController_ai_edit"/>
+          </item>
+          <item row="3" column="4" colspan="11">
+           <widget class="QLineEdit" name="Robot_X_text">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="23" colspan="13">
+           <spacer name="horizontalSpacer_32">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>198</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="20" rowspan="2" colspan="5">
+           <widget class="QLineEdit" name="InternalController_Co_edit"/>
+          </item>
+          <item row="6" column="5" rowspan="2" colspan="4">
+           <widget class="QLabel" name="label_27">
+            <property name="text">
+             <string>Period:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="16" colspan="4">
+           <widget class="QLabel" name="label_24">
+            <property name="text">
+             <string>Positioning:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <spacer name="horizontalSpacer_28">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="15" column="0" colspan="36">
+           <widget class="QTableWidget" name="Robot_Table">
+            <column>
+             <property name="text">
+              <string>Robot</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Positioning</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Controller</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Communication</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Task</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Controller</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Type</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Relationship</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item row="12" column="20" colspan="9">
+           <widget class="QComboBox" name="TaskType_combo">
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>Position-based</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Displacement-based</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Distance-based</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="2" colspan="8">
+           <widget class="QLabel" name="Robot_pose_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Initial Position:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1" colspan="9">
+           <widget class="QLabel" name="label_30">
+            <property name="text">
+             <string>Communication:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="0" colspan="4">
+           <spacer name="horizontalSpacer_41">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>68</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="9" colspan="9">
+           <widget class="QLineEdit" name="Communication_Period_edit"/>
+          </item>
+          <item row="13" column="4" colspan="7">
+           <widget class="QLabel" name="label_41">
+            <property name="text">
+             <string>Relationship:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="8" colspan="5">
+           <widget class="QLineEdit" name="TaskPeriod_edit"/>
+          </item>
+          <item row="12" column="0" colspan="4">
+           <spacer name="horizontalSpacer_39">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>68</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="18" rowspan="2" colspan="2">
+           <widget class="QLabel" name="label_28">
+            <property name="text">
+             <string>Co:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="27" colspan="9">
+           <spacer name="horizontalSpacer_42">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="0" rowspan="2" colspan="5">
+           <spacer name="horizontalSpacer_30">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>78</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="12" column="4" colspan="3">
+           <widget class="QLabel" name="label_39">
+            <property name="text">
+             <string>Role:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="13" colspan="10">
+           <widget class="QComboBox" name="InternalController_Combo">
+            <item>
+             <property name="text">
+              <string>Continuous PID</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>IPC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>E-B PID (Constant threshold)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>E-B PID (Adaptive threshold)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="12" column="7" colspan="8">
+           <widget class="QComboBox" name="Role_Combo">
+            <item>
+             <property name="text">
+              <string>Consensus</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Leader</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Follower</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="4" column="25" colspan="3">
+           <widget class="QLabel" name="Robot_Yaw_label">
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Yaw:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4" colspan="4">
+           <widget class="QLabel" name="TypeRobot_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="16" colspan="4">
+           <widget class="QLabel" name="label_40">
+            <property name="text">
+             <string>Type:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="6" colspan="6">
+           <widget class="QCheckBox" name="TaskEnable_check">
+            <property name="text">
+             <string>Enable</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="28" colspan="2">
+           <widget class="QLineEdit" name="Robot_Yaw_edit">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="29" colspan="7">
+           <spacer name="horizontalSpacer_40">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>78</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="13" column="26">
+           <widget class="QPushButton" name="Relationship_Add_Buttom">
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="27" colspan="2">
+           <widget class="QPushButton" name="Relationship_Remove_Buttom">
+            <property name="text">
+             <string>Remove</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="15" column="1" colspan="3">
+         <layout class="QHBoxLayout" name="File_Layout">
+          <item>
+           <widget class="QLabel" name="NameFile_label">
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="NameFile_Edit"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="NameFile_Button">
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="4" column="1" colspan="5">
+         <layout class="QGridLayout" name="Architecture_Layout">
+          <item row="3" column="5">
+           <widget class="QLabel" name="Architecture_NodeName_label">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="11">
+           <widget class="QTableWidget" name="Architecture_NodesList">
+            <column>
+             <property name="text">
+              <string>ID</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Executable</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Package</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>File</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item row="4" column="3" colspan="7">
+           <widget class="QLineEdit" name="Architecture_File_edit"/>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <spacer name="horizontalSpacer_17">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="3" colspan="2">
+           <widget class="QComboBox" name="Architecture_ComboBox">
+            <item>
+             <property name="text">
+              <string>Centralized</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Distributed</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Decentralized</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QLabel" name="label_22">
+            <property name="text">
+             <string>File:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="8">
+           <widget class="QLabel" name="Architecture_NodePkg_label">
+            <property name="text">
+             <string>Package:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLabel" name="Architecture_NodeExec_label">
+            <property name="text">
+             <string>Executable:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="Architecture_Add_button">
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <spacer name="horizontalSpacer_46">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="6" colspan="2">
+           <widget class="QLineEdit" name="Architecture_NodeName_edit"/>
+          </item>
+          <item row="0" column="0" colspan="3">
+           <widget class="QLabel" name="Architecture_label">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Architecture:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="Architecture_Node_label">
+            <property name="text">
+             <string>Node:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="9">
+           <widget class="QLineEdit" name="Architecture_NodePkg_edit"/>
+          </item>
+          <item row="3" column="3" colspan="2">
+           <widget class="QLineEdit" name="Architecture_NodeExec_edit"/>
+          </item>
+          <item row="1" column="5">
+           <widget class="QPushButton" name="Architecture_Remove_button">
+            <property name="text">
+             <string>Remove</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>909</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="figs/logo.qrc"/>
+ </resources>
+ <connections/>
+</ui>

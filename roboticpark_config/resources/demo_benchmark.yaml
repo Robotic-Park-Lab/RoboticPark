@@ -1,6 +1,6 @@
 # Demo Robotic Park Formation
 Operation:
-  mode: 'virtual'     # physical, virtual, hybrid
+  mode: 'physical'     # physical, virtual, hybrid
   tool: 'Gazebo'              # Gazebo, Webots
   world: 'default_RoboticPark.world' # default_RoboticPark.wbt, default_RoboticPark.world
 
@@ -24,7 +24,7 @@ CPU_Monitoring:
   processes: 'webots-bin, driver, ros2, swarm_driver, rviz2, kheperaIV_clien, centralized_for'
 
 Interface: 
-  enable: True
+  enable: False
   rviz2: 
     enable: False
     node: 
@@ -55,8 +55,98 @@ Data_Logging:
   topics: '/dron01/pose /dron02/pose /ros2_cpu /cpu_stats'
 
 Robots:
+  Robot01:
+    type: physical
+    name: dron01
+    control_mode: HighLevel
+    positioning: Intern
+    pose: 0.75 -0.75
+    uri: radio://0/80/2M/E7E7E7E708
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    task: 
+      enable: False
+      T: 100
+      Onboard: False
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: 'dron02_0.7071, dron03_0.7071, dron04_0.7071, dron05_0.7071, origin_1.36'
+  Robot02:
+    type: physical
+    name: dron01
+    control_mode: HighLevel
+    positioning: Intern
+    pose: 0.75 0.75
+    uri: radio://0/80/2M/E7E7E7E702
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    task: 
+      enable: False
+      T: 100
+      Onboard: False
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: 'dron01_0.7071, dron03_0.7071, dron05_0.7071, origin_1.0'
+
 
 Supervisor:
+  enable:
   node:
     name:
     pkg:

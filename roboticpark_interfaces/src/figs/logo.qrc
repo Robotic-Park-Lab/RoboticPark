@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="logo_uned">
+    <file>RoboticPark.png</file>
+    <file>logo_informatica.gif</file>
+    <file>uned.gif</file>
+  </qresource>
+</RCC>

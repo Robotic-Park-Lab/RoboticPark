@@ -49,3 +49,48 @@ Solid {
   radarCrossSection 1
 }
 
+Crazyflie {
+  name "dron01"
+  controller "<extern>"
+  supervisor TRUE
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+Crazyflie {
+  translation 0.75 0.75 0
+  name "dron02"
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+Crazyflie {
+  translation -0.75 0.75 0
+  name "dron03"
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+Crazyflie {
+  translation -0.75 -0.75 0
+  name "dron04"
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+Crazyflie {
+  translation 0.75 -0.75 0
+  name "dron05"
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}

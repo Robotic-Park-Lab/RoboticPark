@@ -1,0 +1,435 @@
+Architecture:
+  mode: Decentralized
+  node:
+    node:
+      executable: centralized_formation_controller
+      file: config_path
+      name: formation_controller
+      pkg: uned_swarm_task
+CPU_Monitoring:
+  enable: 'True'
+  node:
+    executable: measure_process
+    name: benchmark
+    pkg: measure_process_ros2_pkg
+  processes: webots-bin, driver, ros2, swarm_driver, rviz2, centralized_for
+Data_Logging:
+  all: 'False'
+  enable: 'False'
+  name: date
+  topics: 'Null'
+Experience:
+  type: formation
+Interface:
+  enable: 'False'
+  own:
+    enable: 'False'
+    file: own_config_path
+    node:
+      executable: own
+      name: own
+      pkg: own
+  rqt:
+    enable: 'True'
+    file: ''
+    node:
+      executable: rqt_gui
+      name: rqt
+      pkg: rqt_gui
+  rviz2:
+    enable: 'True'
+    file: ControlFormation08.rviz
+    node:
+      executable: rviz2
+      name: rviz2
+      pkg: rviz2
+Operation:
+  mode: virtual
+  tool: Webots
+  world: ControlFormation08.wbt
+Other:
+  Agent00:
+    node:
+      executable: test
+      file: test_file
+      name: test
+      pkg: test
+Robots:
+  Robot01:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron01
+    pose: 1.6, 0.04
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron02_1.4107, dron05_1.4107, dron06_0.56431, origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E701
+    yaw: '0.0'
+  Robot02:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron02
+    pose: 0.59, 1.76
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron01_1.4107, dron03_1.4107, dron06_1.1716, dron07_0.90732, origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E702
+    yaw: '0.0'
+  Robot03:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron03
+    pose: -1.44, 1.01
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron02_1.4107, dron04_1.4107, dron07_0.67108, dron08_1.4155, origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E703
+    yaw: '0.0'
+  Robot04:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron04
+    pose: -1.42, -1.01
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron03_1.4107, dron05_1.4107, dron08_0.67108, origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E704
+    yaw: '0.0'
+  Robot05:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron05
+    pose: 0.57, -1.69
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron01_1.4107, dron04_1.4107, dron06_1.1716, dron08_0.90732, origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E705
+    yaw: '0.0'
+  Robot06:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron06
+    pose: 0.98, -0.01
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron01_0.56431, dron02_1.1716, dron05_1.1716, dron07_1.1011, dron08_1.1011,
+        origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E706
+    yaw: '0.0'
+  Robot07:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron07
+    pose: -0.46, 0.79
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron02_0.90732, dron03_0.67108, dron06_1.1011, dron08_1.1011,
+        origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E707
+    yaw: '0.0'
+  Robot08:
+    communication:
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: EventBased
+    control_mode: HighLevel
+    controller:
+      enable: 'True'
+      period: 0.01
+      protocol: Continuous
+      threshold:
+        ai: 0.0
+        co: 0.01
+        type: Constant
+      type: pid
+    local_pose:
+      T: 100
+      enable: 'True'
+      path: true
+    model: Crazyflie 2.1
+    name: dron08
+    pose: -0.46, -0.87
+    positioning: Intern
+    task:
+      Onboard: true
+      T: 0.1
+      controller:
+        gain: 0.25
+        lowerLimit: -0.1
+        period: 0.1
+        protocol: Continuous
+        threshold:
+          ai: 0.0
+          co: 0.01
+          type: Constant
+        type: gradient
+        upperLimit: 0.1
+      enable: true
+      relationship: dron03_1.4155, dron04_0.67108, dron05_0.90732, dron06_1.1011,
+        dron07_1.1011, origin_1.0
+      role: consensus
+      type: distance
+    type: virtual
+    uri: radio://0/80/2M/E7E7E7E708
+    yaw: '0.0'
+Supervisor:
+  enable: 'True'
+  node:
+    executable: supervisor_node
+    file: SphereFormation_topics.yaml
+    name: supervisor
+    pkg: mars_supervisor_pkg

@@ -1,0 +1,551 @@
+# Demo Robotic Park Formation
+Operation:
+  mode: 'physical'     # physical, virtual, hybrid
+  tool: 'Webots'              # Gazebo, Webots
+  world: 'ControlFormation08.wbt' # 'default_RoboticPark.wbt' # default_RoboticPark.wbt, default_RoboticPark.world
+
+Experience:
+  type: 'formation'           # identification, formation, navigation
+
+Architecture: 
+  mode: 'distributed'   # centralized, distributed_ros2, distributed
+  node: 
+    executable: 'centralized_formation_controller'
+    name: 'formation_controller'
+    pkg: 'uned_swarm_task'
+
+CPU_Monitoring: 
+  enable: True
+  node: 
+    executable: measure_process
+    name: benchmark
+    pkg: measure_process_ros2_pkg
+  processes: 'webots-bin, driver, ros2, swarm_driver, rviz2, centralized_for'
+
+Interface: 
+  enable: True
+  rviz2: 
+    enable: True
+    node: 
+      executable: rviz2
+      name: rviz2
+      pkg: rviz2
+    file: ControlFormation08.rviz
+  
+  rqt: 
+    enable: True
+    node: 
+      executable: rqt_gui
+      name: interface
+      pkg: rqt_gui
+    file: 
+
+  own: 
+    enable: False
+    node:
+      name:
+      pkg:
+    file:
+
+Data_Logging: 
+  enable: False
+  all: False
+  name: 'date'
+  topics: '/dron01/local_pose /dron02/local_pose /dron03/local_pose /dron04/local_pose /dron05/local_pose /dron06/local_pose /dron07/local_pose /dron08/local_pose /ros2_cpu /cpu_stats'
+
+Robots:
+  Robot01:
+    type: physical
+    name: dron01
+    control_mode: HighLevel
+    positioning: Intern
+    pose: 1.6, 0.04
+    uri: radio://0/80/2M/E7E7E7E701
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron02_1.4107, dron05_1.4107, dron06_0.56431, origin_1.0
+
+  Robot02:
+    type: physical
+    name: dron02
+    control_mode: HighLevel
+    positioning: Intern
+    pose: 0.59, 1.76
+    uri: radio://0/80/2M/E7E7E7E702
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron01_1.4107, dron03_1.4107, dron06_1.1716, dron07_0.90732, origin_1.0
+
+  Robot03:
+    type: physical
+    name: dron03
+    control_mode: HighLevel
+    positioning: Intern
+    pose: -1.44, 1.01
+    uri: radio://0/80/2M/E7E7E7E703
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron02_1.4107, dron04_1.4107, dron07_0.67108, dron08_1.4155, origin_1.0
+
+  Robot04:
+    type: physical
+    name: dron04
+    control_mode: HighLevel
+    positioning: Intern
+    pose: -1.42, -1.01
+    uri: radio://0/80/2M/E7E7E7E704
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron03_1.4107, dron05_1.4107, dron08_0.67108, origin_1.0
+  
+  Robot05:
+    type: physical
+    name: dron05
+    control_mode: HighLevel
+    positioning: Intern
+    pose: 0.57, -1.69
+    uri: radio://0/80/2M/E7E7E7E705
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron01_1.4107, dron04_1.4107, dron06_1.1716, dron08_0.90732, origin_1.0
+
+  Robot06:
+    type: physical
+    name: dron06
+    control_mode: HighLevel
+    positioning: Intern
+    pose: 0.98, -0.01
+    uri: radio://0/80/2M/E7E7E7E706
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron01_0.56431, dron02_1.1716, dron05_1.1716, dron07_1.1011, dron08_1.1011, origin_1.0
+
+  Robot07:
+    type: physical
+    name: dron07
+    control_mode: HighLevel
+    positioning: Intern
+    pose: -0.46, 0.79
+    uri: radio://0/80/2M/E7E7E7E707
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron02_0.90732, dron03_0.67108, dron06_1.1011, dron08_1.1011, origin_1.0
+
+  Robot08:
+    type: physical
+    name: dron08
+    control_mode: HighLevel
+    positioning: Intern
+    pose: -0.46, -0.87
+    uri: radio://0/80/2M/E7E7E7E708
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron03_1.4155, dron04_0.67108, dron05_0.90732, dron06_1.1011, dron07_1.1011, origin_1.0
+
+Supervisor:
+  enable: True
+  node: 
+    executable: supervisor_node
+    name: supervisor
+    pkg: mars_supervisor_pkg
+    file: SphereFormation_topics.yaml
+
+Other:
+  Agent00:
+    executable: test
+    name: test
+    pkg: test
+    file: test_file
+

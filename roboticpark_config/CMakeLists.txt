@@ -22,6 +22,7 @@ install(
     launch
     resources
     worlds
+    rviz
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -16,23 +16,70 @@ from webots_ros2_driver.webots_controller import WebotsController
 
 
 def get_ros2_nodes(context, *args):
-    use_sim_time = LaunchConfiguration('use_sim_time', default=False)
+    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     distributed_architecture = False
-
     # ExecuteProcess(cmd=['ros2', 'bag', 'record', '-a', '-o', e.strftime("%Y-%m-%d-%H-%M"), ], output='screen'),
-    # rviz_config_path = os.path.join(general_package_dir, 'rviz', 'Demo_Crazyflie_formation.rviz')
     node_list = []
 
     #-------------------#
     #     Load File     #
     #-------------------#
-    file = LaunchConfiguration('file')
+    file = LaunchConfiguration('config_file')
     file_name = file.perform(context)
 
     general_package_dir = get_package_share_directory('roboticpark_config')
     config_path = os.path.join(general_package_dir, 'resources', file_name)
     with open(config_path, 'r') as file:
             documents = yaml.safe_load(file)
+    
+    #------------------------#
+    #     Operation mode     #
+    #------------------------#
+    if not documents['Operation']['mode'] == 'physical':
+        use_sim_time = True
+        if documents['Operation']['tool'] == 'Webots':
+            webots = WebotsLauncher(
+                world=PathJoinSubstitution([general_package_dir, 'worlds', documents['Operation']['world']]),
+                mode='realtime',
+                ros2_supervisor=False
+            )
+            node_list.append(webots)
+            # node_list.append(webots._supervisor)
+
+            kill_ros2 = launch.actions.RegisterEventHandler(
+                event_handler=launch.event_handlers.OnProcessExit(
+                    target_action=webots,
+                    on_exit=[
+                        launch.actions.EmitEvent(event=launch.events.Shutdown())
+                    ],
+                )
+            )
+            node_list.append(kill_ros2)
+            '''
+            reset_handler = launch.actions.RegisterEventHandler(
+                event_handler=launch.event_handlers.OnProcessExit(
+                    target_action=webots._supervisor,
+                    on_exit=get_ros2_nodes,
+                )
+            )
+            node_list.append(reset_handler)
+            '''
+        elif documents['Operation']['tool'] == 'Gazebo':
+            world_path = os.path.join(general_package_dir, 'worlds', documents['Operation']['world'])
+            gazebo = ExecuteProcess(cmd=['gazebo', '--verbose', world_path, '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', '--ros-args',
+                ], output='screen'
+            )
+
+            kill_ros2 = launch.actions.RegisterEventHandler(
+                event_handler=launch.event_handlers.OnProcessExit(
+                    target_action=gazebo,
+                    on_exit=[
+                        launch.actions.EmitEvent(event=launch.events.Shutdown())
+                    ],
+                )
+            )
+            node_list.append(gazebo)
+            node_list.append(kill_ros2)
 
     #----------------------#
     #     Architecture     #
@@ -50,7 +97,57 @@ def get_ros2_nodes(context, *args):
         ))
     elif documents['Architecture']['mode'] == 'distributed_ros2':
         distributed_architecture = True
+
+    #----------------#
+    #     Robots     #
+    #----------------#
+    physical_crazyflie_list = ''
+    for robot in documents['Robots']:
+        if 'dron' in documents['Robots'][robot]['name']:
+            robot_description = os.path.join(general_package_dir, 'resources', 'crazyflie.urdf')
+            
+            if not documents['Robots'][robot]['type'] == 'physical':
+                with open(robot_description, 'r') as infp:
+                    robot_desc = infp.read()
+                aux = robot_desc.replace("dron00", documents['Robots'][robot]['name'])
+                aux = aux.replace("name_id_value", documents['Robots'][robot]['name'])
+                aux = aux.replace("config_file_path", config_path)
+                robot_controller = WebotsController(
+                            robot_name=documents['Robots'][robot]['name'],
+                            parameters=[
+                                {'robot_description': aux,
+                                'use_sim_time': use_sim_time,
+                                'set_robot_state_publisher': True},
+                            ],
+                            respawn=True
+                        )
+                node_list.append(robot_controller)
+
+            if not documents['Robots'][robot]['type'] == 'virtual':
+                if physical_crazyflie_list == '':
+                    physical_crazyflie_list += documents['Robots'][robot]['name']
+                else:
+                    physical_crazyflie_list += ', '+documents['Robots'][robot]['name']
+
+        elif 'khepera' in documents['Robots'][robot]['name']:
+            robot_description = os.path.join(general_package_dir, 'resources', 'kheperaiv.urdf')
     
+    print("###  Physical Robots  ###")
+    print(physical_crazyflie_list)
+    if not physical_crazyflie_list == '':
+        node_list.append(Node(
+                package='uned_crazyflie_driver',
+                executable='swarm_driver',
+                name='swarm',
+                output='screen',
+                parameters=[
+                    {'config': config_path},
+                    {'use_sim_time': use_sim_time},
+                    {'robots': physical_crazyflie_list}
+                ]
+            )
+        )
+
     #------------------------#
     #     CPU Monitoring     #
     #------------------------#
@@ -80,6 +177,7 @@ def get_ros2_nodes(context, *args):
                 ],
             ))
         if documents['Interface']['rviz2']['enable']:
+            rviz_config_path = os.path.join(general_package_dir, 'rviz', documents['Interface']['rviz2']['file'])
             node_list.append(Node(
                 package=documents['Interface']['rviz2']['node']['pkg'],
                 executable=documents['Interface']['rviz2']['node']['executable'],
@@ -87,9 +185,17 @@ def get_ros2_nodes(context, *args):
                 parameters=[
                     {'use_sim_time': use_sim_time},
                 ],
-                arguments=['-d', documents['Interface']['rviz2']['file']],
+                arguments=['-d', rviz_config_path],
+            ))
+            node_list.append(Node(
+                package='tf2_ros',
+                executable='static_transform_publisher',
+                output='screen',
+                name='RoboticPark',
+                arguments=['--yaw', '3.1415', '--frame-id', 'RoboticPark/base_link', '--child-frame-id', 'map'],
             ))
         if documents['Interface']['own']['enable']:
+            own_config_path = os.path.join(general_package_dir, 'resources', documents['Interface']['own']['file'])
             node_list.append(Node(
                 package=documents['Interface']['own']['node']['pkg'],
                 executable=documents['Interface']['own']['node']['executable'],
@@ -97,7 +203,7 @@ def get_ros2_nodes(context, *args):
                 parameters=[
                     {'use_sim_time': use_sim_time},
                 ],
-                arguments=['-d', documents['Interface']['own']['file']],
+                arguments=['-d', own_config_path],
             ))
     
     #----------------------#
@@ -124,100 +230,34 @@ def get_ros2_nodes(context, *args):
                     cmd=['ros2', 'bag', 'record', '-o', documents['Data_Logging']['name'], documents['Data_Logging']['topics']], output='screen', shell=True
                 ))
     
-    #------------------------#
-    #     Operation mode     #
-    #------------------------#
-    if documents['Operation']['mode'] == 'virtual' or documents['Operation']['mode'] == 'hybrid':
-        if documents['Operation']['tool'] == 'Webots':
-            webots = WebotsLauncher(
-                world=PathJoinSubstitution([general_package_dir, 'worlds', documents['Operation']['world']]),
-                mode='realtime',
-                ros2_supervisor=True
-            )
-            reset_handler = launch.actions.RegisterEventHandler(
-                event_handler=launch.event_handlers.OnProcessExit(
-                    target_action=webots._supervisor,
-                    on_exit=get_ros2_nodes,
-                )
-            )
-            kill_ros2 = launch.actions.RegisterEventHandler(
-                event_handler=launch.event_handlers.OnProcessExit(
-                    target_action=webots,
-                    on_exit=[
-                        launch.actions.EmitEvent(event=launch.events.Shutdown())
-                    ],
-                )
-            )
-            node_list.append(webots)
-            node_list.append(webots._supervisor)
-            node_list.append(reset_handler)
-            node_list.append(kill_ros2)
-        elif documents['Operation']['tool'] == 'Gazebo':
-            world_path = os.path.join(general_package_dir, 'worlds', documents['Operation']['world'])
-            gazebo = ExecuteProcess(cmd=['gazebo', '--verbose', world_path, '-s', 'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', '--ros-args',
-                ], output='screen'
-            )
-
-            kill_ros2 = launch.actions.RegisterEventHandler(
-                event_handler=launch.event_handlers.OnProcessExit(
-                    target_action=gazebo,
-                    on_exit=[
-                        launch.actions.EmitEvent(event=launch.events.Shutdown())
-                    ],
-                )
-            )
-            node_list.append(gazebo)
-            node_list.append(kill_ros2)
-
     
-    #----------------#
-    #     Robots     #
-    #----------------#
-    print('TO-DO: Robots')
-    for x in documents['Robots']:
-        print(x)
-
     #--------------------#
     #     Supervisor     #
     #--------------------#
-    print('TO-DO: Supervisor')
+    if documents['Supervisor']['enable']:
+        topic_config_path = os.path.join(general_package_dir, 'resources', documents['Supervisor']['node']['file'])
+        node_list.append(Node(
+            package='mars_supervisor_pkg',
+            executable='supervisor_node',
+            name='supervisor',
+            parameters=[
+                {'use_sim_time': False},
+                {'file': topic_config_path},
+            ],
+        ))
 
     #---------------#
     #     Other     #
     #---------------#    
     print('TO-DO: Physical nodes: Positioning System')
 
-    if 0:
-        node_list.append(Node(
-                package='uned_crazyflie_driver',
-                executable='swarm_driver',
-                name='swarm',
-                output='screen',
-                parameters=[
-                    {'enviroment': 'mrs'},
-                    {'config': config_path},
-                    {'robots': 'dron01, dron02, dron03, dron04, dron05'}
-                ]
-            )
-        )
-    '''
-    node_list.append(Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            output='screen',
-            name='dron01',
-            arguments=['--frame-id', 'dron01/base_link', '--child-frame-id', 'map'],
-        )
-    )
-    '''
-
     return node_list
 
 def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
-            'file',
-            default_value='pwd',
+            'config_file',
+            default_value='demo_benchmark_webots.yaml',
             description='path config file'
         ),
         launch.actions.OpaqueFunction(function=get_ros2_nodes),

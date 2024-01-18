@@ -1,19 +1,18 @@
 # Demo Robotic Park Formation
 Operation:
-  mode: 'virtual'     # physical, virtual, hybrid
+  mode: 'hybrid'     # physical, virtual, hybrid
   tool: 'Webots'              # Gazebo, Webots
-  world: '' # 'default_RoboticPark.wbt' # default_RoboticPark.wbt, default_RoboticPark.world
+  world: 'ControlFormation12.wbt' # 'default_RoboticPark.wbt' # default_RoboticPark.wbt, default_RoboticPark.world
 
 Experience:
   type: 'formation'           # identification, formation, navigation
 
 Architecture: 
-  mode: 'Centralized'   # centralized, distributed_ros2, distributed
-  node00: 
+  mode: 'distributed'   # centralized, distributed_ros2, distributed
+  node: 
     executable: 'centralized_formation_controller'
     name: 'formation_controller'
     pkg: 'uned_swarm_task'
-    file: 'config_path'
 
 CPU_Monitoring: 
   enable: True
@@ -21,7 +20,7 @@ CPU_Monitoring:
     executable: measure_process
     name: benchmark
     pkg: measure_process_ros2_pkg
-  processes: 'webots-bin, driver, ros2, swarm_driver, rviz2, kheperaIV_clien, centralized_for'
+  processes: 'webots-bin, driver, ros2, swarm_driver, rviz2, centralized_for'
 
 Interface: 
   enable: True
@@ -31,7 +30,7 @@ Interface:
       executable: rviz2
       name: rviz2
       pkg: rviz2
-    file: 
+    file: ControlFormation12.rviz
   
   rqt: 
     enable: True
@@ -49,18 +48,18 @@ Interface:
     file:
 
 Data_Logging: 
-  enable: True
+  enable: False
   all: False
   name: 'date'
-  topics: '/dron01/local_pose /dron02/local_pose /dron03/local_pose /dron04/local_pose /dron05/local_pose /dron06/local_pose /dron07/local_pose /dron08/local_pose /dron09/local_pose /dron10/local_pose /dron11/local_pose /dron12/local_pose /dron13/local_pose /dron14/local_pose /dron15/local_pose /ros2_cpu /cpu_stats'
+  topics: '/dron01/local_pose /dron02/local_pose /dron03/local_pose /dron04/local_pose /dron05/local_pose /dron06/local_pose /dron07/local_pose /dron08/local_pose /ros2_cpu /cpu_stats'
 
 Robots:
   Robot01:
-    type: virtual
+    type: physical
     name: dron01
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.77 -0.02
+    pose: 1.81, -0.00
     uri: radio://0/80/2M/E7E7E7E701
     controller:
       type: pid
@@ -81,10 +80,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -98,14 +112,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_0.91844, dron08_0.91844, dron09_0.32209, origin_1.0
+      relationship: dron02_1.0413, dron07_1.0413, dron08_0.4166, origin_1.0
 
   Robot02:
-    type: virtual
+    type: physical
     name: dron02
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.27 1.25
+    pose: 1.07, 1.39
     uri: radio://0/80/2M/E7E7E7E702
     controller:
       type: pid
@@ -126,10 +140,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -143,14 +172,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_0.91844, dron03_0.91844, dron09_0.84904, dron10_0.41897, origin_1.0
+      relationship: dron01_1.0413, dron03_1.0413, dron08_0.93886, dron09_0.54171, origin_1.0
 
   Robot03:
-    type: virtual
+    type: physical
     name: dron03
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.03 1.77
+    pose: -0.43, 1.78
     uri: radio://0/80/2M/E7E7E7E703
     controller:
       type: pid
@@ -171,10 +200,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -188,14 +232,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_0.91844, dron04_0.91844, dron10_0.62131, dron11_0.62131, origin_1.0
+      relationship: dron02_1.0413, dron04_1.0413, dron09_0.6631, dron10_0.79864, origin_1.0
 
   Robot04:
-    type: virtual
+    type: physical
     name: dron04
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.30 1.24
+    pose: -1.64, 0.78
     uri: radio://0/80/2M/E7E7E7E704
     controller:
       type: pid
@@ -216,10 +260,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -233,14 +292,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron03_0.91844, dron05_0.91844, dron11_0.41897, dron12_0.84904, origin_1.0
+      relationship: dron03_1.0413, dron05_1.0413, dron10_0.45141, origin_1.0
   
   Robot05:
-    type: virtual
+    type: physical
     name: dron05
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.83 -0.01
+    pose: -1.66, -0.77
     uri: radio://0/80/2M/E7E7E7E705
     controller:
       type: pid
@@ -261,10 +320,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -278,14 +352,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron04_0.91844, dron06_0.91844, dron12_0.32209, origin_1.0
+      relationship: dron04_1.0413, dron06_1.0413, dron10_1.0783, dron11_0.45141, origin_1.0
 
   Robot06:
-    type: virtual
+    type: physical
     name: dron06
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.29 -1.23
+    pose: -0.42, -1.74
     uri: radio://0/80/2M/E7E7E7E706
     controller:
       type: pid
@@ -306,10 +380,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -323,14 +412,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron05_0.91844, dron07_0.91844, dron12_0.84904, dron13_0.41897, origin_1.0
+      relationship: dron05_1.0413, dron07_1.0413, dron11_0.79864, dron12_0.6631, origin_1.0
 
   Robot07:
-    type: virtual
+    type: physical
     name: dron07
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.01 -1.83
+    pose: 1.14, -1.38
     uri: radio://0/80/2M/E7E7E7E707
     controller:
       type: pid
@@ -351,10 +440,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -368,14 +472,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron06_0.91844, dron08_0.91844, dron13_0.62131, dron14_0.62131, origin_1.0
+      relationship: dron01_1.0413, dron06_1.0413, dron08_0.93886, dron12_0.54171, origin_1.0
 
   Robot08:
-    type: virtual
+    type: physical
     name: dron08
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.31 -1.22
+    pose: 1.17, -0.04
     uri: radio://0/80/2M/E7E7E7E708
     controller:
       type: pid
@@ -396,10 +500,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -413,14 +532,14 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_0.91844, dron07_0.91844, dron09_0.84904, dron14_0.41897, origin_1.0
+      relationship: dron01_0.4166, dron02_0.93886, dron07_0.93886, dron09_0.92094, dron11_1.4901, dron12_0.92094, origin_1.0
 
   Robot09:
     type: virtual
     name: dron09
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.31 -0.04
+    pose: 0.35, 1.12
     uri: radio://0/80/2M/E7E7E7E709
     controller:
       type: pid
@@ -441,10 +560,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -458,15 +592,15 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_0.32209, dron02_0.84904, dron08_0.84904, dron10_0.87791, dron14_0.87791, dron15_0.87791, origin_1.0
+      relationship: dron02_0.54171, dron03_0.6631, dron08_0.92094, dron10_0.92094, dron11_1.4901, origin_1.0
 
   Robot10:
     type: virtual
     name: dron10
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.63, 1.13
-    uri: radio://0/80/2M/E7E7E7E710
+    pose: -0.99, 0.65
+    uri: radio://0/80/2M/E7E7E7E709
     controller:
       type: pid
       enable: True
@@ -486,10 +620,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -503,15 +652,15 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_0.41897, dron03_0.62131, dron09_0.87791, dron11_0.87791, dron15_0.87791, origin_1.0
+      relationship: dron03_0.79864, dron04_0.45141, dron05_1.0783, dron09_0.92094, dron11_0.92094, origin_1.0
 
   Robot11:
     type: virtual
     name: dron11
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.65 1.12
-    uri: radio://0/80/2M/E7E7E7E711
+    pose: -0.95, -0.66
+    uri: radio://0/80/2M/E7E7E7E709
     controller:
       type: pid
       enable: True
@@ -531,10 +680,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -548,15 +712,15 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron03_0.62131, dron04_0.41897, dron10_0.87791, dron12_0.87791, dron15_0.87791, origin_1.0
+      relationship: dron05_0.45141, dron06_0.79864, dron08_1.4901, dron09_1.4901, dron10_0.92094, dron12_0.92094, origin_1.0
 
   Robot12:
     type: virtual
     name: dron12
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.31 0.02
-    uri: radio://0/80/2M/E7E7E7E712
+    pose: 0.41, -1.15
+    uri: radio://0/80/2M/E7E7E7E709
     controller:
       type: pid
       enable: True
@@ -576,10 +740,25 @@ Robots:
       enable: True
       path: True
       T: 100
-    task: 
+    local_twist:
       enable: False
-      T: 100
-      Onboard: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    task: 
+      enable: True
+      T: 50
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -593,142 +772,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron04_0.84904, dron05_0.32209, dron06_0.84904, dron11_0.87791, dron13_0.87791, dron15_0.87791, origin_1.0
-
-  Robot13:
-    type: virtual
-    name: dron13
-    control_mode: HighLevel
-    positioning: Intern
-    pose: -0.69 -1.18
-    uri: radio://0/80/2M/E7E7E7E713
-    controller:
-      type: pid
-      enable: True
-      protocol: Continuous
-      period: 0.01
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    communication:
-      type: EventBased
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    local_pose:
-      enable: True
-      path: True
-      T: 100
-    task: 
-      enable: False
-      T: 100
-      Onboard: False
-      controller:
-        type: gradient
-        protocol: Continuous
-        period: 0.1
-        upperLimit: 0.1
-        lowerLimit: -0.1
-        gain: 0.25
-        threshold:
-            type: Constant
-            co: 0.01
-            ai: 0.0
-      role: consensus
-      type: distance
-      relationship: dron06_0.41897, dron07_0.62131, dron12_0.87791, dron14_0.87791, dron15_0.87791, origin_1.0
-
-  Robot14:
-    type: virtual
-    name: dron14
-    control_mode: HighLevel
-    positioning: Intern
-    pose: 0.64 -1.16
-    uri: radio://0/80/2M/E7E7E7E714
-    controller:
-      type: pid
-      enable: True
-      protocol: Continuous
-      period: 0.01
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    communication:
-      type: EventBased
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    local_pose:
-      enable: True
-      path: True
-      T: 100
-    task: 
-      enable: False
-      T: 100
-      Onboard: False
-      controller:
-        type: gradient
-        protocol: Continuous
-        period: 0.1
-        upperLimit: 0.1
-        lowerLimit: -0.1
-        gain: 0.25
-        threshold:
-            type: Constant
-            co: 0.01
-            ai: 0.0
-      role: consensus
-      type: distance
-      relationship: dron07_0.62131, dron08_0.41897, dron09_0.87791, dron13_0.87791, dron15_0.87791, origin_1.0
-
-  Robot15:
-    type: virtual
-    name: dron15
-    control_mode: HighLevel
-    positioning: Intern
-    pose: -0.01 0.00
-    uri: radio://0/80/2M/E7E7E7E715
-    controller:
-      type: pid
-      enable: True
-      protocol: Continuous
-      period: 0.01
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    communication:
-      type: EventBased
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    local_pose:
-      enable: True
-      path: True
-      T: 100
-    task: 
-      enable: False
-      T: 100
-      Onboard: False
-      controller:
-        type: gradient
-        protocol: Continuous
-        period: 0.1
-        upperLimit: 0.1
-        lowerLimit: -0.1
-        gain: 0.25
-        threshold:
-            type: Constant
-            co: 0.01
-            ai: 0.0
-      role: consensus
-      type: distance
-      relationship: dron09_0.87791, dron10_0.87791, dron11_0.87791, dron12_0.87791, dron13_0.87791, dron14_0.87791, origin_1.0
+      relationship: dron06_0.6631, dron07_0.54171, dron08_0.92094, dron11_0.92094, origin_1.0
 
 Supervisor:
   enable: True
@@ -736,7 +780,7 @@ Supervisor:
     executable: supervisor_node
     name: supervisor
     pkg: mars_supervisor_pkg
-    file: test_file
+    file: SphereFormation_topics.yaml
 
 Other:
   Agent00:

@@ -14,6 +14,7 @@ Architecture:
     name: 'formation_controller'
     pkg: 'uned_swarm_task'
     file: 'config_path'
+    # namespace='robot_name',
 
 CPU_Monitoring: 
   enable: True

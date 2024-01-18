@@ -289,6 +289,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         controller_ai = self.InternalController_ai_edit.text()
         communication_type = self.Communication_Combo.currentText()
         communication_path = self.TaskPath_check.isChecked()
+        communication_path = True
         communication_period = self.Communication_Period_edit.text()
         communication_co = self.Communication_Co_edit.text()
         task_enable = self.TaskEnable_check.isChecked()
@@ -527,6 +528,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         f.write('\nEXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"')
         f.write('\nEXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"')
         f.write('\nEXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/k-team/khepera4/protos/Khepera4.proto"')
+        f.write('\nEXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/bitcraze/crazyflie/protos/Crazyflie.proto"')
         f.write('\n')
         f.write('\nWorldInfo {')
         f.write('\n    info [')
@@ -605,7 +607,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                         f.write('\n')
         f.close()
 
-    def BuildWebotsWorld(self,name):
+    def BuildGazeboWorld(self,name):
         f = open(name+'.world', "w")
 
         f.close()

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>909</width>
+    <width>945</width>
     <height>2081</height>
    </rect>
   </property>
@@ -1481,6 +1481,12 @@
           </item>
           <item row="15" column="0" colspan="36">
            <widget class="QTableWidget" name="Robot_Table">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>300</height>
+             </size>
+            </property>
             <column>
              <property name="text">
               <string>Robot</string>
@@ -1941,7 +1947,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>909</width>
+     <width>945</width>
      <height>22</height>
     </rect>
    </property>

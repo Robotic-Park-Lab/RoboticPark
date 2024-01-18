@@ -7,50 +7,51 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/bitcraze/crazyflie/protos/Crazyflie.proto"
 
 WorldInfo {
-  info [
-    "Robotic Park"
-  ]
-  basicTimeStep 20
+    info [
+        "Robotic Park"
+    ]
+    basicTimeStep 20
 }
 Viewpoint {
-  fieldOfView 1
-  orientation 0.08257814004826021 0.7347446275807098 -0.6732987323821825 0.7219016991902246
-  position -6.686523789804856 3.246953734178069 5.0217815008034
+    fieldOfView 1
+    orientation 0.08257814004826021 0.7347446275807098 -0.6732987323821825 0.7219016991902246
+    position -6.686523789804856 3.246953734178069 5.0217815008034
 }
 TexturedBackground {
 }
 DirectionalLight {
-  ambientIntensity 1
-  direction 6 -16 -10
-  intensity 4
+    ambientIntensity 1
+    direction 6 -16 -10
+    intensity 4
 }
 Floor {
-  translation -1 0 0
-  size 8 6
-  appearance Parquetry {
-    type "chequered"
-    IBLStrength 0
-  }
+    translation -1 0 0
+    size 8 6
+    appearance Parquetry {
+        type "chequered"
+        IBLStrength 0
+    }
 }
 Solid {
-  rotation 0 0 1 3.14159
-  children [
-    CadShape {
-      url [
-        "meshes/RoboticPark.dae"
-      ]
-    }
-  ]
-  contactMaterial ""
-  boundingObject Mesh {
-    url [
-      "meshes/RoboticPark_new.dae"
+    rotation 0 0 1 3.14159
+    children [
+        CadShape {
+        url [
+            "meshes/RoboticPark.dae"
+        ]
+        }
     ]
-  }
-  radarCrossSection 1
+    contactMaterial ""
+    boundingObject Mesh {
+         url [
+        "meshes/RoboticPark_new.dae"
+        ]
+    }
+    radarCrossSection 1
 }
 
 Crazyflie {
+  translation 1.6, 0.04 0
   name "dron01"
   controller "<extern>"
   supervisor TRUE
@@ -59,8 +60,9 @@ Crazyflie {
     }
   ]
 }
+
 Crazyflie {
-  translation 0.75 0.75 0
+  translation 0.59, 1.76 0
   name "dron02"
   controller "<extern>"
   extensionSlot [
@@ -68,8 +70,9 @@ Crazyflie {
     }
   ]
 }
+
 Crazyflie {
-  translation -0.75 0.75 0
+  translation -1.44, 1.01 0
   name "dron03"
   controller "<extern>"
   extensionSlot [
@@ -77,8 +80,9 @@ Crazyflie {
     }
   ]
 }
+
 Crazyflie {
-  translation -0.75 -0.75 0
+  translation -1.42, -1.01 0
   name "dron04"
   controller "<extern>"
   extensionSlot [
@@ -86,9 +90,40 @@ Crazyflie {
     }
   ]
 }
+
 Crazyflie {
-  translation 0.75 -0.75 0
+  translation 0.57, -1.69 0
   name "dron05"
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+  translation 0.98, -0.01 0
+  name "dron06"
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+  translation -0.46, 0.79 0
+  name "dron07"
+  controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+  translation -0.46, -0.87 0
+  name "dron08"
   controller "<extern>"
   extensionSlot [
     InertialUnit {

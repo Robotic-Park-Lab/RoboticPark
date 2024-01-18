@@ -1,0 +1,84 @@
+dron01:
+  name: dron01
+  config_path: MRS12_dron01.yaml
+  description: crazyflie
+  pose: 1.81, -0.00
+  type: virtual
+
+dron02:
+  name: dron02
+  config_path: MRS12_dron02.yaml
+  description: crazyflie
+  pose: 1.07, 1.39
+  type: virtual
+
+dron03:
+  name: dron03
+  config_path: MRS12_dron03.yaml
+  description: crazyflie
+  pose: -0.43, 1.78
+  type: virtual
+
+dron04:
+  name: dron04
+  config_path: MRS12_dron04.yaml
+  description: crazyflie
+  pose: -1.64, 0.78
+  type: virtual
+
+dron05:
+  name: dron05
+  config_path: MRS12_dron05.yaml
+  description: crazyflie
+  pose: -1.66, -0.77
+  type: virtual
+
+dron06:
+  name: dron06
+  config_path: MRS12_dron06.yaml
+  description: crazyflie
+  pose: -0.42, -1.74
+  type: virtual
+
+dron07:
+  name: dron07
+  config_path: MRS12_dron07.yaml
+  description: crazyflie
+  pose: 1.14, -1.38
+  type: virtual
+
+dron08:
+  name: dron08
+  config_path: MRS12_dron08.yaml
+  description: crazyflie
+  pose: 1.17, -0.04
+  type: virtual
+
+dron09:
+  name: dron09
+  config_path: MRS12_dron09.yaml
+  description: crazyflie
+  pose: 0.34, 1.16
+  type: virtual
+
+dron10:
+  name: dron10
+  config_path: MRS12_dron10.yaml
+  description: crazyflie
+  pose: -0.99, 0.72
+  type: virtual
+
+dron11:
+  name: dron11
+  config_path: MRS12_dron11.yaml
+  description: crazyflie
+  pose: -0.95, -0.64
+  type: virtual
+
+dron12:
+  name: dron12
+  config_path: MRS12_dron12.yaml
+  description: crazyflie
+  pose: 0.32, -1.12
+  type: virtual
+

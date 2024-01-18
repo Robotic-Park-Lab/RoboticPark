@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(909, 2081)
+        MainWindow.resize(945, 2081)
         MainWindow.setMinimumSize(QtCore.QSize(800, 640))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -564,6 +564,7 @@ class Ui_MainWindow(object):
         spacerItem37 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.Robot_Layout.addItem(spacerItem37, 4, 0, 1, 2)
         self.Robot_Table = QtWidgets.QTableWidget(self.scrollAreaWidgetContents_2)
+        self.Robot_Table.setMinimumSize(QtCore.QSize(0, 300))
         self.Robot_Table.setObjectName("Robot_Table")
         self.Robot_Table.setColumnCount(8)
         self.Robot_Table.setRowCount(0)
@@ -740,7 +741,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.scrollArea, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 909, 22))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 945, 22))
         self.menuBar.setObjectName("menuBar")
         self.menuFile = QtWidgets.QMenu(self.menuBar)
         self.menuFile.setObjectName("menuFile")

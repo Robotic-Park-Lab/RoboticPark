@@ -236,7 +236,7 @@ def get_ros2_nodes(context, *args):
     #--------------------#
     if documents['Supervisor']['enable']:
         topic_config_path = os.path.join(general_package_dir, 'resources', documents['Supervisor']['node']['file'])
-        node_list.append(Node(
+        supervisor = Node(
             package='mars_supervisor_pkg',
             executable='supervisor_node',
             name='supervisor',
@@ -244,7 +244,20 @@ def get_ros2_nodes(context, *args):
                 {'use_sim_time': False},
                 {'file': topic_config_path},
             ],
-        ))
+        )
+        
+        node_list.append(supervisor)
+
+        kill_ros2_supervisor = launch.actions.RegisterEventHandler(
+                event_handler=launch.event_handlers.OnProcessExit(
+                    target_action=supervisor,
+                    on_exit=[
+                        launch.actions.EmitEvent(event=launch.events.Shutdown())
+                    ],
+                )
+            )
+        
+        node_list.append(kill_ros2_supervisor)
 
     #---------------#
     #     Other     #

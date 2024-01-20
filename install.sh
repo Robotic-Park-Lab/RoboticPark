@@ -3,6 +3,8 @@
 echo -e "Robotic Park install\n"
 echo -e "Checking and installing dependencies to build ..."
 
+sudo apt install ros-humble-webots-ros2
+
 cd ../..
 source install/setup.bash
 

@@ -76,7 +76,7 @@ class Supervisor(Node):
                 id = '0'+str(self.j)
             else:
                 id = str(self.j)
-            self.get_logger().info('Supervisor::TEST: %s' % id)
+
 
             idx = self.publisher_id.index(self.cmd['cmd'+id]['topic'])
             if self.cmd['cmd'+id]['type'] == 'Float64':
@@ -85,6 +85,8 @@ class Supervisor(Node):
             elif self.cmd['cmd'+id]['type'] == 'String':
                 msg = String()
                 self.get_logger().info('Cmd%s: Value: %s' % (id, self.cmd['cmd'+id]['value']))
+                if self.cmd['cmd'+id]['value'] == 'end':
+                    self.destroy_node()
             
             msg.data = self.cmd['cmd'+id]['value']
             self.j = ((self.j+1) % len(self.cmd))

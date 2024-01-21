@@ -118,7 +118,7 @@ for i=1:length(robots)
     dataset.(robots{i}).t_s = dataset.(robots{i}).t_s - dataset.(robots{i}).global_error.Timestamp(1);
 
     % J2 Eq. (11)
-    dataset.(robots{i}).J2 = 0.01 * dataset.(robots{i}).n_m + 0.1 * dataset.(robots{i}).n_u + 0.3 * dataset.(robots{i}).t_s + 0.1 * dataset.(robots{i}).iae + 0.05 * dataset.(robots{i}).itae;
+    dataset.(robots{i}).J2 = 0.02 * dataset.(robots{i}).n_m + 0.1 * dataset.(robots{i}).n_u + 0.3 * dataset.(robots{i}).t_s + 0.1 * dataset.(robots{i}).iae + 0.01 * dataset.(robots{i}).itae;
     disp(robots{i})
     results = ['n_m=',num2str(dataset.(robots{i}).n_m),' n_u=',num2str(dataset.(robots{i}).n_u), ' t_s=',num2str(dataset.(robots{i}).t_s), ' IAE=',num2str(dataset.(robots{i}).iae), ' ITAE=',num2str(dataset.(robots{i}).itae)];
     disp(results)

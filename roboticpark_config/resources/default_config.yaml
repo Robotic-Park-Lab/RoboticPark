@@ -48,9 +48,9 @@ Interface:
 
 Data_Logging: 
   enable: True
-  all: True
+  all: False
   name: date
-  topics: /ros2_cpu /cpu_stats
+  topics: /ros2_cpu /cpu_stats /dron01/local_pose /dron01/global_error /dron01/dron02/data /dron01/dron02/error /dron01/dron02/iae /dron01/dron08/data /dron01/dron08/error /dron01/dron08/iae /dron01/dron09/data /dron01/dron09/error /dron01/dron09/iae /dron01/origin/data /dron01/origin/error /dron01/origin/iae /dron02/local_pose /dron02/global_error /dron02/dron01/data /dron02/dron01/error /dron02/dron01/iae /dron02/dron03/data /dron02/dron03/error /dron02/dron03/iae /dron02/dron09/data /dron02/dron09/error /dron02/dron09/iae /dron02/dron10/data /dron02/dron10/error /dron02/dron10/iae /dron02/origin/data /dron02/origin/error /dron02/origin/iae /dron03/local_pose /dron03/global_error /dron03/dron02/data /dron03/dron02/error /dron03/dron02/iae /dron03/dron04/data /dron03/dron04/error /dron03/dron04/iae /dron03/dron10/data /dron03/dron10/error /dron03/dron10/iae /dron03/dron11/data /dron03/dron11/error /dron03/dron11/iae /dron03/origin/data /dron03/origin/error /dron03/origin/iae /dron04/local_pose /dron04/global_error /dron04/dron03/data /dron04/dron03/error /dron04/dron03/iae /dron04/dron05/data /dron04/dron05/error /dron04/dron05/iae /dron04/dron11/data /dron04/dron11/error /dron04/dron11/iae /dron04/dron12/data /dron04/dron12/error /dron04/dron12/iae /dron04/origin/data /dron04/origin/error /dron04/origin/iae /dron05/local_pose /dron05/global_error /dron05/dron04/data /dron05/dron04/error /dron05/dron04/iae /dron05/dron06/data /dron05/dron06/error /dron05/dron06/iae /dron05/dron12/data /dron05/dron12/error /dron05/dron12/iae /dron05/origin/data /dron05/origin/error /dron05/origin/iae /dron06/local_pose /dron06/global_error /dron06/dron05/data /dron06/dron05/error /dron06/dron05/iae /dron06/dron07/data /dron06/dron07/error /dron06/dron07/iae /dron06/dron12/data /dron06/dron12/error /dron06/dron12/iae /dron06/dron13/data /dron06/dron13/error /dron06/dron13/iae /dron06/origin/data /dron06/origin/error /dron06/origin/iae /dron07/local_pose /dron07/global_error /dron07/dron06/data /dron07/dron06/error /dron07/dron06/iae /dron07/dron08/data /dron07/dron08/error /dron07/dron08/iae /dron07/dron13/data /dron07/dron13/error /dron07/dron13/iae /dron07/dron14/data /dron07/dron14/error /dron07/dron14/iae /dron07/origin/data /dron07/origin/error /dron07/origin/iae /dron08/local_pose /dron08/global_error /dron08/dron01/data /dron08/dron01/error /dron08/dron01/iae /dron08/dron07/data /dron08/dron07/error /dron08/dron07/iae /dron08/dron09/data /dron08/dron09/error /dron08/dron09/iae /dron08/dron14/data /dron08/dron14/error /dron08/dron14/iae /dron08/origin/data /dron08/origin/error /dron08/origin/iae /dron09/local_pose /dron09/global_error /dron09/dron01/data /dron09/dron01/error /dron09/dron01/iae /dron09/dron02/data /dron09/dron02/error /dron09/dron02/iae /dron09/dron08/data /dron09/dron08/error /dron09/dron08/iae /dron09/dron10/data /dron09/dron10/error /dron09/dron10/iae /dron09/dron14/data /dron09/dron14/error /dron09/dron14/iae /dron09/dron15/data /dron09/dron15/error /dron09/dron15/iae /dron09/origin/data /dron09/origin/error /dron09/origin/iae /dron10/local_pose /dron10/global_error /dron10/dron02/data /dron10/dron02/error /dron10/dron02/iae /dron10/dron03/data /dron10/dron03/error /dron10/dron03/iae /dron10/dron09/data /dron10/dron09/error /dron10/dron09/iae /dron10/dron11/data /dron10/dron11/error /dron10/dron11/iae /dron10/dron15/data /dron10/dron15/error /dron10/dron15/iae /dron10/origin/data /dron10/origin/error /dron10/origin/iae /dron11/local_pose /dron11/global_error /dron11/dron03/data /dron11/dron03/error /dron11/dron03/iae /dron11/dron04/data /dron11/dron04/error /dron11/dron04/iae /dron11/dron10/data /dron11/dron10/error /dron11/dron10/iae /dron11/dron12/data /dron11/dron12/error /dron11/dron12/iae /dron11/dron15/data /dron11/dron15/error /dron11/dron15/iae /dron11/origin/data /dron11/origin/error /dron11/origin/iae /dron12/local_pose /dron12/global_error /dron12/dron04/data /dron12/dron04/error /dron12/dron04/iae /dron12/dron05/data /dron12/dron05/error /dron12/dron05/iae /dron12/dron06/data /dron12/dron06/error /dron12/dron06/iae /dron12/dron11/data /dron12/dron11/error /dron12/dron11/iae /dron12/dron13/data /dron12/dron13/error /dron12/dron13/iae /dron12/dron15/data /dron12/dron15/error /dron12/dron15/iae /dron12/origin/data /dron12/origin/error /dron12/origin/iae /dron13/local_pose /dron13/global_error /dron13/dron06/data /dron13/dron06/error /dron13/dron06/iae /dron13/dron07/data /dron13/dron07/error /dron13/dron07/iae /dron13/dron12/data /dron13/dron12/error /dron13/dron12/iae /dron13/dron14/data /dron13/dron14/error /dron13/dron14/iae /dron13/dron15/data /dron13/dron15/error /dron13/dron15/iae /dron13/origin/data /dron13/origin/error /dron13/origin/iae /dron14/local_pose /dron14/global_error /dron14/dron07/data /dron14/dron07/error /dron14/dron07/iae /dron14/dron08/data /dron14/dron08/error /dron14/dron08/iae /dron14/dron09/data /dron14/dron09/error /dron14/dron09/iae /dron14/dron13/data /dron14/dron13/error /dron14/dron13/iae /dron14/dron15/data /dron14/dron15/error /dron14/dron15/iae /dron14/origin/data /dron14/origin/error /dron14/origin/iae /dron15/local_pose /dron15/global_error /dron15/dron09/data /dron15/dron09/error /dron15/dron09/iae /dron15/dron10/data /dron15/dron10/error /dron15/dron10/iae /dron15/dron11/data /dron15/dron11/error /dron15/dron11/iae /dron15/dron12/data /dron15/dron12/error /dron15/dron12/iae /dron15/dron13/data /dron15/dron13/error /dron15/dron13/iae /dron15/dron14/data /dron15/dron14/error /dron15/dron14/iae /dron15/origin/data /dron15/origin/error /dron15/origin/iae
 
 Robots:
   Robot01:
@@ -58,7 +58,7 @@ Robots:
     name: dron01
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.23, 0.04, 0.70
+    pose: 1.75, 0.01, 0.70
     uri: radio://0/80/2M/E7E7E7E701
     controller:
       type: pid
@@ -121,7 +121,7 @@ Robots:
     name: dron02
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.81, 0.89, 0.70
+    pose: 1.31, 1.29, 0.70
     uri: radio://0/80/2M/E7E7E7E702
     controller:
       type: pid
@@ -184,7 +184,7 @@ Robots:
     name: dron03
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.01, 1.16, 0.70
+    pose: -0.03, 1.79, 0.70
     uri: radio://0/80/2M/E7E7E7E703
     controller:
       type: pid
@@ -247,7 +247,7 @@ Robots:
     name: dron04
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.87, 0.85, 0.70
+    pose: -1.28, 1.32, 0.70
     uri: radio://0/80/2M/E7E7E7E704
     controller:
       type: pid
@@ -310,7 +310,7 @@ Robots:
     name: dron05
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.15, 0.05, 0.70
+    pose: -1.83, 0.04, 0.70
     uri: radio://0/80/2M/E7E7E7E705
     controller:
       type: pid
@@ -373,7 +373,7 @@ Robots:
     name: dron06
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.88, -0.80, 0.70
+    pose: -1.26, -1.29, 0.70
     uri: radio://0/80/2M/E7E7E7E706
     controller:
       type: pid
@@ -436,7 +436,7 @@ Robots:
     name: dron07
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.05, -1.20, 0.70
+    pose: -0.03, -1.81, 0.70
     uri: radio://0/80/2M/E7E7E7E707
     controller:
       type: pid
@@ -499,7 +499,7 @@ Robots:
     name: dron08
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.88, -0.88, 0.70
+    pose: 1.27, -1.31, 0.70
     uri: radio://0/80/2M/E7E7E7E708
     controller:
       type: pid
@@ -562,7 +562,7 @@ Robots:
     name: dron09
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.87, 0.04, 0.70
+    pose: 1.33, -0.03, 0.70
     uri: radio://0/80/2M/E7E7E7E709
     controller:
       type: pid
@@ -625,7 +625,7 @@ Robots:
     name: dron10
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.47, 0.81, 0.70
+    pose: 0.65, 1.15, 0.70
     uri: radio://0/80/2M/E7E7E7E710
     controller:
       type: pid
@@ -688,7 +688,7 @@ Robots:
     name: dron11
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.42, 0.71, 0.70
+    pose: -0.68, 1.12, 0.70
     uri: radio://0/80/2M/E7E7E7E711
     controller:
       type: pid
@@ -751,7 +751,7 @@ Robots:
     name: dron12
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.84, 0.04, 0.70
+    pose: -1.31, -0.02, 0.70
     uri: radio://0/80/2M/E7E7E7E712
     controller:
       type: pid
@@ -814,7 +814,7 @@ Robots:
     name: dron13
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.42, -0.73, 0.70
+    pose: -0.63, -1.09, 0.70
     uri: radio://0/80/2M/E7E7E7E713
     controller:
       type: pid
@@ -877,7 +877,7 @@ Robots:
     name: dron14
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.46, -0.77, 0.70
+    pose: 0.68, -1.16, 0.70
     uri: radio://0/80/2M/E7E7E7E714
     controller:
       type: pid
@@ -940,7 +940,7 @@ Robots:
     name: dron15
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.02, -0.03, 0.70
+    pose: 0.01, -0.04, 0.70
     uri: radio://0/80/2M/E7E7E7E715
     controller:
       type: pid

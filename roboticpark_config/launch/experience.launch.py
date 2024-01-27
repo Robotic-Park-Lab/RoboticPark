@@ -3,6 +3,7 @@ import pathlib
 import launch
 import yaml
 import datetime
+import shutil
 from yaml.loader import SafeLoader
 from launch_ros.actions import Node
 from launch import LaunchDescription
@@ -243,6 +244,7 @@ def get_ros2_nodes(context, *args):
             parameters=[
                 {'use_sim_time': False},
                 {'file': topic_config_path},
+                {'config': config_path},
             ],
         )
         

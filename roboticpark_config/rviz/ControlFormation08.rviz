@@ -1,11 +1,9 @@
-
 Panels:
   - Class: rviz_common/Displays
     Help Height: 78
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Dron011/Status1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz_common/Selection
@@ -50,7 +48,7 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/RoboticPark_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/RoboticPark_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -81,7 +79,7 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -159,7 +157,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron01-path
+      Name: dron01-path
       Offset:
         X: 0
         Y: 0
@@ -177,62 +175,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron01/path
       Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron01-dron02
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron01/dron02/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron01-dron05
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron01/dron05/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron01-dron06
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron01/dron06/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron01-origin
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron01/origin/marker
-      Value: true
+
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -310,7 +257,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron02-path
+      Name: dron02-path
       Offset:
         X: 0
         Y: 0
@@ -328,75 +275,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron02/path
       Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron02-dron01
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron02/dron01/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron02-dron03
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron02/dron03/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron02-dron06
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron02/dron06/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron02-dron07
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron02/dron07/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron02-origin
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron02/origin/marker
-      Value: true
+
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -474,7 +357,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron03-path
+      Name: dron03-path
       Offset:
         X: 0
         Y: 0
@@ -492,75 +375,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron03/path
       Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron03-dron02
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron03/dron02/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron03-dron04
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron03/dron04/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron03-dron07
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron03/dron07/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron03-dron08
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron03/dron08/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron03-origin
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron03/origin/marker
-      Value: true
+
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -638,7 +457,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron04-path
+      Name: dron04-path
       Offset:
         X: 0
         Y: 0
@@ -656,62 +475,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron04/path
       Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron04-dron03
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron04/dron03/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron04-dron05
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron04/dron05/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron04-dron08
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron04/dron08/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron04-origin
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron04/origin/marker
-      Value: true
+
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -789,7 +557,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron05-path
+      Name: dron05-path
       Offset:
         X: 0
         Y: 0
@@ -807,75 +575,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron05/path
       Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron05-dron01
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron05/dron01/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron05-dron04
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron05/dron04/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron05-dron06
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron05/dron06/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron05-dron08
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron05/dron08/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron05-origin
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron05/origin/marker
-      Value: true
+
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -953,7 +657,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron06-path
+      Name: dron06-path
       Offset:
         X: 0
         Y: 0
@@ -971,88 +675,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron06/path
       Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron06-dron01
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron06/dron01/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron06-dron02
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron06/dron02/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron06-dron05
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron06/dron05/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron06-dron07
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron06/dron07/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron06-dron08
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron06/dron08/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron06-origin
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron06/origin/marker
-      Value: true
+
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -1130,7 +757,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron07-path
+      Name: dron07-path
       Offset:
         X: 0
         Y: 0
@@ -1148,75 +775,11 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron07/path
       Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron07-dron02
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron07/dron02/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron07-dron03
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron07/dron03/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron07-dron06
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron07/dron06/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron07-dron08
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron07/dron08/marker
-      Value: true
-    - Class: rviz_default_plugins/Marker
-      Enabled: true
-      Name: dron07-origin
-      Namespaces:
-        { }
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /dron07/origin/marker
-      Value: true
+
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
-      Description File: /home/kiko/roboticpark_ws/src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
+      Description File: src/uned_crazyflie_ros_pkg/uned_crazyflie_config/model/urdf/crazyflie_simple.urdf
       Description Source: File
       Description Topic:
         Depth: 5
@@ -1294,7 +857,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Dron08-path
+      Name: dron08-path
       Offset:
         X: 0
         Y: 0
@@ -1312,9 +875,10 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /dron08/path
       Value: true
+
     - Class: rviz_default_plugins/Marker
       Enabled: true
-      Name: dron08-dron03
+      Name: dron01-dron02
       Namespaces:
         { }
       Topic:
@@ -1323,11 +887,11 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /dron08/dron03/marker
+        Value: /dron01/dron02/marker
       Value: true
     - Class: rviz_default_plugins/Marker
       Enabled: true
-      Name: dron08-dron04
+      Name: dron01-dron05
       Namespaces:
         { }
       Topic:
@@ -1336,11 +900,11 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /dron08/dron04/marker
+        Value: /dron01/dron05/marker
       Value: true
     - Class: rviz_default_plugins/Marker
       Enabled: true
-      Name: dron08-dron05
+      Name: dron01-dron06
       Namespaces:
         { }
       Topic:
@@ -1349,11 +913,11 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /dron08/dron05/marker
+        Value: /dron01/dron06/marker
       Value: true
     - Class: rviz_default_plugins/Marker
       Enabled: true
-      Name: dron08-dron06
+      Name: dron02-dron03
       Namespaces:
         { }
       Topic:
@@ -1362,11 +926,11 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /dron08/dron06/marker
+        Value: /dron02/dron03/marker
       Value: true
     - Class: rviz_default_plugins/Marker
       Enabled: true
-      Name: dron08-dron07
+      Name: dron02-dron06
       Namespaces:
         { }
       Topic:
@@ -1375,11 +939,11 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /dron08/dron07/marker
+        Value: /dron02/dron06/marker
       Value: true
     - Class: rviz_default_plugins/Marker
       Enabled: true
-      Name: dron08-origin
+      Name: dron02-dron07
       Namespaces:
         { }
       Topic:
@@ -1388,7 +952,137 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /dron08/origin/marker
+        Value: /dron02/dron07/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron03-dron04
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron03/dron04/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron03-dron07
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron03/dron07/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron03-dron08
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron03/dron08/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron04-dron05
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron04/dron05/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron04-dron08
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron04/dron08/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron05-dron06
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron05/dron06/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron05-dron08
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron05/dron08/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron06-dron07
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron06/dron07/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron06-dron08
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron06/dron08/marker
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: dron07-dron08
+      Namespaces:
+        { }
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dron07/dron08/marker
       Value: true
   Enabled: true
   Global Options:
@@ -1443,9 +1137,9 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.08397747576236725
-        Y: -0.17901606857776642
-        Z: 0.5602047443389893
+        X: -0.083
+        Y: -0.179
+        Z: 0.560
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false

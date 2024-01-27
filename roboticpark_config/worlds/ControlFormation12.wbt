@@ -2,23 +2,23 @@
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/k-team/khepera4/protos/Khepera4.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/bitcraze/crazyflie/protos/Crazyflie.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
 
 WorldInfo {
-    info [
-        "Robotic Park"
-    ]
-    basicTimeStep 20
+	info [
+		 "Robotic Park World. Formation Control Benchmark. Case N:12 and R:1.0"
+	]
+	basicTimeStep 20
 }
 Viewpoint {
-    fieldOfView 1
-    orientation 0.08257814004826021 0.7347446275807098 -0.6732987323821825 0.7219016991902246
-    position -6.686523789804856 3.246953734178069 5.0217815008034
+	fieldOfView 1
+	orientation 0.08257814004826021 0.7347446275807098 -0.6732987323821825 0.7219016991902246
+	position -6.686523789804856 3.246953734178069 5.0217815008034
 }
-TexturedBackground {
-}
+TexturedBackground {}
+TexturedBackgroundLight {}
 DirectionalLight {
     ambientIntensity 1
     direction 6 -16 -10
@@ -51,46 +51,123 @@ Solid {
 }
 
 Crazyflie {
-	translation 0.35 1.12 0.015
+	translation 1.49 -0.02 0.015
+	name "dron01"
+	controller "<extern>"
+  supervisor TRUE
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.91 1.10 0.015
+	name "dron02"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.30 1.38 0.015
+	name "dron03"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -1.30 0.64 0.015
+	name "dron04"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -1.26 -0.58 0.015
+	name "dron05"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.32 -1.44 0.015
+	name "dron06"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.86 -1.15 0.015
+	name "dron07"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.97 -0.02 0.015
+	name "dron08"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.32 0.87 0.015
 	name "dron09"
 	controller "<extern>"
-  	supervisor TRUE
-  	extensionSlot [
-    	InertialUnit {
-    	}
-  	]
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
 }
 
 Crazyflie {
-	translation -0.99 0.65 0.015
+	translation -0.72 0.54 0.015
 	name "dron10"
 	controller "<extern>"
-  	supervisor TRUE
-  	extensionSlot [
-    	InertialUnit {
-    	}
-  	]
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
 }
 
 Crazyflie {
-	translation -0.95 -0.66 0.015
+	translation -0.79 -0.58 0.015
 	name "dron11"
 	controller "<extern>"
-  	supervisor TRUE
-  	extensionSlot [
-    	InertialUnit {
-    	}
-  	]
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
 }
 
 Crazyflie {
-	translation 0.41 -1.15 0.015
+	translation 0.30 -0.90 0.015
 	name "dron12"
 	controller "<extern>"
-  	supervisor TRUE
-  	extensionSlot [
-    	InertialUnit {
-    	}
-  	]
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
 }
 

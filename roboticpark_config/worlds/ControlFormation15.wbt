@@ -8,7 +8,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 
 WorldInfo {
 	info [
-		 "Robotic Park World. Formation Control Benchmark. Case N:8 and R:1.0"
+		 "Robotic Park World. Formation Control Benchmark. Case N:15 and R:1.0"
 	]
 	basicTimeStep 20
 }
@@ -51,7 +51,7 @@ Solid {
 }
 
 Crazyflie {
-	translation 1.6 0.5 0.015
+	translation 1.44 -0.04 0.015
 	name "dron01"
 	controller "<extern>"
   supervisor TRUE
@@ -62,7 +62,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation 0.7 1.6 0.015
+	translation 0.99 1.06 0.015
 	name "dron02"
 	controller "<extern>"
   extensionSlot [
@@ -72,7 +72,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation -1.6 1.0 0.015
+	translation -0.03 1.47 0.015
 	name "dron03"
 	controller "<extern>"
   extensionSlot [
@@ -82,7 +82,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation -1.6 -1.20 0.015
+	translation -1.01 1.07 0.015
 	name "dron04"
 	controller "<extern>"
   extensionSlot [
@@ -92,7 +92,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation 0.9 -1.6 0.015
+	translation -1.48 -0.01 0.015
 	name "dron05"
 	controller "<extern>"
   extensionSlot [
@@ -102,7 +102,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation 1.2 -0.41 0.015
+	translation -1.06 -0.97 0.015
 	name "dron06"
 	controller "<extern>"
   extensionSlot [
@@ -112,7 +112,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation -0.9 1.23 0.015
+	translation -0.05 -1.41 0.015
 	name "dron07"
 	controller "<extern>"
   extensionSlot [
@@ -122,8 +122,78 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation -0.0 -0.0 0.015
+	translation 1.05 -0.98 0.015
 	name "dron08"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 1.01 -0.01 0.015
+	name "dron09"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.50 0.94 0.015
+	name "dron10"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.53 0.95 0.015
+	name "dron11"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -1.09 -0.02 0.015
+	name "dron12"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.56 -0.95 0.015
+	name "dron13"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.56 -0.90 0.015
+	name "dron14"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.00 -0.04 0.015
+	name "dron15"
 	controller "<extern>"
   extensionSlot [
     InertialUnit {

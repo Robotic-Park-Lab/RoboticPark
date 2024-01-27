@@ -8,6 +8,8 @@ from threading import Timer
 import numpy as np
 import random
 from math import atan2, cos, sin, sqrt, pi
+import shutil
+import datetime
 
 from rclpy.node import Node
 from std_msgs.msg import String, Float64MultiArray, UInt16, UInt16MultiArray, Float64
@@ -17,6 +19,7 @@ class Supervisor(Node):
         super().__init__('supervisor_node')
         # Params
         self.declare_parameter('file', 'path')
+        self.declare_parameter('config', 'path')
 
         # Publisher
         self.publisher_list = []
@@ -32,6 +35,7 @@ class Supervisor(Node):
         self.get_logger().info('Supervisor::inicialize() ok.')
 
         cmd_file = self.get_parameter('file').get_parameter_value().string_value
+        config_path = self.get_parameter('config').get_parameter_value().string_value
 
         with open(cmd_file, 'r') as file:
                 self.cmd = yaml.safe_load(file)
@@ -68,6 +72,10 @@ class Supervisor(Node):
         self.timer_task = self.create_timer(0.1, self.iterate)
 
         self.get_logger().info('Supervisor::inicialized.')
+        e = datetime.datetime.now()
+        target = os.getcwd() + "/" + e.strftime("%Y-%m-%d-%H-%M")+ "/config.yaml"
+        # os.mkdir(e.strftime("%Y-%m-%d-%H-%M"))
+        shutil.copy(config_path, target)
 
     def iterate(self):
         if self.ready:

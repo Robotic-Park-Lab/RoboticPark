@@ -30,7 +30,7 @@ var0="$(ros2 pkg prefix uned_crazyflie_config)"
 
 if [ -z "$var0" ]; then
     echo -e "\tInstalling ..."
-    git clone -b humble-dev https://github.com/Robotic-Park-Lab/uned_crazyflie_ros_pkg.git
+    git clone -b benchmark https://github.com/Robotic-Park-Lab/uned_crazyflie_ros_pkg.git
 else
     echo -e "\tInstalled."
 fi
@@ -52,7 +52,7 @@ var0="$(ros2 pkg prefix uned_swarm_config)"
 
 if [ -z "$var0" ]; then
     echo -e "\tInstalling ..."
-    git clone -b humble-dev https://github.com/Robotic-Park-Lab/uned_swarm_ros_pkg.git
+    git clone -b benchmark https://github.com/Robotic-Park-Lab/uned_swarm_ros_pkg.git
 else
     echo -e "\tInstalled."
 fi
@@ -63,7 +63,7 @@ var0="$(ros2 pkg prefix uned_kheperaiv_config)"
 
 if [ -z "$var0" ]; then
     echo -e "\tInstalling ..."
-    git clone -b humble-dev https://github.com/Robotic-Park-Lab/uned_kheperaIV_ros_pkg.git
+    git clone -b benchmark https://github.com/Robotic-Park-Lab/uned_kheperaIV_ros_pkg.git
 else
     echo -e "\tInstalled."
 fi

@@ -38,7 +38,7 @@ Interface:
       executable: rqt_gui
       name: interface
       pkg: rqt_gui
-    file: ControlFormation12.perspective
+    file: ControlFormation15.perspective
   own: 
     enable: False
     node:

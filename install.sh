@@ -10,6 +10,20 @@ source install/setup.bash
 
 cd src
 
+echo -e "\nWebots:"
+var0="$(apt list --installed | grep webots/now)"
+
+if [ -z "$var0" ]; then
+    sudo mkdir -p /etc/apt/keyrings
+    cd /etc/apt/keyrings
+    sudo wget -q https://cyberbotics.com/Cyberbotics.asc
+    echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/Cyberbotics.asc] https://cyberbotics.com/debian binary-amd64/" | sudo tee /etc/apt/sources.list.d/Cyberbotics.list
+    sudo apt update
+    sudo apt install webots
+else
+    echo -e "\tInstalled."
+fi
+
 echo -e "\nCrazyflie package:"
 
 var0="$(ros2 pkg prefix uned_crazyflie_config)"

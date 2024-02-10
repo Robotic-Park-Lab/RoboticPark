@@ -2,7 +2,7 @@
 Operation:
   mode: 'virtual'     # physical, virtual, hybrid
   tool: 'Webots'              # Gazebo, Webots
-  world: '' # 'default_RoboticPark.wbt' # default_RoboticPark.wbt, default_RoboticPark.world
+  world: 'ControlFormation15.wbt' # default_RoboticPark.wbt, default_RoboticPark.world
 
 Experience:
   type: 'formation'           # identification, formation, navigation
@@ -32,7 +32,7 @@ Interface:
       executable: rviz2
       name: rviz2
       pkg: rviz2
-    file: 
+    file: ControlFormation15.rviz
   
   rqt: 
     enable: True
@@ -40,7 +40,7 @@ Interface:
       executable: rqt_gui
       name: interface
       pkg: rqt_gui
-    file: 
+    file: ControlFormation15.perspective
 
   own: 
     enable: False
@@ -50,7 +50,7 @@ Interface:
     file:
 
 Data_Logging: 
-  enable: True
+  enable: False
   all: False
   name: 'date'
   topics: '/dron01/local_pose /dron02/local_pose /dron03/local_pose /dron04/local_pose /dron05/local_pose /dron06/local_pose /dron07/local_pose /dron08/local_pose /dron09/local_pose /dron10/local_pose /dron11/local_pose /dron12/local_pose /dron13/local_pose /dron14/local_pose /dron15/local_pose /ros2_cpu /cpu_stats'
@@ -80,10 +80,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -125,10 +143,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -170,10 +206,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -215,10 +269,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -260,10 +332,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -305,10 +395,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -350,10 +458,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -395,10 +521,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -440,10 +584,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -485,10 +647,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -530,10 +710,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -575,10 +773,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -620,10 +836,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -665,10 +899,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -710,10 +962,28 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
-    task: 
+    local_twist:
       enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
       T: 100
       Onboard: False
       controller:
@@ -737,7 +1007,7 @@ Supervisor:
     executable: supervisor_node
     name: supervisor
     pkg: mars_supervisor_pkg
-    file: test_file
+    file: default_topics.yaml
 
 Other:
   Agent00:

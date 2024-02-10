@@ -17,7 +17,7 @@ from webots_ros2_driver.webots_controller import WebotsController
 
 
 def get_ros2_nodes(context, *args):
-    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
+    use_sim_time = LaunchConfiguration('use_sim_time', default=False)
     distributed_architecture = False
     # ExecuteProcess(cmd=['ros2', 'bag', 'record', '-a', '-o', e.strftime("%Y-%m-%d-%H-%M"), ], output='screen'),
     node_list = []
@@ -141,9 +141,11 @@ def get_ros2_nodes(context, *args):
                 executable='swarm_driver',
                 name='swarm',
                 output='screen',
+                shell=True,
+                emulate_tty=True,
                 parameters=[
                     {'config': config_path},
-                    {'use_sim_time': use_sim_time},
+                    # {'use_sim_time': use_sim_time},
                     {'robots': physical_crazyflie_list}
                 ]
             )
@@ -169,6 +171,7 @@ def get_ros2_nodes(context, *args):
     #--------------------#
     if documents['Interface']['enable']:
         if documents['Interface']['rqt']['enable']:
+            rqt_config_path = os.path.join(general_package_dir, 'rqt', documents['Interface']['rqt']['file'])
             node_list.append(Node(
                 package=documents['Interface']['rqt']['node']['pkg'],
                 executable=documents['Interface']['rqt']['node']['executable'],
@@ -176,6 +179,7 @@ def get_ros2_nodes(context, *args):
                 parameters=[
                     {'use_sim_time': use_sim_time},
                 ],
+                arguments=['--perspective-file', rqt_config_path],
             ))
         if documents['Interface']['rviz2']['enable']:
             rviz_config_path = os.path.join(general_package_dir, 'rviz', documents['Interface']['rviz2']['file'])
@@ -242,14 +246,14 @@ def get_ros2_nodes(context, *args):
             executable='supervisor_node',
             name='supervisor',
             parameters=[
-                {'use_sim_time': False},
+                # {'use_sim_time': use_sim_time},
                 {'file': topic_config_path},
                 {'config': config_path},
             ],
         )
         
         node_list.append(supervisor)
-
+        '''
         kill_ros2_supervisor = launch.actions.RegisterEventHandler(
                 event_handler=launch.event_handlers.OnProcessExit(
                     target_action=supervisor,
@@ -260,11 +264,25 @@ def get_ros2_nodes(context, *args):
             )
         
         node_list.append(kill_ros2_supervisor)
-
+        '''
     #---------------#
     #     Other     #
     #---------------#    
     print('TO-DO: Physical nodes: Positioning System')
+    
+    for agent in documents['Other']:
+        if documents['Other'][agent]['enable']:
+            config_node_path = os.path.join(general_package_dir, 'resources', documents['Other'][agent]['file'])
+            node = Node(
+                package=documents['Other'][agent]['pkg'],
+                executable=documents['Other'][agent]['executable'],
+                name=documents['Other'][agent]['name'],
+                parameters=[
+                    # {'use_sim_time': use_sim_time},
+                    {'file': config_node_path},
+                ],
+            )
+            node_list.append(node)
 
     return node_list
 

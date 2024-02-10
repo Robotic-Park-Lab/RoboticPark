@@ -1,9 +1,9 @@
 # Default Robotic Park Formation Control Benchmark
 
 Operation:
-  mode: physical     # physical, virtual, hybrid
+  mode: hybrid     # physical, virtual, hybrid
   tool: Webots              # Gazebo, Webots
-  world: empty.wbt 
+  world: ControlFormation08_hybrid.wbt 
 
 Experience:
   type: formation           # identification, formation, navigation
@@ -54,11 +54,11 @@ Data_Logging:
 
 Robots:
   Robot01:
-    type: physical
+    type: virtual
     name: dron01
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.71, 0.04, 0.70
+    pose: 1.6, 0.5, 0.70
     uri: radio://0/80/2M/E7E7E7E701
     controller:
       type: pid
@@ -81,15 +81,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False
@@ -121,7 +121,7 @@ Robots:
     name: dron02
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.48, 1.64, 0.70
+    pose: 0.7, 1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E702
     controller:
       type: pid
@@ -144,15 +144,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False
@@ -184,7 +184,7 @@ Robots:
     name: dron03
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.35, 0.95, 0.70
+    pose: -1.6, 1.0, 0.70
     uri: radio://0/80/2M/E7E7E7E703
     controller:
       type: pid
@@ -207,15 +207,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False
@@ -247,7 +247,7 @@ Robots:
     name: dron04
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.38, -0.98, 0.70
+    pose: -1.6, -1.2, 0.70
     uri: radio://0/80/2M/E7E7E7E704
     controller:
       type: pid
@@ -270,15 +270,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False
@@ -310,7 +310,7 @@ Robots:
     name: dron05
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.56, -1.55, 0.70
+    pose: 0.9, -1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E705
     controller:
       type: pid
@@ -333,15 +333,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False
@@ -373,7 +373,7 @@ Robots:
     name: dron06
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.86, 0.05, 0.70
+    pose: 1.6, -0.8, 0.70
     uri: radio://0/80/2M/E7E7E7E706
     controller:
       type: pid
@@ -396,15 +396,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False
@@ -436,7 +436,7 @@ Robots:
     name: dron07
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.40, 0.77, 0.70
+    pose: -0.9, 1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E707
     controller:
       type: pid
@@ -459,15 +459,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False
@@ -499,7 +499,7 @@ Robots:
     name: dron08
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.41, -0.81, 0.70
+    pose: -0.2, -1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E708
     controller:
       type: pid
@@ -522,15 +522,15 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
+      enable: True
       T: 50
     data:
       enable: False

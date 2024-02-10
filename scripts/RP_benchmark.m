@@ -91,7 +91,7 @@ fprintf(fid, '    node: \n');
 fprintf(fid, '      executable: rqt_gui\n');
 fprintf(fid, '      name: interface\n');
 fprintf(fid, '      pkg: rqt_gui\n');
-fprintf(fid, '    file: \n');
+fprintf(fid, '    file: default.perspective\n');
 fprintf(fid, '  own: \n');
 fprintf(fid, '    enable: False\n');
 fprintf(fid, '    node:\n');

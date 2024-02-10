@@ -37,6 +37,9 @@ class Supervisor(Node):
         cmd_file = self.get_parameter('file').get_parameter_value().string_value
         config_path = self.get_parameter('config').get_parameter_value().string_value
 
+        with open(config_path, 'r') as file:
+                self.config = yaml.safe_load(file)
+
         with open(cmd_file, 'r') as file:
                 self.cmd = yaml.safe_load(file)
         
@@ -71,11 +74,12 @@ class Supervisor(Node):
 
         self.timer_task = self.create_timer(0.1, self.iterate)
 
+        if self.config['Data_Logging']['enable']:
+            e = datetime.datetime.now()
+            target = os.getcwd() + "/" + e.strftime("%Y-%m-%d-%H-%M")+ "/config.yaml"
+            # os.mkdir(e.strftime("%Y-%m-%d-%H-%M"))
+            shutil.copy(config_path, target)
         self.get_logger().info('Supervisor::inicialized.')
-        e = datetime.datetime.now()
-        target = os.getcwd() + "/" + e.strftime("%Y-%m-%d-%H-%M")+ "/config.yaml"
-        # os.mkdir(e.strftime("%Y-%m-%d-%H-%M"))
-        shutil.copy(config_path, target)
 
     def iterate(self):
         if self.ready:

@@ -1,0 +1,236 @@
+{
+  "keys": {},
+  "groups": {
+    "mainwindow": {
+      "keys": {
+        "geometry": {
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb00030000000001ad0000003e00000710000003a4000001ad0000006300000710000003a400000001000000000780000001ad0000006300000710000003a4')",
+          "type": "repr(QByteArray.hex)",
+          "pretty-print": "       >       c            c    "
+        },
+        "state": {
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd00000001000000030000056400000316fc0100000002fc000000000000024e0000023d00fffffffc0200000003fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c006900730068006500720057006900640067006500740100000016000001910000008c00fffffffb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0031005f005f0049006d006100670065005600690065007700570069006400670065007401000001ad0000017f000000aa00fffffffb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0033005f005f00440061007400610050006c006f007400570069006400670065007401000001900000019c0000000000000000fc00000254000003100000014300fffffffc0200000002fb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0031005f005f00440061007400610050006c006f007400570069006400670065007401000000160000018c0000008900fffffffb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0032005f005f00440061007400610050006c006f007400570069006400670065007401000001a8000001840000008900ffffff000005640000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "type": "repr(QByteArray.hex)",
+          "pretty-print": "                   N =                                                                                                                                                                             Brqt_plot__Plot__1__DataPlotWidget          Brqt_plot__Plot__2__DataPlotWidget                            6MinimizedDockWidgetsToolbar        "
+        }
+      },
+      "groups": {
+        "toolbar_areas": {
+          "keys": {
+            "MinimizedDockWidgetsToolbar": {
+              "repr": "8",
+              "type": "repr"
+            }
+          },
+          "groups": {}
+        }
+      }
+    },
+    "pluginmanager": {
+      "keys": {
+        "running-plugins": {
+          "repr": "{'rqt_image_view/ImageView': [1], 'rqt_plot/Plot': [1, 2], 'rqt_publisher/Publisher': [1]}",
+          "type": "repr"
+        }
+      },
+      "groups": {
+        "plugin__rqt_image_view__ImageView__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__ImageViewWidget": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "'Main Camera'",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "color_scheme": {
+                  "repr": "-1",
+                  "type": "repr"
+                },
+                "dynamic_range": {
+                  "repr": "False",
+                  "type": "repr"
+                },
+                "max_range": {
+                  "repr": "10.0",
+                  "type": "repr"
+                },
+                "mouse_pub_topic": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "num_gridlines": {
+                  "repr": "0",
+                  "type": "repr"
+                },
+                "publish_click_location": {
+                  "repr": "False",
+                  "type": "repr"
+                },
+                "rotate": {
+                  "repr": "0",
+                  "type": "repr"
+                },
+                "smooth_image": {
+                  "repr": "False",
+                  "type": "repr"
+                },
+                "toolbar_hidden": {
+                  "repr": "False",
+                  "type": "repr"
+                },
+                "topic": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "zoom1": {
+                  "repr": "False",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_plot__Plot__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__DataPlotWidget": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "'Distances'",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "autoscroll": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "plot_type": {
+                  "repr": "1",
+                  "type": "repr"
+                },
+                "topics": {
+                  "repr": "['/dron01/dron02/data/data', '/dron01/dron04/data/data', '/dron01/dron05/data/data', '/dron02/dron03/data/data', '/dron02/dron05/data/data', '/dron03/dron04/data/data', '/dron03/dron05/data/data', '/dron04/dron05/data/data']",
+                  "type": "repr"
+                },
+                "x_limits": {
+                  "repr": "[0.0, 20.0]",
+                  "type": "repr"
+                },
+                "y_limits": {
+                  "repr": "[0.0, 1.0]",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_plot__Plot__2": {
+          "keys": {},
+          "groups": {
+            "dock_widget__DataPlotWidget": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "'Errors'",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "autoscroll": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "plot_type": {
+                  "repr": "1",
+                  "type": "repr"
+                },
+                "topics": {
+                  "repr": "['/dron01/dron02/error/data', '/dron01/dron04/error/data', '/dron01/dron05/error/data', '/dron02/dron03/error/data', '/dron02/dron05/error/data', '/dron03/dron04/error/data', '/dron03/dron05/error/data', '/dron04/dron05/error/data']",
+                  "type": "repr"
+                },
+                "x_limits": {
+                  "repr": "[0.0, 1.0]",
+                  "type": "repr"
+                },
+                "y_limits": {
+                  "repr": "[-1.0, 1.0]",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_publisher__Publisher__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__PublisherWidget": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "'Message Publisher'",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "publishers": {
+                  "repr": "\"[{'topic_name': '/swarm/order', 'type_name': 'std_msgs/msg/String', 'rate': 1.0, 'enabled': False, 'publisher_id': 0, 'counter': 0, 'expressions': {'/swarm/order/data': 'take_off'}}, {'topic_name': '/swarm/order', 'type_name': 'std_msgs/msg/String', 'rate': 1.0, 'enabled': False, 'publisher_id': 1, 'counter': 0, 'expressions': {'/swarm/order/data': 'formation_run'}}, {'topic_name': '/swarm/order', 'type_name': 'std_msgs/msg/String', 'rate': 1.0, 'enabled': False, 'publisher_id': 2, 'counter': 0, 'expressions': {'/swarm/order/data': 'formation_stop'}}, {'topic_name': '/swarm/order', 'type_name': 'std_msgs/msg/String', 'rate': 1.0, 'enabled': False, 'publisher_id': 3, 'counter': 0, 'expressions': {'/swarm/order/data': 'land'}}]\"",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

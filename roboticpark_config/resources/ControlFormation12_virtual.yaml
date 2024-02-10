@@ -38,7 +38,7 @@ Interface:
       executable: rqt_gui
       name: interface
       pkg: rqt_gui
-    file: 
+    file: ControlFormation12.perspective
   own: 
     enable: False
     node:
@@ -47,7 +47,7 @@ Interface:
     file:
 
 Data_Logging: 
-  enable: True
+  enable: False
   all: True
   name: date
   topics: /ros2_cpu /cpu_stats /dron01/local_pose /dron01/global_error /dron01/dron02/data /dron01/dron02/error /dron01/dron02/iae /dron01/dron07/data /dron01/dron07/error /dron01/dron07/iae /dron01/dron08/data /dron01/dron08/error /dron01/dron08/iae /dron01/origin/data /dron01/origin/error /dron01/origin/iae /dron02/local_pose /dron02/global_error /dron02/dron01/data /dron02/dron01/error /dron02/dron01/iae /dron02/dron03/data /dron02/dron03/error /dron02/dron03/iae /dron02/dron08/data /dron02/dron08/error /dron02/dron08/iae /dron02/dron09/data /dron02/dron09/error /dron02/dron09/iae /dron02/origin/data /dron02/origin/error /dron02/origin/iae /dron03/local_pose /dron03/global_error /dron03/dron02/data /dron03/dron02/error /dron03/dron02/iae /dron03/dron04/data /dron03/dron04/error /dron03/dron04/iae /dron03/dron09/data /dron03/dron09/error /dron03/dron09/iae /dron03/dron10/data /dron03/dron10/error /dron03/dron10/iae /dron03/origin/data /dron03/origin/error /dron03/origin/iae /dron04/local_pose /dron04/global_error /dron04/dron03/data /dron04/dron03/error /dron04/dron03/iae /dron04/dron05/data /dron04/dron05/error /dron04/dron05/iae /dron04/dron10/data /dron04/dron10/error /dron04/dron10/iae /dron04/origin/data /dron04/origin/error /dron04/origin/iae /dron05/local_pose /dron05/global_error /dron05/dron04/data /dron05/dron04/error /dron05/dron04/iae /dron05/dron06/data /dron05/dron06/error /dron05/dron06/iae /dron05/dron10/data /dron05/dron10/error /dron05/dron10/iae /dron05/dron11/data /dron05/dron11/error /dron05/dron11/iae /dron05/origin/data /dron05/origin/error /dron05/origin/iae /dron06/local_pose /dron06/global_error /dron06/dron05/data /dron06/dron05/error /dron06/dron05/iae /dron06/dron07/data /dron06/dron07/error /dron06/dron07/iae /dron06/dron11/data /dron06/dron11/error /dron06/dron11/iae /dron06/dron12/data /dron06/dron12/error /dron06/dron12/iae /dron06/origin/data /dron06/origin/error /dron06/origin/iae /dron07/local_pose /dron07/global_error /dron07/dron01/data /dron07/dron01/error /dron07/dron01/iae /dron07/dron06/data /dron07/dron06/error /dron07/dron06/iae /dron07/dron08/data /dron07/dron08/error /dron07/dron08/iae /dron07/dron12/data /dron07/dron12/error /dron07/dron12/iae /dron07/origin/data /dron07/origin/error /dron07/origin/iae /dron08/local_pose /dron08/global_error /dron08/dron01/data /dron08/dron01/error /dron08/dron01/iae /dron08/dron02/data /dron08/dron02/error /dron08/dron02/iae /dron08/dron07/data /dron08/dron07/error /dron08/dron07/iae /dron08/dron09/data /dron08/dron09/error /dron08/dron09/iae /dron08/dron11/data /dron08/dron11/error /dron08/dron11/iae /dron08/dron12/data /dron08/dron12/error /dron08/dron12/iae /dron08/origin/data /dron08/origin/error /dron08/origin/iae /dron09/local_pose /dron09/global_error /dron09/dron02/data /dron09/dron02/error /dron09/dron02/iae /dron09/dron03/data /dron09/dron03/error /dron09/dron03/iae /dron09/dron08/data /dron09/dron08/error /dron09/dron08/iae /dron09/dron10/data /dron09/dron10/error /dron09/dron10/iae /dron09/dron11/data /dron09/dron11/error /dron09/dron11/iae /dron09/origin/data /dron09/origin/error /dron09/origin/iae /dron10/local_pose /dron10/global_error /dron10/dron03/data /dron10/dron03/error /dron10/dron03/iae /dron10/dron04/data /dron10/dron04/error /dron10/dron04/iae /dron10/dron05/data /dron10/dron05/error /dron10/dron05/iae /dron10/dron09/data /dron10/dron09/error /dron10/dron09/iae /dron10/dron11/data /dron10/dron11/error /dron10/dron11/iae /dron10/origin/data /dron10/origin/error /dron10/origin/iae /dron11/local_pose /dron11/global_error /dron11/dron05/data /dron11/dron05/error /dron11/dron05/iae /dron11/dron06/data /dron11/dron06/error /dron11/dron06/iae /dron11/dron08/data /dron11/dron08/error /dron11/dron08/iae /dron11/dron09/data /dron11/dron09/error /dron11/dron09/iae /dron11/dron10/data /dron11/dron10/error /dron11/dron10/iae /dron11/dron12/data /dron11/dron12/error /dron11/dron12/iae /dron11/origin/data /dron11/origin/error /dron11/origin/iae /dron12/local_pose /dron12/global_error /dron12/dron06/data /dron12/dron06/error /dron12/dron06/iae /dron12/dron07/data /dron12/dron07/error /dron12/dron07/iae /dron12/dron08/data /dron12/dron08/error /dron12/dron08/iae /dron12/dron11/data /dron12/dron11/error /dron12/dron11/iae /dron12/origin/data /dron12/origin/error /dron12/origin/iae
@@ -100,7 +100,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -163,7 +163,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -226,7 +226,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -289,7 +289,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -352,7 +352,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -415,7 +415,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -478,7 +478,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -541,7 +541,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -604,7 +604,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -667,7 +667,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -730,7 +730,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -793,7 +793,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
@@ -819,7 +819,4 @@ Supervisor:
 
 Other:
   Agent00:
-    executable: test
-    name: test
-    pkg: test
-    file: test_file
+    enable: False

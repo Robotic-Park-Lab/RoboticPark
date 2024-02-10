@@ -1008,7 +1008,4 @@ Supervisor:
 
 Other:
   Agent00:
-    executable: test
-    name: test
-    pkg: test
-    file: test_file
+    enable: False

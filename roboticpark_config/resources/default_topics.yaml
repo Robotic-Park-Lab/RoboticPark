@@ -31,7 +31,7 @@ cmd02:
   trigger:
     type: time
     name: swarm/status
-    value: 30.0
+    value: 40.0
 cmd03:
   topic: swarm/order
   type: String

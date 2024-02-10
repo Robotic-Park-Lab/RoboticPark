@@ -1,9 +1,9 @@
 # Default Robotic Park Formation Control Benchmark
 
 Operation:
-  mode: physical     # physical, virtual, hybrid
+  mode: virtual     # physical, virtual, hybrid
   tool: Webots              # Gazebo, Webots
-  world: empty.wbt 
+  world: ControlFormation08.wbt 
 
 Experience:
   type: formation           # identification, formation, navigation
@@ -54,11 +54,11 @@ Data_Logging:
 
 Robots:
   Robot01:
-    type: physical
+    type: virtual
     name: dron01
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.71, 0.04, 0.70
+    pose: 1.6, 0.5, 0.70
     uri: radio://0/80/2M/E7E7E7E701
     controller:
       type: pid
@@ -81,16 +81,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -100,14 +100,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -117,11 +117,11 @@ Robots:
       relationship: dron02_1.4107, dron05_1.4107, dron06_1.0187, origin_1.0
 
   Robot02:
-    type: physical
+    type: virtual
     name: dron02
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.48, 1.64, 0.70
+    pose: 0.7, 1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E702
     controller:
       type: pid
@@ -144,16 +144,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -163,14 +163,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -180,11 +180,11 @@ Robots:
       relationship: dron01_1.4107, dron03_1.4107, dron06_1.4464, dron07_1.242, origin_1.0
 
   Robot03:
-    type: physical
+    type: virtual
     name: dron03
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.35, 0.95, 0.70
+    pose: -1.6, 1.0, 0.70
     uri: radio://0/80/2M/E7E7E7E703
     controller:
       type: pid
@@ -207,16 +207,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -226,14 +226,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -243,11 +243,11 @@ Robots:
       relationship: dron02_1.4107, dron04_1.4107, dron07_1.0815, dron08_1.6501, origin_1.0
 
   Robot04:
-    type: physical
+    type: virtual
     name: dron04
     control_mode: HighLevel
     positioning: Intern
-    pose: -1.38, -0.98, 0.70
+    pose: -1.6, -1.2, 0.70
     uri: radio://0/80/2M/E7E7E7E704
     controller:
       type: pid
@@ -270,16 +270,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -289,14 +289,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -306,11 +306,11 @@ Robots:
       relationship: dron03_1.4107, dron05_1.4107, dron08_1.0815, origin_1.0
 
   Robot05:
-    type: physical
+    type: virtual
     name: dron05
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.56, -1.55, 0.70
+    pose: 0.9, -1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E705
     controller:
       type: pid
@@ -333,16 +333,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -352,14 +352,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -369,11 +369,11 @@ Robots:
       relationship: dron01_1.4107, dron04_1.4107, dron06_1.4464, dron08_1.242, origin_1.0
 
   Robot06:
-    type: physical
+    type: virtual
     name: dron06
     control_mode: HighLevel
     positioning: Intern
-    pose: 0.86, 0.05, 0.70
+    pose: 1.6, -0.8, 0.70
     uri: radio://0/80/2M/E7E7E7E706
     controller:
       type: pid
@@ -396,16 +396,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -415,14 +415,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -432,11 +432,11 @@ Robots:
       relationship: dron01_1.0187, dron02_1.4464, dron05_1.4464, dron07_1.1011, dron08_1.1011, origin_1.0
 
   Robot07:
-    type: physical
+    type: virtual
     name: dron07
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.40, 0.77, 0.70
+    pose: -0.9, 1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E707
     controller:
       type: pid
@@ -459,16 +459,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -478,14 +478,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -495,11 +495,11 @@ Robots:
       relationship: dron02_1.242, dron03_1.0815, dron06_1.1011, dron08_1.1011, origin_1.0
 
   Robot08:
-    type: physical
+    type: virtual
     name: dron08
     control_mode: HighLevel
     positioning: Intern
-    pose: -0.41, -0.81, 0.70
+    pose: -0.2, -1.6, 0.70
     uri: radio://0/80/2M/E7E7E7E708
     controller:
       type: pid
@@ -522,16 +522,16 @@ Robots:
       T: 100
     local_twist:
       enable: False
-      T: 50
+      T: 20
     data_attitude:
       enable: False
-      T: 50
+      T: 20
     data_rate: 
       enable: False
-      T: 50
+      T: 20
     data_motor: 
-      enable: False
-      T: 50
+      enable: True
+      T: 20
     data:
       enable: False
       T: 20
@@ -541,14 +541,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: True
+      Onboard: False
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01

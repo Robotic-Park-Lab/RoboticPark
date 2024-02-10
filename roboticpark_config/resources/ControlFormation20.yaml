@@ -38,7 +38,7 @@ Interface:
       executable: rqt_gui
       name: interface
       pkg: rqt_gui
-    file: 
+    file: ControlFormation12.perspective
   own: 
     enable: False
     node:
@@ -1323,7 +1323,4 @@ Supervisor:
 
 Other:
   Agent00:
-    executable: test
-    name: test
-    pkg: test
-    file: test_file
+    enable: False

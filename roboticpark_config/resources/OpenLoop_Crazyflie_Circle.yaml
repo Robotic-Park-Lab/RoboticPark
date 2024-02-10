@@ -1,0 +1,19 @@
+config:
+  output: '/dron01/goal_pose'
+  output_type: 'PoseStamped'
+  output_field: 'full'
+  input: '/dron01/local_pose'
+  input_type: 'PoseStamped'
+  input_field: 'full'
+  robot: 'dron'
+  range: 0.5
+  shape: 'circle'
+  repeat: 2
+  period: 0.2
+      
+points:
+  center:
+    x: 0.0 
+    y: 0.0
+    z: 1.0
+    t: 10.0

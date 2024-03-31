@@ -3,7 +3,7 @@
 Operation:
   mode: physical     # physical, virtual, hybrid
   tool: Webots              # Gazebo, Webots
-  world: Crazyflie_DemoFormation03.wbt 
+  world: Crazyflie_DemoFormation04.wbt 
 
 Experience:
   type: formation           # identification, formation, navigation
@@ -33,7 +33,7 @@ Interface:
       executable: rviz2
       name: rviz2
       pkg: rviz2
-    file: Crazyflie_DemoFormation03.rviz
+    file: Crazyflie_DemoFormation04.rviz
   rqt: 
     enable: True
     node: 
@@ -102,7 +102,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -116,7 +116,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_1.0, dron03_1.0, origin_1.0
+      relationship: dron02_1.0, dron03_1.0, dron04_1.0, origin_1.0
 
   Robot02:
     type: physical
@@ -165,7 +165,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -179,7 +179,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_1.0, dron03_1.0, origin_1.0
+      relationship: dron01_1.0, dron03_1.0, dron04_1.0, origin_1.0
 
   Robot03:
     type: physical
@@ -228,7 +228,7 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
@@ -242,7 +242,70 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_1.0, dron02_1.0, origin_1.0
+      relationship: dron01_1.0, dron02_1.0, dron04_1.0, origin_1.0
+
+  Robot04:
+    type: physical
+    name: dron04
+    control_mode: HighLevel
+    positioning: Intern
+    pose: -1.06, -1.0, 0.70
+    uri: radio://0/80/2M/E7E7E7E707
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: EventBased
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 100
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron01_1.0, dron02_1.0, dron03_1.0
 
 Supervisor:
   enable: True

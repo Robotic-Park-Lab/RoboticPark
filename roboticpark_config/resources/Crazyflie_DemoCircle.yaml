@@ -115,6 +115,7 @@ Robots:
       role: consensus
       type: distance
       relationship: empty
+
 Supervisor:
   enable: False
   node: 

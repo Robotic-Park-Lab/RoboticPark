@@ -46,6 +46,14 @@ cmd03:
 cmd04:
   topic: swarm/order
   type: String
+  value: land
+  trigger:
+    type: time
+    name: 
+    value: 2.0
+cmd05:
+  topic: swarm/order
+  type: String
   value: end
   trigger:
     type: time

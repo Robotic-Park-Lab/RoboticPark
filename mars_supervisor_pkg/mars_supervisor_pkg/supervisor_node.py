@@ -13,6 +13,7 @@ import datetime
 
 from rclpy.node import Node
 from std_msgs.msg import String, Float64MultiArray, UInt16, UInt16MultiArray, Float64
+from geometry_msgs.msg import Twist, Pose, Point, PoseStamped
 
 class Supervisor(Node):
     def __init__(self):
@@ -45,9 +46,17 @@ class Supervisor(Node):
         
         
         for topic in self.cmd['config']['publisher'].keys():
-            self.get_logger().info('Supervisor::Publisher: topic: %s' % (topic))
+            self.get_logger().info('Supervisor::Publisher: topic: %s' % (self.cmd['config']['publisher'][topic]['name']))
             if self.cmd['config']['publisher'][topic]['type'] == 'String':
                 publisher = self.create_publisher(String,self.cmd['config']['publisher'][topic]['name'], 10)
+                self.publisher_list.append(publisher)
+                self.publisher_id.append(self.cmd['config']['publisher'][topic]['name'])
+            elif self.cmd['config']['publisher'][topic]['type'] == 'PoseStamped':
+                publisher = self.create_publisher(PoseStamped,self.cmd['config']['publisher'][topic]['name'], 10)
+                self.publisher_list.append(publisher)
+                self.publisher_id.append(self.cmd['config']['publisher'][topic]['name'])
+            elif self.cmd['config']['publisher'][topic]['type'] == 'Float64':
+                publisher = self.create_publisher(Float64,self.cmd['config']['publisher'][topic]['name'], 10)
                 self.publisher_list.append(publisher)
                 self.publisher_id.append(self.cmd['config']['publisher'][topic]['name'])
         
@@ -94,13 +103,24 @@ class Supervisor(Node):
             if self.cmd['cmd'+id]['type'] == 'Float64':
                 msg = Float64()
                 self.get_logger().info('Cmd%s: Value: %.3f' % (id, self.cmd['cmd'+id]['value']))
+                msg.data = self.cmd['cmd'+id]['value']
             elif self.cmd['cmd'+id]['type'] == 'String':
                 msg = String()
                 self.get_logger().info('Cmd%s: Value: %s' % (id, self.cmd['cmd'+id]['value']))
+                msg.data = self.cmd['cmd'+id]['value']
                 if self.cmd['cmd'+id]['value'] == 'end':
                     self.destroy_node()
+            elif self.cmd['cmd'+id]['type'] == 'PoseStamped':
+                msg = PoseStamped()
+                msg.header.frame_id = "map"
+                self.get_logger().info('Cmd%s: Value: %s' % (id, self.cmd['cmd'+id]['value']))
+                aux = self.cmd['cmd'+id]['value']
+                values = aux.split(' ')
+                msg.pose.position.x = float(values[0])
+                msg.pose.position.y = float(values[1])
+                msg.pose.position.z = float(values[2])
             
-            msg.data = self.cmd['cmd'+id]['value']
+            
             self.j = ((self.j+1) % len(self.cmd))
             self.publisher_list[idx].publish(msg)
             if self.j<10:

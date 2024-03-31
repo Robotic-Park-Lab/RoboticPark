@@ -33,7 +33,7 @@ Interface:
       executable: rviz2
       name: rviz2
       pkg: rviz2
-    file: test.rviz
+    file: Crazyflie_DemoFormation03.rviz
   rqt: 
     enable: True
     node: 
@@ -72,7 +72,7 @@ Robots:
         co: 0.01
         ai: 0.0
     communication:
-      type: EventBased
+      type: Continuous
       threshold:
         type: Constant
         co: 0.01
@@ -98,7 +98,7 @@ Robots:
       T: 20
     mars_data:
       enable: True
-      T: 100
+      T: 50
     task: 
       enable: True
       T: 100
@@ -109,7 +109,7 @@ Robots:
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.05
         threshold:
             type: Constant
             co: 0.01
@@ -123,7 +123,70 @@ Robots:
     name: dron02
     control_mode: HighLevel
     positioning: Intern
-    pose: 1.5, -0.0, 0.70
+    pose: 1.5, -1.0, 0.70
+    uri: radio://0/80/2M/E7E7E7E702
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    data_attitude:
+      enable: False
+      T: 20
+    data_rate: 
+      enable: False
+      T: 20
+    data_motor: 
+      enable: False
+      T: 20
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.05
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron01_1.0, dron03_1.0, origin_1.0
+
+  Robot03:
+    type: physical
+    name: dron03
+    control_mode: HighLevel
+    positioning: Intern
+    pose: -1.06, -1.0, 0.70
     uri: radio://0/80/2M/E7E7E7E703
     controller:
       type: pid
@@ -135,7 +198,7 @@ Robots:
         co: 0.01
         ai: 0.0
     communication:
-      type: EventBased
+      type: Continuous
       threshold:
         type: Constant
         co: 0.01
@@ -161,7 +224,7 @@ Robots:
       T: 20
     mars_data:
       enable: True
-      T: 100
+      T: 50
     task: 
       enable: True
       T: 100
@@ -172,85 +235,22 @@ Robots:
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.1
+        gain: 0.05
         threshold:
             type: Constant
             co: 0.01
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_1.0, dron03_1.0, origin_1.0
-  
-  Robot03:
-    type: physical
-    name: dron03
-    control_mode: HighLevel
-    positioning: Intern
-    pose: 1.5, -0.0, 0.70
-    uri: radio://0/80/2M/E7E7E7E706
-    controller:
-      type: pid
-      enable: True
-      protocol: Continuous
-      period: 0.01
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    communication:
-      type: EventBased
-      threshold:
-        type: Constant
-        co: 0.01
-        ai: 0.0
-    local_pose:
-      enable: True
-      path: False
-      T: 100
-    local_twist:
-      enable: False
-      T: 20
-    data_attitude:
-      enable: False
-      T: 20
-    data_rate: 
-      enable: False
-      T: 20
-    data_motor: 
-      enable: False
-      T: 20
-    data:
-      enable: False
-      T: 20
-    mars_data:
-      enable: True
-      T: 100
-    task: 
-      enable: True
-      T: 100
-      Onboard: True
-      controller:
-        type: gradient
-        protocol: Continuous
-        period: 0.1
-        upperLimit: 0.1
-        lowerLimit: -0.1
-        gain: 0.1
-        threshold:
-            type: Constant
-            co: 0.01
-            ai: 0.0
-      role: consensus
-      type: distance
-      relationship: dron02_1.0, dron01_1.0, origin_1.0
-  
+      relationship: dron01_1.0, dron02_1.0, origin_1.0
+
 Supervisor:
-  enable: False
+  enable: True
   node: 
     executable: supervisor_node
     name: supervisor
     pkg: mars_supervisor_pkg
-    file: test_topics.yaml
+    file: Crazyflie_DemoFormation03_topics.yaml
 
 Other:
   Agent00:

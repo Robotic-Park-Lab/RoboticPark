@@ -59,7 +59,7 @@ Robots:
     control_mode: HighLevel
     positioning: Intern
     pose: 1.71, 0.04, 0.70
-    uri: radio://0/80/2M/E7E7E7E708
+    uri: radio://0/80/2M/E7E7E7E701
     controller:
       type: pid
       enable: True
@@ -100,14 +100,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.05
+        gain: 0.1
         threshold:
             type: Constant
             co: 0.01
@@ -163,14 +163,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.05
+        gain: 0.1
         threshold:
             type: Constant
             co: 0.01
@@ -226,14 +226,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.05
+        gain: 0.1
         threshold:
             type: Constant
             co: 0.01
@@ -289,14 +289,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.05
+        gain: 0.1
         threshold:
             type: Constant
             co: 0.01
@@ -311,7 +311,7 @@ Robots:
     control_mode: HighLevel
     positioning: Intern
     pose: 0.05, 0.05, 0.70
-    uri: radio://0/80/2M/E7E7E7E705
+    uri: radio://0/80/2M/E7E7E7E708
     controller:
       type: pid
       enable: True
@@ -352,14 +352,14 @@ Robots:
     task: 
       enable: True
       T: 100
-      Onboard: False
+      Onboard: True
       controller:
         type: gradient
         protocol: Continuous
         period: 0.1
         upperLimit: 0.1
         lowerLimit: -0.1
-        gain: 0.05
+        gain: 0.1
         threshold:
             type: Constant
             co: 0.01
@@ -374,7 +374,7 @@ Supervisor:
     executable: supervisor_node
     name: supervisor
     pkg: mars_supervisor_pkg
-    file: default_topics.yaml
+    file: Crazyflie_DemoFormation05r_topics.yaml
 
 Other:
   Agent00:

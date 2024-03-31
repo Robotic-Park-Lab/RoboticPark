@@ -86,23 +86,26 @@ def get_ros2_nodes(context, *args):
     #     Architecture     #
     #----------------------#
     if documents['Architecture']['mode'] == 'centralized':
+        controller_config_path = os.path.join(general_package_dir, 'resources', documents['Architecture']['node']['file'])
         node_list.append(Node(
             package=documents['Architecture']['node']['pkg'],
             executable=documents['Architecture']['node']['executable'],
             name=documents['Architecture']['node']['name'],
             output='screen',
             parameters=[
-                {'config_file': config_path},
-                {'use_sim_time': use_sim_time},
+                {'config_file': controller_config_path},
+                # {'use_sim_time': use_sim_time},
             ]
         ))
     elif documents['Architecture']['mode'] == 'distributed_ros2':
+        print('TO-DO: Distributed control in nodes')
         distributed_architecture = True
 
     #----------------#
     #     Robots     #
     #----------------#
     physical_crazyflie_list = ''
+    physical_khepera_list = ''
     for robot in documents['Robots']:
         if 'dron' in documents['Robots'][robot]['name']:
             robot_description = os.path.join(general_package_dir, 'resources', 'crazyflie.urdf')
@@ -132,6 +135,28 @@ def get_ros2_nodes(context, *args):
 
         elif 'khepera' in documents['Robots'][robot]['name']:
             robot_description = os.path.join(general_package_dir, 'resources', 'kheperaiv.urdf')
+            if not documents['Robots'][robot]['type'] == 'physical':
+                with open(robot_description, 'r') as infp:
+                    robot_desc = infp.read()
+                aux = robot_desc.replace("khepera00", documents['Robots'][robot]['name'])
+                aux = aux.replace("name_id_value", documents['Robots'][robot]['name'])
+                aux = aux.replace("config_file_path", config_path)
+                robot_controller = WebotsController(
+                            robot_name=documents['Robots'][robot]['name'],
+                            parameters=[
+                                {'robot_description': aux,
+                                'use_sim_time': use_sim_time,
+                                'set_robot_state_publisher': True},
+                            ],
+                            respawn=True
+                        )
+                node_list.append(robot_controller)
+
+            if not documents['Robots'][robot]['type'] == 'virtual':
+                if physical_khepera_list == '':
+                    physical_khepera_list += documents['Robots'][robot]['name']
+                else:
+                    physical_khepera_list += ', '+documents['Robots'][robot]['name']
     
     print("###  Physical Robots  ###")
     print(physical_crazyflie_list)
@@ -150,7 +175,7 @@ def get_ros2_nodes(context, *args):
                 ]
             )
         )
-
+    
     #------------------------#
     #     CPU Monitoring     #
     #------------------------#

@@ -1,0 +1,144 @@
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: origin/local_pose
+      type: PoseStamped
+    topic02:
+      name: dron01/order
+      type: String
+    topic03:
+      name: dron02/order
+      type: String
+    topic04:
+      name: dron03/order
+      type: String
+    topic05:
+      name: dron01/dron02/d
+      type: Float64
+    topic06:
+      name: dron01/dron03/d
+      type: Float64
+    topic07:
+      name: dron02/dron01/d
+      type: Float64
+    topic08:
+      name: dron02/dron03/d
+      type: Float64
+    topic09:
+      name: dron03/dron01/d
+      type: Float64
+    topic10:
+      name: dron03/dron02/d
+      type: Float64
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+      
+cmd00:
+  topic: swarm/order
+  type: String
+  value: take_off
+  trigger:
+    type: topic
+    name: swarm/status
+    value: init
+cmd01:
+  topic: origin/local_pose
+  type: PoseStamped
+  value: 0.0 0.0 0.0
+  trigger:
+    type: time
+    name: 
+    value: 2.0
+cmd02:
+  topic: swarm/order
+  type: String
+  value: formation_run
+  trigger:
+    type: time
+    name: 
+    value: 2.0
+cmd03:
+  topic: swarm/order
+  type: String
+  value: formation_stop
+  trigger:
+    type: time
+    name: 
+    value: 10.0
+cmd04:
+  topic: dron01/order
+  type: String
+  value: disconnect
+  trigger:
+    type: time
+    name: 
+    value: 1.0
+cmd05:
+  topic: dron02/dron03/d
+  type: Float64
+  value: 1.65
+  trigger:
+    type: time
+    name: 
+    value: 1.0
+cmd06:
+  topic: dron03/dron02/d
+  type: Float64
+  value: 1.65
+  trigger:
+    type: time
+    name: 
+    value: 0.5
+cmd07:
+  topic: swarm/order
+  type: String
+  value: formation_run
+  trigger:
+    type: time
+    name: 
+    value: 5.0
+cmd08:
+  topic: dron02/dron03/d
+  type: Float64
+  value: 0.8
+  trigger:
+    type: time
+    name: 
+    value: 10.0
+cmd09:
+  topic: dron03/dron02/d
+  type: Float64
+  value: 0.8
+  trigger:
+    type: time
+    name: 
+    value: 0.5
+cmd10:
+  topic: swarm/order
+  type: String
+  value: formation_stop
+  trigger:
+    type: time
+    name: 
+    value: 10.0
+cmd11:
+  topic: swarm/order
+  type: String
+  value: land
+  trigger:
+    type: time
+    name: 
+    value: 5.0
+cmd12:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 100.0

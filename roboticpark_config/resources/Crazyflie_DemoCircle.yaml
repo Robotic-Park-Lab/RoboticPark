@@ -59,7 +59,7 @@ Robots:
     control_mode: HighLevel
     positioning: Intern
     pose: 0.0 0.0
-    uri: radio://0/80/2M/E7E7E7E705
+    uri: radio://0/80/2M/E7E7E7E708
     controller:
       type: pid
       enable: True

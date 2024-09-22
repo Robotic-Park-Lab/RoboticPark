@@ -9,6 +9,9 @@ config:
     topic02:
       name: dron07/order
       type: String
+    topic03:
+      name: dron07/goal_pose
+      type: PoseStamped
   subscription:
     topic00:
       name: swarm/status
@@ -25,7 +28,7 @@ cmd00:
 cmd01:
   topic: origin/local_pose
   type: PoseStamped
-  value: 0.0 0.0 0.8
+  value: 0.0 0.0 0.6
   trigger:
     type: time
     name: 
@@ -53,8 +56,16 @@ cmd04:
   trigger:
     type: time
     name: 
-    value: 5.0
+    value: 3.0
 cmd05:
+  topic: dron07/goal_pose
+  type: PoseStamped
+  value: -1.2 0.0 1.6
+  trigger:
+    type: time
+    name: 
+    value: 3.0
+cmd06:
   topic: swarm/order
   type: String
   value: reconfiguration
@@ -62,7 +73,7 @@ cmd05:
     type: time
     name: 
     value: 2.0
-cmd06:
+cmd07:
   topic: swarm/order
   type: String
   value: formation_run
@@ -70,7 +81,7 @@ cmd06:
     type: time
     name: swarm/status
     value: 5.0
-cmd07:
+cmd08:
   topic: swarm/order
   type: String
   value: formation_stop
@@ -78,7 +89,7 @@ cmd07:
     type: time
     name: swarm/status
     value: 30.0
-cmd08:
+cmd09:
   topic: swarm/order
   type: String
   value: land
@@ -86,7 +97,7 @@ cmd08:
     type: time
     name: swarm/status
     value: 2.0
-cmd09:
+cmd10:
   topic: swarm/order
   type: String
   value: end

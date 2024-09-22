@@ -61,7 +61,7 @@ class Supervisor(Node):
                 self.publisher_id.append(self.cmd['config']['publisher'][topic]['name'])
         
         for topic in self.cmd['config']['subscription'].keys():
-            self.get_logger().info('Supervisor::Subscription: topic: %s' % (topic))
+            self.get_logger().info('Supervisor::Subscription: topic: %s' % (self.cmd['config']['subscription'][topic]['name']))
             if self.cmd['config']['subscription'][topic]['type'] == 'String':
                 subscription = self.create_subscription(String, self.cmd['config']['subscription'][topic]['name'], self.string_callback, 10)
                 self.subscription_list.append(subscription)

@@ -116,7 +116,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_1.0, dron03_1.0, dron04_1.0, origin_1.0
+      relationship: dron02_1.0, dron03_1.0, dron04_0.7, origin_1.0
 
   Robot02:
     type: physical
@@ -179,7 +179,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_1.0, dron03_1.0, dron04_1.0, origin_1.0
+      relationship: dron01_1.0, dron03_1.0, dron04_0.7, origin_1.0
 
   Robot03:
     type: physical
@@ -242,7 +242,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_1.0, dron02_1.0, dron04_1.0, origin_1.0
+      relationship: dron01_1.0, dron02_1.0, dron04_0.7, origin_1.0
 
   Robot04:
     type: physical
@@ -305,7 +305,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_1.0, dron02_1.0, dron03_1.0
+      relationship: dron01_0.7, dron02_0.7, dron03_0.7
 
 Supervisor:
   enable: True

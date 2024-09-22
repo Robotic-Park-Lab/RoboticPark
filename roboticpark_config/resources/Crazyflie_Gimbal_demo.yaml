@@ -16,7 +16,7 @@ Architecture:
     pkg: uned_swarm_task
 
 CPU_Monitoring: 
-  enable: True
+  enable: False
   node: 
     executable: measure_process
     name: benchmark
@@ -26,7 +26,7 @@ CPU_Monitoring:
 Interface: 
   enable: True
   rviz2: 
-    enable: True
+    enable: False
     node: 
       executable: rviz2
       name: rviz2
@@ -38,7 +38,7 @@ Interface:
       executable: rqt_gui
       name: interface
       pkg: rqt_gui
-    file: default.perspective
+    file: Gimbal.perspective
   own: 
     enable: False
     node:
@@ -56,7 +56,7 @@ Robots:
   Robot01:
     type: physical
     name: dron01
-    control_mode: HighLevel # Gimbal
+    control_mode: Gimbal
     positioning: Intern
     pose: 0.0 0.0
     uri: radio://0/80/2M/E7E7E7E701
@@ -77,7 +77,7 @@ Robots:
         ai: 0.0
     local_pose:
       enable: True
-      path: True
+      path: False
       T: 100
     local_twist:
       enable: False
@@ -115,13 +115,14 @@ Robots:
       role: consensus
       type: distance
       relationship: empty
+
 Supervisor:
-  enable: False
+  enable: True
   node: 
     executable: supervisor_node
     name: supervisor
     pkg: mars_supervisor_pkg
-    file: default_topics.yaml
+    file: gimbal_demo_topics.yaml
 
 Other:
   Agent00:

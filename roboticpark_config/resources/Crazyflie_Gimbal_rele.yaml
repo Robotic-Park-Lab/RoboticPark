@@ -122,7 +122,7 @@ Supervisor:
     executable: supervisor_node
     name: supervisor
     pkg: mars_supervisor_pkg
-    file: gimbal_rele_topics.yaml
+    file: gimbal_rele_range_pitch_topics.yaml # gimbal_rele_range_pitch_topics.yaml # gimbal_rele_test_topics.yaml # gimbal_rele_Sebastian_roll_topics.yaml # gimbal_rele_range_roll_topics.yaml # gimbal_rele_topics.yaml
 
 Other:
   Agent00:

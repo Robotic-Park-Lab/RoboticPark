@@ -51,7 +51,7 @@ Solid {
 }
 
 Crazyflie {
-	translation 1.6 0.5 0.015
+	translation 1.6 0.0 0.015
 	name "dron01"
 	controller "<extern>"
   supervisor TRUE
@@ -102,7 +102,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation 1.6 -0.8 0.015
+	translation 1.0 -0.8 0.015
 	name "dron06"
 	controller "<extern>"
   extensionSlot [
@@ -112,7 +112,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation -0.9 1.6 0.015
+	translation -0.9 1.0 0.015
 	name "dron07"
 	controller "<extern>"
   extensionSlot [
@@ -122,7 +122,7 @@ Crazyflie {
 }
 
 Crazyflie {
-	translation -0.2 -1.6 0.015
+	translation -0.2 -1.0 0.015
 	name "dron08"
 	controller "<extern>"
   extensionSlot [

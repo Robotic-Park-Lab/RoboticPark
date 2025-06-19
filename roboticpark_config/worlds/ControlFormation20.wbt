@@ -51,7 +51,7 @@ Solid {
 }
 
 Crazyflie {
-	translation 1.44 -0.02 0.015
+	translation 1.44 -0.20 0.015
 	name "dron01"
 	controller "<extern>"
   supervisor TRUE

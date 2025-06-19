@@ -17,7 +17,7 @@ from webots_ros2_driver.webots_controller import WebotsController
 
 
 def get_ros2_nodes(context, *args):
-    use_sim_time = LaunchConfiguration('use_sim_time', default=False)
+    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     distributed_architecture = False
     # ExecuteProcess(cmd=['ros2', 'bag', 'record', '-a', '-o', e.strftime("%Y-%m-%d-%H-%M"), ], output='screen'),
     node_list = []
@@ -175,7 +175,23 @@ def get_ros2_nodes(context, *args):
                 ]
             )
         )
-    
+    '''
+    if not physical_khepera_list == '':
+        node_list.append(Node(
+                package='uned_kheperaiv_driver',
+                executable='kheperaIV_client_driver',
+                name='driver',
+                output='screen',
+                shell=True,
+                emulate_tty=True,
+                parameters=[
+                    {'config': config_path},
+                    # {'use_sim_time': use_sim_time},
+                    {'robots': physical_khepera_list}
+                ]
+            )
+        )
+    '''
     #------------------------#
     #     CPU Monitoring     #
     #------------------------#

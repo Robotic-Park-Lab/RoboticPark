@@ -42,7 +42,7 @@ cmd02:
     name: swarm/status
     value: 5
 cmd03:
-  topic: dron01/goal_roll
+  topic: dron01/goal_pitch
   type: Float64
   value: 0.0
   trigger:

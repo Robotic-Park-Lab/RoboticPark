@@ -1,0 +1,126 @@
+# Default Robotic Park Formation Control Benchmark
+
+Operation:
+  mode: virtual     # physical, virtual, hybrid
+  tool: Webots              # Gazebo, Webots
+  world: ControlFormation05.wbt # LagrangeMultiplier_N15.wbt # ControlFormation15.wbt 
+
+Experience:
+  type: formation           # identification, formation, navigation
+
+Architecture: 
+  mode: distributed   # centralized, distributed_ros2, distributed
+  node: 
+    executable: centralized_formation_controller
+    name: formation_controller
+    pkg: uned_swarm_task
+
+CPU_Monitoring: 
+  enable: True
+  node: 
+    executable: measure_process
+    name: benchmark
+    pkg: measure_process_ros2_pkg
+  processes: webots-bin, driver, ros2, swarm_driver, rviz2, centralized_for
+
+Interface: 
+  enable: True
+  rviz2: 
+    enable: True
+    node: 
+      executable: rviz2
+      name: rviz2
+      pkg: rviz2
+    file: ControlFormation05.rviz # ControlFormation15.rviz
+  rqt: 
+    enable: False
+    node: 
+      executable: rqt_gui
+      name: interface
+      pkg: rqt_gui
+    file: LagrangeMultiplier_N05.perspective
+  own: 
+    enable: False
+    node:
+      name:
+      pkg:
+    file:
+
+Data_Logging: 
+  enable: True
+  all: False
+  name: date
+  topics: /ros2_cpu /cpu_stats /swarm/order 
+
+Robots:
+  Robot01:
+    type: virtual
+    name: khepera03
+    agent_ip: '192.168.1.19'
+    port_number: 50000
+    init_theta: 0.0
+    pose:
+      x: -1.53
+      y: -0.0
+    control_mode: HighLevel
+    positioning: Intern
+    controller_type: PID_Continuous
+    controller:
+      type: pid
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: Null
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: Null
+    local_pose:
+      enable: True
+      path: False
+      T: 50
+    local_twist:
+      enable: True
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: False
+      T: 100
+      Onboard: False
+      controller:
+        type: gradient_p
+        protocol: Continuous
+        period: 0.02
+        upperLimit: 0.3
+        lowerLimit: -0.3
+        gain: 0.25
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: Null
+      type: Null
+      relationship: Null
+
+  
+Supervisor:
+  enable: True
+  node: 
+    executable: supervisor_node
+    name: supervisor
+    pkg: mars_supervisor_pkg
+    file: LagrangeMultiplier_topics.yaml
+
+Other:
+  Agent00:
+    enable: False

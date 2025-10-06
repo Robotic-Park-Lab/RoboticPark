@@ -1,0 +1,141 @@
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: dron01/goal_pitch
+      type: Float64
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+      
+cmd00:
+  topic: swarm/order
+  type: String
+  value: gimbal
+  trigger:
+    type: topic
+    name: swarm/status
+    value: init
+cmd01:
+  topic: swarm/order
+  type: String
+  value: sd_start
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd02:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: 5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 2
+cmd03:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4
+cmd04:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: 15.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 5
+cmd05:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: 5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4
+cmd06:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: 0.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4
+cmd07:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: -5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd08:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4
+cmd09:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: 15.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4
+cmd10:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3
+cmd11:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: 5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4
+cmd12:
+  topic: dron01/goal_pitch
+  type: Float64
+  value: 0.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4
+cmd13:
+  topic: swarm/order
+  type: String
+  value: sd_stop
+  trigger:
+    type: time
+    name: swarm/status
+    value: 5
+cmd14:
+  topic: swarm/order
+  type: String
+  value: poweroff
+  trigger:
+    type: time
+    name: swarm/status
+    value: 2
+cmd15:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 100.0

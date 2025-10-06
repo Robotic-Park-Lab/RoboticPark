@@ -1,0 +1,309 @@
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: dron01/goal_roll
+      type: Float64
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+      
+cmd00:
+  topic: swarm/order
+  type: String
+  value: gimbal
+  trigger:
+    type: topic
+    name: swarm/status
+    value: init
+cmd01:
+  topic: swarm/order
+  type: String
+  value: sd_start
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd02:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd03:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd04:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd05:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd06:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd07:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd08:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd09:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd10:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.6
+cmd11:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd12:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd13:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd14:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd15:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd16:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd17:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd18:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd19:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd20:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd21:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd22:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd23:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd24:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.6
+cmd25:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.4
+cmd26:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd27:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.6
+cmd28:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd29:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd30:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd31:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd32:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd33:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 0.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.2
+cmd34:
+  topic: swarm/order
+  type: String
+  value: sd_stop
+  trigger:
+    type: time
+    name: swarm/status
+    value: 5
+cmd35:
+  topic: swarm/order
+  type: String
+  value: poweroff
+  trigger:
+    type: time
+    name: swarm/status
+    value: 2
+cmd36:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 100.0

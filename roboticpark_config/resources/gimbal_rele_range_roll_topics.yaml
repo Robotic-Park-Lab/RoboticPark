@@ -1,0 +1,755 @@
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: dron01/goal_roll
+      type: Float64
+    topic02:
+      name: dron01/goal_pitch
+      type: Float64
+    topic03:
+      name: dron01/goal_yaw
+      type: Float64
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+      
+cmd00:
+  topic: swarm/order
+  type: String
+  value: gimbal
+  trigger:
+    type: topic
+    name: swarm/status
+    value: init
+cmd01:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 0.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd02:
+  topic: swarm/order
+  type: String
+  value: sd_start
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd03:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd04:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd05:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd06:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd07:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd08:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd09:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd10:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd11:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 15.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd12:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd13:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd14:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 20.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd15:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd16:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd17:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 25.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd18:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd19:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd20:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 30.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd21:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd22:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd23:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 35.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd24:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd25:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd26:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 30.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd27:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd28:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd29:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 25.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd30:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd31:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd32:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 20.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd33:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd34:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd35:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 15.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd36:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd37:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd38:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd39:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd40:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd41:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd42:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd43:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd44:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 0.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd45:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd46:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd47:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd48:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd49:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd50:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd51:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd52:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd53:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -15.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd54:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd55:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd56:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -20.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd57:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd58:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd59:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -25.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd60:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd61:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd62:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -30.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd63:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd64:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd65:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -35.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd66:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd67:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd68:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -30.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd69:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd70:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd71:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -25.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd72:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd73:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd74:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -20.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd75:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd76:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd77:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -15.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd78:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd79:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd80:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -10.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd81:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd82:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd83:
+  topic: dron01/goal_roll
+  type: Float64
+  value: -5.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd84:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd85:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd86:
+  topic: dron01/goal_roll
+  type: Float64
+  value: 0.0
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd87:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.2
+cmd88:
+  topic: swarm/order
+  type: String
+  value: rele
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.5
+cmd89:
+  topic: swarm/order
+  type: String
+  value: sd_stop
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1
+cmd90:
+  topic: swarm/order
+  type: String
+  value: poweroff
+  trigger:
+    type: time
+    name: swarm/status
+    value: 2
+cmd91:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 100.0

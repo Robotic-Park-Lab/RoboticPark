@@ -1,0 +1,37 @@
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: dron01/target_pose
+      type: PoseStamped
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+      
+cmd00:
+  topic: swarm/order
+  type: String
+  value: take_off
+  trigger:
+    type: topic
+    name: swarm/status
+    value: check
+cmd01:
+  topic: swarm/order
+  type: String
+  value: land
+  trigger:
+    type: time
+    name: swarm/status
+    value: 30.0
+cmd02:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 30.0

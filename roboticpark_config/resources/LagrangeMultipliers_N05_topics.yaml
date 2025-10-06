@@ -1,0 +1,104 @@
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: dron01/target_pose
+      type: PoseStamped
+    topic02:
+      name: dron02/target_pose
+      type: PoseStamped
+    topic03:
+      name: dron03/target_pose
+      type: PoseStamped
+    topic04:
+      name: dron04/target_pose
+      type: PoseStamped
+    topic05:
+      name: dron05/target_pose
+      type: PoseStamped
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+cmd00:
+  topic: swarm/order
+  type: String
+  value: take_off
+  trigger:
+    type: time
+    name: swarm/status
+    value: 10.0
+cmd01:
+  topic: dron01/target_pose
+  type: PoseStamped
+  value: 0.88 0.00 0.88
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd02:
+  topic: dron02/target_pose
+  type: PoseStamped
+  value: 0.00 0.88 0.88
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd03:
+  topic: dron03/target_pose
+  type: PoseStamped
+  value: -0.88 0.00 0.88
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd04:
+  topic: dron04/target_pose
+  type: PoseStamped
+  value: -0.00 -0.88 0.88
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd05:
+  topic: dron05/target_pose
+  type: PoseStamped
+  value: 0.00 0.00 1.50
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd06:
+  topic: swarm/order
+  type: String
+  value: formation_run
+  trigger:
+    type: time
+    name: swarm/status
+    value: 4.0
+cmd07:
+  topic: swarm/order
+  type: String
+  value: formation_stop
+  trigger:
+    type: time
+    name: swarm/status
+    value: 40.0
+cmd08:
+  topic: swarm/order
+  type: String
+  value: land
+  trigger:
+    type: time
+    name: swarm/status
+    value: 5.0
+cmd09:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 10.0

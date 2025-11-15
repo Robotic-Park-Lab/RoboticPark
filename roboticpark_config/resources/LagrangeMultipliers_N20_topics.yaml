@@ -250,7 +250,7 @@ cmd22:
   trigger:
     type: time
     name: swarm/status
-    value: 40.0
+    value: 20.0
 cmd23:
   topic: swarm/order
   type: String

@@ -1,0 +1,1601 @@
+# Demo World. Morphing Ellipsoid Formation Control. Agents: 33
+
+Operation:
+  mode: virtual     # physical, virtual, hybrid
+  tool: Webots              # Gazebo, Webots
+  world: Morphing.wbt 
+
+Experience:
+  type: formation           # identification, formation, navigation
+
+Architecture: 
+  mode: distributed   # centralized, distributed_ros2, distributed
+  node: 
+    executable: centralized_formation_controller
+    name: formation_controller
+    pkg: uned_swarm_task
+
+CPU_Monitoring: 
+  enable: True
+  node: 
+    executable: measure_process
+    name: benchmark
+    pkg: measure_process_ros2_pkg
+  processes: webots-bin, driver, ros2, swarm_driver, rviz2
+
+Interface: 
+  enable: True
+  rviz2: 
+    enable: True
+    node: 
+      executable: rviz2
+      name: rviz2
+      pkg: rviz2
+    file: Morphing.rviz
+  rqt: 
+    enable: False
+    node: 
+      executable: rqt_gui
+      name: interface
+      pkg: rqt_gui
+    file: 
+  own: 
+    enable: False
+    node:
+      name:
+      pkg:
+    file:
+
+Data_Logging: 
+  enable: False
+  all: True
+  name: date
+  topics: /ros2_cpu /cpu_stats /swarm/order /swarm_driver_cpu /swarm/status /driver_cpu /rviz2_cpu /webots_bin_cpu /khepera01/local_pose /khepera01/local_pose_gt /khepera01/goal_pose /khepera01/global_error /khepera01/mr_data_gt /khepera01/mr_data_gt_mod /khepera01/mr_data /khepera01/mr_data_mod /khepera01/khepera02/data /khepera01/khepera02/error /khepera01/khepera13/data /khepera01/khepera13/error /khepera01/dron01/data /khepera01/dron01/error /khepera01/dron11/data /khepera01/dron11/error /khepera01/ellipsoid/data /khepera01/ellipsoid/error /khepera02/local_pose /khepera02/local_pose_gt /khepera02/goal_pose /khepera02/global_error /khepera02/mr_data_gt /khepera02/mr_data_gt_mod /khepera02/mr_data /khepera02/mr_data_mod /khepera02/khepera01/data /khepera02/khepera01/error /khepera02/khepera03/data /khepera02/khepera03/error /khepera02/dron01/data /khepera02/dron01/error /khepera02/dron02/data /khepera02/dron02/error /khepera02/ellipsoid/data /khepera02/ellipsoid/error /khepera03/local_pose /khepera03/local_pose_gt /khepera03/goal_pose /khepera03/global_error /khepera03/mr_data_gt /khepera03/mr_data_gt_mod /khepera03/mr_data /khepera03/mr_data_mod /khepera03/khepera02/data /khepera03/khepera02/error /khepera03/khepera04/data /khepera03/khepera04/error /khepera03/dron02/data /khepera03/dron02/error /khepera03/dron03/data /khepera03/dron03/error /khepera03/ellipsoid/data /khepera03/ellipsoid/error /khepera04/local_pose /khepera04/local_pose_gt /khepera04/goal_pose /khepera04/global_error /khepera04/mr_data_gt /khepera04/mr_data_gt_mod /khepera04/mr_data /khepera04/mr_data_mod /khepera04/khepera03/data /khepera04/khepera03/error /khepera04/khepera05/data /khepera04/khepera05/error /khepera04/dron03/data /khepera04/dron03/error /khepera04/ellipsoid/data /khepera04/ellipsoid/error /khepera05/local_pose /khepera05/local_pose_gt /khepera05/goal_pose /khepera05/global_error /khepera05/mr_data_gt /khepera05/mr_data_gt_mod /khepera05/mr_data /khepera05/mr_data_mod /khepera05/khepera04/data /khepera05/khepera04/error /khepera05/khepera06/data /khepera05/khepera06/error /khepera05/dron03/data /khepera05/dron03/error /khepera05/dron04/data /khepera05/dron04/error /khepera05/ellipsoid/data /khepera05/ellipsoid/error /khepera06/local_pose /khepera06/local_pose_gt /khepera06/goal_pose /khepera06/global_error /khepera06/mr_data_gt /khepera06/mr_data_gt_mod /khepera06/mr_data /khepera06/mr_data_mod /khepera06/khepera05/data /khepera06/khepera05/error /khepera06/khepera07/data /khepera06/khepera07/error /khepera06/dron04/data /khepera06/dron04/error /khepera06/dron05/data /khepera06/dron05/error /khepera06/ellipsoid/data /khepera06/ellipsoid/error /khepera07/local_pose /khepera07/local_pose_gt /khepera07/goal_pose /khepera07/global_error /khepera07/mr_data_gt /khepera07/mr_data_gt_mod /khepera07/mr_data /khepera07/mr_data_mod /khepera07/khepera06/data /khepera07/khepera06/error /khepera07/khepera08/data /khepera07/khepera08/error /khepera07/dron05/data /khepera07/dron05/error /khepera07/dron06/data /khepera07/dron06/error /khepera07/ellipsoid/data /khepera07/ellipsoid/error /khepera08/local_pose /khepera08/local_pose_gt /khepera08/goal_pose /khepera08/global_error /khepera08/mr_data_gt /khepera08/mr_data_gt_mod /khepera08/mr_data /khepera08/mr_data_mod /khepera08/khepera07/data /khepera08/khepera07/error /khepera08/khepera09/data /khepera08/khepera09/error /khepera08/dron06/data /khepera08/dron06/error /khepera08/dron07/data /khepera08/dron07/error /khepera08/ellipsoid/data /khepera08/ellipsoid/error /khepera09/local_pose /khepera09/local_pose_gt /khepera09/goal_pose /khepera09/global_error /khepera09/mr_data_gt /khepera09/mr_data_gt_mod /khepera09/mr_data /khepera09/mr_data_mod /khepera09/khepera08/data /khepera09/khepera08/error /khepera09/khepera10/data /khepera09/khepera10/error /khepera09/dron07/data /khepera09/dron07/error /khepera09/dron08/data /khepera09/dron08/error /khepera09/ellipsoid/data /khepera09/ellipsoid/error /khepera10/local_pose /khepera10/local_pose_gt /khepera10/goal_pose /khepera10/global_error /khepera10/mr_data_gt /khepera10/mr_data_gt_mod /khepera10/mr_data /khepera10/mr_data_mod /khepera10/khepera09/data /khepera10/khepera09/error /khepera10/khepera11/data /khepera10/khepera11/error /khepera10/dron08/data /khepera10/dron08/error /khepera10/ellipsoid/data /khepera10/ellipsoid/error /khepera11/local_pose /khepera11/local_pose_gt /khepera11/goal_pose /khepera11/global_error /khepera11/mr_data_gt /khepera11/mr_data_gt_mod /khepera11/mr_data /khepera11/mr_data_mod /khepera11/khepera10/data /khepera11/khepera10/error /khepera11/khepera12/data /khepera11/khepera12/error /khepera11/dron08/data /khepera11/dron08/error /khepera11/dron09/data /khepera11/dron09/error /khepera11/ellipsoid/data /khepera11/ellipsoid/error /khepera12/local_pose /khepera12/local_pose_gt /khepera12/goal_pose /khepera12/global_error /khepera12/mr_data_gt /khepera12/mr_data_gt_mod /khepera12/mr_data /khepera12/mr_data_mod /khepera12/khepera11/data /khepera12/khepera11/error /khepera12/khepera13/data /khepera12/khepera13/error /khepera12/dron09/data /khepera12/dron09/error /khepera12/dron10/data /khepera12/dron10/error /khepera12/ellipsoid/data /khepera12/ellipsoid/error /khepera13/local_pose /khepera13/local_pose_gt /khepera13/goal_pose /khepera13/global_error /khepera13/mr_data_gt /khepera13/mr_data_gt_mod /khepera13/mr_data /khepera13/mr_data_mod /khepera13/khepera01/data /khepera13/khepera01/error /khepera13/khepera12/data /khepera13/khepera12/error /khepera13/dron10/data /khepera13/dron10/error /khepera13/dron11/data /khepera13/dron11/error /khepera13/ellipsoid/data /khepera13/ellipsoid/error /dron01/local_pose /dron01/local_pose_gt /dron01/goal_pose /dron01/global_error /dron01/mr_data_gt /dron01/mr_data_gt_mod /dron01/mr_data /dron01/mr_data_mod /dron01/khepera01/data /dron01/khepera01/error /dron01/khepera02/data /dron01/khepera02/error /dron01/dron02/data /dron01/dron02/error /dron01/dron11/data /dron01/dron11/error /dron01/dron12/data /dron01/dron12/error /dron01/dron18/data /dron01/dron18/error /dron01/ellipsoid/data /dron01/ellipsoid/error /dron02/local_pose /dron02/local_pose_gt /dron02/goal_pose /dron02/global_error /dron02/mr_data_gt /dron02/mr_data_gt_mod /dron02/mr_data /dron02/mr_data_mod /dron02/khepera02/data /dron02/khepera02/error /dron02/khepera03/data /dron02/khepera03/error /dron02/dron01/data /dron02/dron01/error /dron02/dron03/data /dron02/dron03/error /dron02/dron12/data /dron02/dron12/error /dron02/ellipsoid/data /dron02/ellipsoid/error /dron03/local_pose /dron03/local_pose_gt /dron03/goal_pose /dron03/global_error /dron03/mr_data_gt /dron03/mr_data_gt_mod /dron03/mr_data /dron03/mr_data_mod /dron03/khepera03/data /dron03/khepera03/error /dron03/khepera04/data /dron03/khepera04/error /dron03/khepera05/data /dron03/khepera05/error /dron03/dron02/data /dron03/dron02/error /dron03/dron04/data /dron03/dron04/error /dron03/dron12/data /dron03/dron12/error /dron03/dron13/data /dron03/dron13/error /dron03/ellipsoid/data /dron03/ellipsoid/error /dron04/local_pose /dron04/local_pose_gt /dron04/goal_pose /dron04/global_error /dron04/mr_data_gt /dron04/mr_data_gt_mod /dron04/mr_data /dron04/mr_data_mod /dron04/khepera05/data /dron04/khepera05/error /dron04/khepera06/data /dron04/khepera06/error /dron04/dron03/data /dron04/dron03/error /dron04/dron05/data /dron04/dron05/error /dron04/dron13/data /dron04/dron13/error /dron04/dron14/data /dron04/dron14/error /dron04/ellipsoid/data /dron04/ellipsoid/error /dron05/local_pose /dron05/local_pose_gt /dron05/goal_pose /dron05/global_error /dron05/mr_data_gt /dron05/mr_data_gt_mod /dron05/mr_data /dron05/mr_data_mod /dron05/khepera06/data /dron05/khepera06/error /dron05/khepera07/data /dron05/khepera07/error /dron05/dron04/data /dron05/dron04/error /dron05/dron06/data /dron05/dron06/error /dron05/dron14/data /dron05/dron14/error /dron05/ellipsoid/data /dron05/ellipsoid/error /dron06/local_pose /dron06/local_pose_gt /dron06/goal_pose /dron06/global_error /dron06/mr_data_gt /dron06/mr_data_gt_mod /dron06/mr_data /dron06/mr_data_mod /dron06/khepera07/data /dron06/khepera07/error /dron06/khepera08/data /dron06/khepera08/error /dron06/dron05/data /dron06/dron05/error /dron06/dron07/data /dron06/dron07/error /dron06/dron14/data /dron06/dron14/error /dron06/dron15/data /dron06/dron15/error /dron06/ellipsoid/data /dron06/ellipsoid/error /dron07/local_pose /dron07/local_pose_gt /dron07/goal_pose /dron07/global_error /dron07/mr_data_gt /dron07/mr_data_gt_mod /dron07/mr_data /dron07/mr_data_mod /dron07/khepera08/data /dron07/khepera08/error /dron07/khepera09/data /dron07/khepera09/error /dron07/dron06/data /dron07/dron06/error /dron07/dron08/data /dron07/dron08/error /dron07/dron15/data /dron07/dron15/error /dron07/ellipsoid/data /dron07/ellipsoid/error /dron08/local_pose /dron08/local_pose_gt /dron08/goal_pose /dron08/global_error /dron08/mr_data_gt /dron08/mr_data_gt_mod /dron08/mr_data /dron08/mr_data_mod /dron08/khepera09/data /dron08/khepera09/error /dron08/khepera10/data /dron08/khepera10/error /dron08/khepera11/data /dron08/khepera11/error /dron08/dron07/data /dron08/dron07/error /dron08/dron09/data /dron08/dron09/error /dron08/dron15/data /dron08/dron15/error /dron08/dron16/data /dron08/dron16/error /dron08/ellipsoid/data /dron08/ellipsoid/error /dron09/local_pose /dron09/local_pose_gt /dron09/goal_pose /dron09/global_error /dron09/mr_data_gt /dron09/mr_data_gt_mod /dron09/mr_data /dron09/mr_data_mod /dron09/khepera11/data /dron09/khepera11/error /dron09/khepera12/data /dron09/khepera12/error /dron09/dron08/data /dron09/dron08/error /dron09/dron10/data /dron09/dron10/error /dron09/dron16/data /dron09/dron16/error /dron09/dron17/data /dron09/dron17/error /dron09/ellipsoid/data /dron09/ellipsoid/error /dron10/local_pose /dron10/local_pose_gt /dron10/goal_pose /dron10/global_error /dron10/mr_data_gt /dron10/mr_data_gt_mod /dron10/mr_data /dron10/mr_data_mod /dron10/khepera12/data /dron10/khepera12/error /dron10/khepera13/data /dron10/khepera13/error /dron10/dron09/data /dron10/dron09/error /dron10/dron11/data /dron10/dron11/error /dron10/dron17/data /dron10/dron17/error /dron10/ellipsoid/data /dron10/ellipsoid/error /dron11/local_pose /dron11/local_pose_gt /dron11/goal_pose /dron11/global_error /dron11/mr_data_gt /dron11/mr_data_gt_mod /dron11/mr_data /dron11/mr_data_mod /dron11/khepera01/data /dron11/khepera01/error /dron11/khepera13/data /dron11/khepera13/error /dron11/dron01/data /dron11/dron01/error /dron11/dron10/data /dron11/dron10/error /dron11/dron17/data /dron11/dron17/error /dron11/dron18/data /dron11/dron18/error /dron11/ellipsoid/data /dron11/ellipsoid/error /dron12/local_pose /dron12/local_pose_gt /dron12/goal_pose /dron12/global_error /dron12/mr_data_gt /dron12/mr_data_gt_mod /dron12/mr_data /dron12/mr_data_mod /dron12/dron01/data /dron12/dron01/error /dron12/dron02/data /dron12/dron02/error /dron12/dron03/data /dron12/dron03/error /dron12/dron13/data /dron12/dron13/error /dron12/dron18/data /dron12/dron18/error /dron12/dron20/data /dron12/dron20/error /dron12/ellipsoid/data /dron12/ellipsoid/error /dron13/local_pose /dron13/local_pose_gt /dron13/goal_pose /dron13/global_error /dron13/mr_data_gt /dron13/mr_data_gt_mod /dron13/mr_data /dron13/mr_data_mod /dron13/dron03/data /dron13/dron03/error /dron13/dron04/data /dron13/dron04/error /dron13/dron12/data /dron13/dron12/error /dron13/dron14/data /dron13/dron14/error /dron13/dron19/data /dron13/dron19/error /dron13/dron20/data /dron13/dron20/error /dron13/ellipsoid/data /dron13/ellipsoid/error /dron14/local_pose /dron14/local_pose_gt /dron14/goal_pose /dron14/global_error /dron14/mr_data_gt /dron14/mr_data_gt_mod /dron14/mr_data /dron14/mr_data_mod /dron14/dron04/data /dron14/dron04/error /dron14/dron05/data /dron14/dron05/error /dron14/dron06/data /dron14/dron06/error /dron14/dron13/data /dron14/dron13/error /dron14/dron15/data /dron14/dron15/error /dron14/dron19/data /dron14/dron19/error /dron14/ellipsoid/data /dron14/ellipsoid/error /dron15/local_pose /dron15/local_pose_gt /dron15/goal_pose /dron15/global_error /dron15/mr_data_gt /dron15/mr_data_gt_mod /dron15/mr_data /dron15/mr_data_mod /dron15/dron06/data /dron15/dron06/error /dron15/dron07/data /dron15/dron07/error /dron15/dron08/data /dron15/dron08/error /dron15/dron14/data /dron15/dron14/error /dron15/dron16/data /dron15/dron16/error /dron15/dron19/data /dron15/dron19/error /dron15/ellipsoid/data /dron15/ellipsoid/error /dron16/local_pose /dron16/local_pose_gt /dron16/goal_pose /dron16/global_error /dron16/mr_data_gt /dron16/mr_data_gt_mod /dron16/mr_data /dron16/mr_data_mod /dron16/dron08/data /dron16/dron08/error /dron16/dron09/data /dron16/dron09/error /dron16/dron15/data /dron16/dron15/error /dron16/dron17/data /dron16/dron17/error /dron16/dron19/data /dron16/dron19/error /dron16/dron20/data /dron16/dron20/error /dron16/ellipsoid/data /dron16/ellipsoid/error /dron17/local_pose /dron17/local_pose_gt /dron17/goal_pose /dron17/global_error /dron17/mr_data_gt /dron17/mr_data_gt_mod /dron17/mr_data /dron17/mr_data_mod /dron17/dron09/data /dron17/dron09/error /dron17/dron10/data /dron17/dron10/error /dron17/dron11/data /dron17/dron11/error /dron17/dron16/data /dron17/dron16/error /dron17/dron18/data /dron17/dron18/error /dron17/dron20/data /dron17/dron20/error /dron17/ellipsoid/data /dron17/ellipsoid/error /dron18/local_pose /dron18/local_pose_gt /dron18/goal_pose /dron18/global_error /dron18/mr_data_gt /dron18/mr_data_gt_mod /dron18/mr_data /dron18/mr_data_mod /dron18/dron01/data /dron18/dron01/error /dron18/dron11/data /dron18/dron11/error /dron18/dron12/data /dron18/dron12/error /dron18/dron17/data /dron18/dron17/error /dron18/dron20/data /dron18/dron20/error /dron18/ellipsoid/data /dron18/ellipsoid/error /dron19/local_pose /dron19/local_pose_gt /dron19/goal_pose /dron19/global_error /dron19/mr_data_gt /dron19/mr_data_gt_mod /dron19/mr_data /dron19/mr_data_mod /dron19/dron13/data /dron19/dron13/error /dron19/dron14/data /dron19/dron14/error /dron19/dron15/data /dron19/dron15/error /dron19/dron16/data /dron19/dron16/error /dron19/dron20/data /dron19/dron20/error /dron19/ellipsoid/data /dron19/ellipsoid/error /dron20/local_pose /dron20/local_pose_gt /dron20/goal_pose /dron20/global_error /dron20/mr_data_gt /dron20/mr_data_gt_mod /dron20/mr_data /dron20/mr_data_mod /dron20/dron12/data /dron20/dron12/error /dron20/dron13/data /dron20/dron13/error /dron20/dron16/data /dron20/dron16/error /dron20/dron17/data /dron20/dron17/error /dron20/dron18/data /dron20/dron18/error /dron20/dron19/data /dron20/dron19/error /dron20/ellipsoid/data /dron20/ellipsoid/error
+
+Robots:
+  Robot01:
+    type: virtual
+    name: khepera01
+    positioning: Intern
+    pose: 1.63, 1.30, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera02_0.74355, khepera13_0.74398, dron01_0.85772, dron11_0.86767, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot02:
+    type: virtual
+    name: khepera02
+    positioning: Intern
+    pose: 1.21, 2.53, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera01_0.74355, khepera03_0.72924, dron01_0.84726, dron02_0.90837, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot03:
+    type: virtual
+    name: khepera03
+    positioning: Intern
+    pose: 0.32, 3.44, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera02_0.72924, khepera04_0.69974, dron02_0.81666, dron03_1.0868, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot04:
+    type: virtual
+    name: khepera04
+    positioning: Intern
+    pose: -0.85, 3.06, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera03_0.69974, khepera05_0.74023, dron03_0.80057, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot05:
+    type: virtual
+    name: khepera05
+    positioning: Intern
+    pose: -1.46, 1.92, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera04_0.74023, khepera06_0.74584, dron03_0.93951, dron04_0.81251, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot06:
+    type: virtual
+    name: khepera06
+    positioning: Intern
+    pose: -1.72, 0.64, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera05_0.74584, khepera07_0.74495, dron04_0.90231, dron05_0.82609, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot07:
+    type: virtual
+    name: khepera07
+    positioning: Intern
+    pose: -1.72, -0.66, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera06_0.74495, khepera08_0.74482, dron05_0.87914, dron06_0.84436, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot08:
+    type: virtual
+    name: khepera08
+    positioning: Intern
+    pose: -1.46, -1.94, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera07_0.74482, khepera09_0.741, dron06_0.85887, dron07_0.87538, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot09:
+    type: virtual
+    name: khepera09
+    positioning: Intern
+    pose: -0.84, -3.07, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera08_0.741, khepera10_0.69859, dron07_0.83518, dron08_0.97423, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot10:
+    type: virtual
+    name: khepera10
+    positioning: Intern
+    pose: 0.33, -3.44, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera09_0.69859, khepera11_0.73021, dron08_0.80012, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot11:
+    type: virtual
+    name: khepera11
+    positioning: Intern
+    pose: 1.22, -2.51, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera10_0.73021, khepera12_0.74331, dron08_0.97855, dron09_0.80567, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot12:
+    type: virtual
+    name: khepera12
+    positioning: Intern
+    pose: 1.63, -1.28, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera11_0.74331, khepera13_0.7352, dron09_0.91791, dron10_0.81859, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot13:
+    type: virtual
+    name: khepera13
+    positioning: Intern
+    pose: 1.75, -0.00, 0.70
+    control_mode: HighLevel
+    agent_ip: '192.168.0.21'
+    port_number: 50000
+    controller:
+      type: ipc
+      enable: True
+      protocol: Continuous
+      period: 0.01
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: True
+      T: 100
+    local_twist:
+      enable: False
+      T: 50
+    data:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient
+        protocol: Continuous
+        period: 0.1
+        upperLimit: 0.1
+        lowerLimit: -0.1
+        gain: 0.2
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera01_0.74398, khepera12_0.7352, dron10_0.88547, dron11_0.83513, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot14:
+    type: virtual
+    name: dron01
+    positioning: Intern
+    pose: 1.19, 1.86, 1.64
+    uri: radio://0/80/2M/E7E7E7E714
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera01_0.85772, khepera02_0.84726, dron02_0.74692, dron11_0.75901, dron12_0.73455, dron18_0.80147, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot15:
+    type: virtual
+    name: dron02
+    positioning: Intern
+    pose: 0.41, 2.91, 1.64
+    uri: radio://0/80/2M/E7E7E7E715
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera02_0.90837, khepera03_0.81666, dron01_0.74692, dron03_0.69485, dron12_0.75399, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot16:
+    type: virtual
+    name: dron03
+    positioning: Intern
+    pose: -0.76, 2.61, 1.64
+    uri: radio://0/80/2M/E7E7E7E716
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera03_1.0868, khepera04_0.80057, khepera05_0.93951, dron02_0.69485, dron04_0.75488, dron12_0.84487, dron13_0.92379, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot17:
+    type: virtual
+    name: dron04
+    positioning: Intern
+    pose: -1.34, 1.42, 1.64
+    uri: radio://0/80/2M/E7E7E7E717
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera05_0.81251, khepera06_0.90231, dron03_0.75488, dron05_0.75968, dron13_0.59279, dron14_1.0157, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot18:
+    type: virtual
+    name: dron05
+    positioning: Intern
+    pose: -1.51, 0.10, 1.64
+    uri: radio://0/80/2M/E7E7E7E718
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera06_0.82609, khepera07_0.87914, dron04_0.75968, dron06_0.76074, dron14_0.58275, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot19:
+    type: virtual
+    name: dron06
+    positioning: Intern
+    pose: -1.38, -1.23, 1.64
+    uri: radio://0/80/2M/E7E7E7E719
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera07_0.84436, khepera08_0.85887, dron05_0.76074, dron07_0.75726, dron14_0.83512, dron15_0.63881, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot20:
+    type: virtual
+    name: dron07
+    positioning: Intern
+    pose: -0.88, -2.45, 1.64
+    uri: radio://0/80/2M/E7E7E7E720
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera08_0.87538, khepera09_0.83518, dron06_0.75726, dron08_0.70818, dron15_0.7721, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot21:
+    type: virtual
+    name: dron08
+    positioning: Intern
+    pose: 0.24, -2.99, 1.64
+    uri: radio://0/80/2M/E7E7E7E721
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera09_0.97423, khepera10_0.80012, khepera11_0.97855, dron07_0.70818, dron09_0.74042, dron15_1.1437, dron16_0.83993, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot22:
+    type: virtual
+    name: dron09
+    positioning: Intern
+    pose: 1.12, -2.04, 1.64
+    uri: radio://0/80/2M/E7E7E7E722
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera11_0.80567, khepera12_0.91791, dron08_0.74042, dron10_0.75816, dron16_0.6489, dron17_0.97149, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot23:
+    type: virtual
+    name: dron10
+    positioning: Intern
+    pose: 1.46, -0.76, 1.64
+    uri: radio://0/80/2M/E7E7E7E723
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera12_0.81859, khepera13_0.88547, dron09_0.75816, dron11_0.75346, dron17_0.57865, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot24:
+    type: virtual
+    name: dron11
+    positioning: Intern
+    pose: 1.49, 0.56, 1.64
+    uri: radio://0/80/2M/E7E7E7E724
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: khepera01_0.86767, khepera13_0.83513, dron01_0.75901, dron10_0.75346, dron17_0.86783, dron18_0.60058, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot25:
+    type: virtual
+    name: dron12
+    positioning: Intern
+    pose: 0.23, 1.91, 2.25
+    uri: radio://0/80/2M/E7E7E7E725
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron01_0.73455, dron02_0.75399, dron03_0.84487, dron13_0.69002, dron18_0.75479, dron20_0.94863, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot26:
+    type: virtual
+    name: dron13
+    positioning: Intern
+    pose: -0.77, 1.23, 2.25
+    uri: radio://0/80/2M/E7E7E7E726
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron03_0.92379, dron04_0.59279, dron12_0.69002, dron14_0.7737, dron19_0.97901, dron20_0.78775, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot27:
+    type: virtual
+    name: dron14
+    positioning: Intern
+    pose: -0.98, -0.11, 2.25
+    uri: radio://0/80/2M/E7E7E7E727
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron04_1.0157, dron05_0.58275, dron06_0.83512, dron13_0.7737, dron15_0.77208, dron19_0.5416, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot28:
+    type: virtual
+    name: dron15
+    positioning: Intern
+    pose: -0.68, -1.42, 2.25
+    uri: radio://0/80/2M/E7E7E7E728
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron06_0.63881, dron07_0.7721, dron08_1.1437, dron14_0.77208, dron16_0.65416, dron19_0.74119, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot29:
+    type: virtual
+    name: dron16
+    positioning: Intern
+    pose: 0.40, -1.80, 2.25
+    uri: radio://0/80/2M/E7E7E7E729
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron08_0.83993, dron09_0.6489, dron15_0.65416, dron17_0.76443, dron19_0.94072, dron20_1.2382, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot30:
+    type: virtual
+    name: dron17
+    positioning: Intern
+    pose: 0.94, -0.57, 2.25
+    uri: radio://0/80/2M/E7E7E7E730
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron09_0.97149, dron10_0.57865, dron11_0.86783, dron16_0.76443, dron18_0.77335, dron20_0.7171, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot31:
+    type: virtual
+    name: dron18
+    positioning: Intern
+    pose: 0.90, 0.78, 2.25
+    uri: radio://0/80/2M/E7E7E7E731
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron01_0.80147, dron11_0.60058, dron12_0.75479, dron17_0.77335, dron20_0.55691, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot32:
+    type: virtual
+    name: dron19
+    positioning: Intern
+    pose: -0.17, -0.31, 2.56
+    uri: radio://0/80/2M/E7E7E7E732
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron13_0.97901, dron14_0.5416, dron15_0.74119, dron16_0.94072, dron20_0.40442, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+  Robot33:
+    type: virtual
+    name: dron20
+    positioning: Intern
+    pose: 0.17, 0.31, 2.56
+    uri: radio://0/80/2M/E7E7E7E733
+    communication:
+      type: Continuous
+      threshold:
+        type: Constant
+        co: 0.01
+        ai: 0.0
+    local_pose:
+      enable: True
+      path: False
+      T: 100
+    local_twist:
+      enable: False
+      T: 20
+    mars_data:
+      enable: True
+      T: 50
+    task: 
+      enable: True
+      T: 100
+      Onboard: True
+      controller:
+        type: gradient_v
+        protocol: Continuous
+        period: 0.2
+        upperLimit: 0.2
+        lowerLimit: -0.2
+        gain: 0.1
+        threshold:
+            type: Constant
+            co: 0.01
+            ai: 0.0
+      role: consensus
+      type: distance
+      relationship: dron12_0.94863, dron13_0.78775, dron16_1.2382, dron17_0.7171, dron18_0.55691, dron19_0.40442, ellipsoid_0.0-0.0-0.0_1.0-2.0-1.5
+
+Supervisor:
+  enable: True
+  node: 
+    executable: supervisor_node
+    name: supervisor
+    pkg: mars_supervisor_pkg
+    file: Morphing_ellipsoid_topics.yaml
+
+Other:
+  Agent00:
+    enable: False

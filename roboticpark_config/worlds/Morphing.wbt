@@ -1,0 +1,390 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/bitcraze/crazyflie/protos/Crazyflie.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/k-team/khepera4/protos/Khepera4.proto"
+
+WorldInfo {
+	info [
+		 "Demo World. Morphing Ellipsoid Formation Control. Case N:33; "
+	]
+	basicTimeStep 20
+}
+Viewpoint {
+	fieldOfView 1
+	orientation 0.08257814004826021 0.7347446275807098 -0.6732987323821825 0.7219016991902246
+	position -6.686523789804856 3.246953734178069 5.0217815008034
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DirectionalLight {
+	ambientIntensity 1
+	direction 6 -16 -10
+	intensity 4
+}
+CircleArena {
+  radius 4
+  wallHeight 0.5
+}
+Khepera4 {
+	translation 1.63 1.30 0.015
+	name "khepera01"
+	controller "<extern>"
+  supervisor TRUE
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation 1.21 2.53 0.015
+	name "khepera02"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation 0.32 3.44 0.015
+	name "khepera03"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation -0.85 3.06 0.015
+	name "khepera04"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation -1.46 1.92 0.015
+	name "khepera05"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation -1.72 0.64 0.015
+	name "khepera06"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation -1.72 -0.66 0.015
+	name "khepera07"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation -1.46 -1.94 0.015
+	name "khepera08"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation -0.84 -3.07 0.015
+	name "khepera09"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation 0.33 -3.44 0.015
+	name "khepera10"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation 1.22 -2.51 0.015
+	name "khepera11"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation 1.63 -1.28 0.015
+	name "khepera12"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Khepera4 {
+	translation 1.75 -0.00 0.015
+	name "khepera13"
+	controller "<extern>"
+  turretSlot [
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 1.19 1.86 0.015
+	name "dron01"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.41 2.91 0.015
+	name "dron02"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.76 2.61 0.015
+	name "dron03"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -1.34 1.42 0.015
+	name "dron04"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -1.51 0.10 0.015
+	name "dron05"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -1.38 -1.23 0.015
+	name "dron06"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.88 -2.45 0.015
+	name "dron07"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.24 -2.99 0.015
+	name "dron08"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 1.12 -2.04 0.015
+	name "dron09"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 1.46 -0.76 0.015
+	name "dron10"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 1.49 0.56 0.015
+	name "dron11"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.23 1.91 0.015
+	name "dron12"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.77 1.23 0.015
+	name "dron13"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.98 -0.11 0.015
+	name "dron14"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.68 -1.42 0.015
+	name "dron15"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.40 -1.80 0.015
+	name "dron16"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.94 -0.57 0.015
+	name "dron17"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.90 0.78 0.015
+	name "dron18"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation -0.17 -0.31 0.015
+	name "dron19"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+
+Crazyflie {
+	translation 0.17 0.31 0.015
+	name "dron20"
+	controller "<extern>"
+  extensionSlot [
+    InertialUnit {
+    }
+  ]
+}
+

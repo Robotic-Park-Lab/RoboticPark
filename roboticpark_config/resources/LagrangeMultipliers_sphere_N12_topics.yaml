@@ -54,7 +54,7 @@ cmd00:
 cmd01:
   topic: dron01/target_pose
   type: PoseStamped
-  value: 1.6 0.1 0.88
+  value: 1.6 0.00 0.88
   trigger:
     type: time
     name: swarm/status

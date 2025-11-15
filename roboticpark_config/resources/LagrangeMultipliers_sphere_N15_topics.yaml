@@ -39,6 +39,15 @@ config:
     topic12:
       name: dron12/target_pose
       type: PoseStamped
+    topic13:
+      name: dron13/target_pose
+      type: PoseStamped
+    topic14:
+      name: dron14/target_pose
+      type: PoseStamped
+    topic15:
+      name: dron15/target_pose
+      type: PoseStamped
   subscription:
     topic00:
       name: swarm/status
@@ -54,7 +63,7 @@ cmd00:
 cmd01:
   topic: dron01/target_pose
   type: PoseStamped
-  value: 1.6 0.1 0.88
+  value: 1.6 0.00 0.88
   trigger:
     type: time
     name: swarm/status
@@ -62,7 +71,7 @@ cmd01:
 cmd02:
   topic: dron02/target_pose
   type: PoseStamped
-  value: 1.09 1.37 0.88
+  value: 1.24 1.24 0.88
   trigger:
     type: time
     name: swarm/status
@@ -70,7 +79,7 @@ cmd02:
 cmd03:
   topic: dron03/target_pose
   type: PoseStamped
-  value: -0.39 1.71 0.88
+  value: 0.00 1.75 0.88
   trigger:
     type: time
     name: swarm/status
@@ -78,7 +87,7 @@ cmd03:
 cmd04:
   topic: dron04/target_pose
   type: PoseStamped
-  value: -1.58 0.76 0.88
+  value: -1.24 1.24 0.88
   trigger:
     type: time
     name: swarm/status
@@ -86,7 +95,7 @@ cmd04:
 cmd05:
   topic: dron05/target_pose
   type: PoseStamped
-  value: -1.58 -0.76 0.88
+  value: -1.75 0.00 0.88
   trigger:
     type: time
     name: swarm/status
@@ -94,7 +103,7 @@ cmd05:
 cmd06:
   topic: dron06/target_pose
   type: PoseStamped
-  value: -0.39 -1.71 0.88
+  value: -1.24 -1.24 0.88
   trigger:
     type: time
     name: swarm/status
@@ -102,7 +111,7 @@ cmd06:
 cmd07:
   topic: dron07/target_pose
   type: PoseStamped
-  value: 1.09 -1.37 0.88
+  value: -0.00 -1.75 0.88
   trigger:
     type: time
     name: swarm/status
@@ -110,7 +119,7 @@ cmd07:
 cmd08:
   topic: dron08/target_pose
   type: PoseStamped
-  value: 1.14 0.00 1.5
+  value: 1.24 -1.24 0.88
   trigger:
     type: time
     name: swarm/status
@@ -118,7 +127,7 @@ cmd08:
 cmd09:
   topic: dron09/target_pose
   type: PoseStamped
-  value: 0.35 1.09 1.5
+  value: 1.28 0.00 1.4
   trigger:
     type: time
     name: swarm/status
@@ -126,7 +135,7 @@ cmd09:
 cmd10:
   topic: dron10/target_pose
   type: PoseStamped
-  value: -0.92 0.67 1.5
+  value: 0.64 1.11 1.4
   trigger:
     type: time
     name: swarm/status
@@ -134,7 +143,7 @@ cmd10:
 cmd11:
   topic: dron11/target_pose
   type: PoseStamped
-  value: -0.92 -0.67 1.5
+  value: -0.64 1.11 1.4
   trigger:
     type: time
     name: swarm/status
@@ -142,12 +151,36 @@ cmd11:
 cmd12:
   topic: dron12/target_pose
   type: PoseStamped
-  value: 0.35 -1.09 1.5
+  value: -1.28 0.00 1.4
   trigger:
     type: time
     name: swarm/status
     value: 1.0
 cmd13:
+  topic: dron13/target_pose
+  type: PoseStamped
+  value: -0.64 -1.11 1.4
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd14:
+  topic: dron14/target_pose
+  type: PoseStamped
+  value: 0.64 -1.11 1.4
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd15:
+  topic: dron15/target_pose
+  type: PoseStamped
+  value: 0.00 0.00 1.5
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd16:
   topic: swarm/order
   type: String
   value: formation_run
@@ -155,7 +188,7 @@ cmd13:
     type: time
     name: swarm/status
     value: 4.0
-cmd14:
+cmd17:
   topic: swarm/order
   type: String
   value: formation_stop
@@ -163,7 +196,7 @@ cmd14:
     type: time
     name: swarm/status
     value: 20.0
-cmd15:
+cmd18:
   topic: swarm/order
   type: String
   value: land
@@ -171,7 +204,7 @@ cmd15:
     type: time
     name: swarm/status
     value: 5.0
-cmd16:
+cmd19:
   topic: swarm/order
   type: String
   value: end

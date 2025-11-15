@@ -3,7 +3,7 @@
 Operation:
   mode: virtual     # physical, virtual, hybrid
   tool: Webots              # Gazebo, Webots
-  world: LagrangeMultipliers_N15.wbt 
+  world: LagrangeMultipliers_sphere_N15.wbt 
 
 Experience:
   type: formation           # identification, formation, navigation
@@ -31,7 +31,7 @@ Interface:
       executable: rviz2
       name: rviz2
       pkg: rviz2
-    file: LagrangeMultipliers_N15.rviz
+    file: LagrangeMultipliers_sphere_N15.rviz
   rqt: 
     enable: False
     node: 
@@ -50,14 +50,14 @@ Data_Logging:
   enable: True
   all: False
   name: date
-  topics: /ros2_cpu /cpu_stats /swarm/order /swarm_driver_cpu /swarm/status /driver_cpu /rviz2_cpu /webots_bin_cpu /dron01/local_pose /dron01/local_pose_gt /dron01/goal_pose /dron01/global_error /dron01/mr_data_gt_mod /dron01/mr_data /dron01/mr_data_gt /dron01/mr_data_mod /dron01/dron02/data /dron01/dron02/error /dron01/dron08/data /dron01/dron08/error /dron01/dron09/data /dron01/dron09/error /dron01/origin/data /dron01/origin/error /dron02/local_pose /dron02/local_pose_gt /dron02/goal_pose /dron02/global_error /dron02/mr_data_gt_mod /dron02/mr_data /dron02/mr_data_gt /dron02/mr_data_mod /dron02/dron01/data /dron02/dron01/error /dron02/dron03/data /dron02/dron03/error /dron02/dron09/data /dron02/dron09/error /dron02/dron10/data /dron02/dron10/error /dron02/origin/data /dron02/origin/error /dron03/local_pose /dron03/local_pose_gt /dron03/goal_pose /dron03/global_error /dron03/mr_data_gt_mod /dron03/mr_data /dron03/mr_data_gt /dron03/mr_data_mod /dron03/dron02/data /dron03/dron02/error /dron03/dron04/data /dron03/dron04/error /dron03/dron10/data /dron03/dron10/error /dron03/dron11/data /dron03/dron11/error /dron03/origin/data /dron03/origin/error /dron04/local_pose /dron04/local_pose_gt /dron04/goal_pose /dron04/global_error /dron04/mr_data_gt_mod /dron04/mr_data /dron04/mr_data_gt /dron04/mr_data_mod /dron04/dron03/data /dron04/dron03/error /dron04/dron05/data /dron04/dron05/error /dron04/dron11/data /dron04/dron11/error /dron04/dron12/data /dron04/dron12/error /dron04/origin/data /dron04/origin/error /dron05/local_pose /dron05/local_pose_gt /dron05/goal_pose /dron05/global_error /dron05/mr_data_gt_mod /dron05/mr_data /dron05/mr_data_gt /dron05/mr_data_mod /dron05/dron04/data /dron05/dron04/error /dron05/dron06/data /dron05/dron06/error /dron05/dron12/data /dron05/dron12/error /dron05/origin/data /dron05/origin/error /dron06/local_pose /dron06/local_pose_gt /dron06/goal_pose /dron06/global_error /dron06/mr_data_gt_mod /dron06/mr_data /dron06/mr_data_gt /dron06/mr_data_mod /dron06/dron05/data /dron06/dron05/error /dron06/dron07/data /dron06/dron07/error /dron06/dron12/data /dron06/dron12/error /dron06/dron13/data /dron06/dron13/error /dron06/origin/data /dron06/origin/error /dron07/local_pose /dron07/local_pose_gt /dron07/goal_pose /dron07/global_error /dron07/mr_data_gt_mod /dron07/mr_data /dron07/mr_data_gt /dron07/mr_data_mod /dron07/dron06/data /dron07/dron06/error /dron07/dron08/data /dron07/dron08/error /dron07/dron13/data /dron07/dron13/error /dron07/dron14/data /dron07/dron14/error /dron07/origin/data /dron07/origin/error /dron08/local_pose /dron08/local_pose_gt /dron08/goal_pose /dron08/global_error /dron08/mr_data_gt_mod /dron08/mr_data /dron08/mr_data_gt /dron08/mr_data_mod /dron08/dron01/data /dron08/dron01/error /dron08/dron07/data /dron08/dron07/error /dron08/dron09/data /dron08/dron09/error /dron08/dron14/data /dron08/dron14/error /dron08/origin/data /dron08/origin/error /dron09/local_pose /dron09/local_pose_gt /dron09/goal_pose /dron09/global_error /dron09/mr_data_gt_mod /dron09/mr_data /dron09/mr_data_gt /dron09/mr_data_mod /dron09/dron01/data /dron09/dron01/error /dron09/dron02/data /dron09/dron02/error /dron09/dron08/data /dron09/dron08/error /dron09/dron10/data /dron09/dron10/error /dron09/dron14/data /dron09/dron14/error /dron09/dron15/data /dron09/dron15/error /dron09/origin/data /dron09/origin/error /dron10/local_pose /dron10/local_pose_gt /dron10/goal_pose /dron10/global_error /dron10/mr_data_gt_mod /dron10/mr_data /dron10/mr_data_gt /dron10/mr_data_mod /dron10/dron02/data /dron10/dron02/error /dron10/dron03/data /dron10/dron03/error /dron10/dron09/data /dron10/dron09/error /dron10/dron11/data /dron10/dron11/error /dron10/dron15/data /dron10/dron15/error /dron10/origin/data /dron10/origin/error /dron11/local_pose /dron11/local_pose_gt /dron11/goal_pose /dron11/global_error /dron11/mr_data_gt_mod /dron11/mr_data /dron11/mr_data_gt /dron11/mr_data_mod /dron11/dron03/data /dron11/dron03/error /dron11/dron04/data /dron11/dron04/error /dron11/dron10/data /dron11/dron10/error /dron11/dron12/data /dron11/dron12/error /dron11/dron15/data /dron11/dron15/error /dron11/origin/data /dron11/origin/error /dron12/local_pose /dron12/local_pose_gt /dron12/goal_pose /dron12/global_error /dron12/mr_data_gt_mod /dron12/mr_data /dron12/mr_data_gt /dron12/mr_data_mod /dron12/dron04/data /dron12/dron04/error /dron12/dron05/data /dron12/dron05/error /dron12/dron06/data /dron12/dron06/error /dron12/dron11/data /dron12/dron11/error /dron12/dron13/data /dron12/dron13/error /dron12/dron15/data /dron12/dron15/error /dron12/origin/data /dron12/origin/error /dron13/local_pose /dron13/local_pose_gt /dron13/goal_pose /dron13/global_error /dron13/mr_data_gt_mod /dron13/mr_data /dron13/mr_data_gt /dron13/mr_data_mod /dron13/dron06/data /dron13/dron06/error /dron13/dron07/data /dron13/dron07/error /dron13/dron12/data /dron13/dron12/error /dron13/dron14/data /dron13/dron14/error /dron13/dron15/data /dron13/dron15/error /dron13/origin/data /dron13/origin/error /dron14/local_pose /dron14/local_pose_gt /dron14/goal_pose /dron14/global_error /dron14/mr_data_gt_mod /dron14/mr_data /dron14/mr_data_gt /dron14/mr_data_mod /dron14/dron07/data /dron14/dron07/error /dron14/dron08/data /dron14/dron08/error /dron14/dron09/data /dron14/dron09/error /dron14/dron13/data /dron14/dron13/error /dron14/dron15/data /dron14/dron15/error /dron14/origin/data /dron14/origin/error /dron15/local_pose /dron15/local_pose_gt /dron15/goal_pose /dron15/global_error /dron15/mr_data_gt_mod /dron15/mr_data /dron15/mr_data_gt /dron15/mr_data_mod /dron15/dron09/data /dron15/dron09/error /dron15/dron10/data /dron15/dron10/error /dron15/dron11/data /dron15/dron11/error /dron15/dron12/data /dron15/dron12/error /dron15/dron13/data /dron15/dron13/error /dron15/dron14/data /dron15/dron14/error /dron15/origin/data /dron15/origin/error
+  topics: /ros2_cpu /cpu_stats /swarm/order /swarm_driver_cpu /swarm/status /driver_cpu /rviz2_cpu /webots_bin_cpu /dron01/local_pose /dron01/local_pose_gt /dron01/goal_pose /dron01/global_error /dron01/mr_data_gt_mod /dron01/mr_data /dron01/mr_data_gt /dron01/mr_data_mod /dron01/dron02/data /dron01/dron02/error /dron01/dron08/data /dron01/dron08/error /dron01/dron09/data /dron01/dron09/error /dron01/sphere/data /dron01/sphere/error /dron02/local_pose /dron02/local_pose_gt /dron02/goal_pose /dron02/global_error /dron02/mr_data_gt_mod /dron02/mr_data /dron02/mr_data_gt /dron02/mr_data_mod /dron02/dron01/data /dron02/dron01/error /dron02/dron03/data /dron02/dron03/error /dron02/dron09/data /dron02/dron09/error /dron02/dron10/data /dron02/dron10/error /dron02/sphere/data /dron02/sphere/error /dron03/local_pose /dron03/local_pose_gt /dron03/goal_pose /dron03/global_error /dron03/mr_data_gt_mod /dron03/mr_data /dron03/mr_data_gt /dron03/mr_data_mod /dron03/dron02/data /dron03/dron02/error /dron03/dron04/data /dron03/dron04/error /dron03/dron10/data /dron03/dron10/error /dron03/dron11/data /dron03/dron11/error /dron03/sphere/data /dron03/sphere/error /dron04/local_pose /dron04/local_pose_gt /dron04/goal_pose /dron04/global_error /dron04/mr_data_gt_mod /dron04/mr_data /dron04/mr_data_gt /dron04/mr_data_mod /dron04/dron03/data /dron04/dron03/error /dron04/dron05/data /dron04/dron05/error /dron04/dron11/data /dron04/dron11/error /dron04/dron12/data /dron04/dron12/error /dron04/sphere/data /dron04/sphere/error /dron05/local_pose /dron05/local_pose_gt /dron05/goal_pose /dron05/global_error /dron05/mr_data_gt_mod /dron05/mr_data /dron05/mr_data_gt /dron05/mr_data_mod /dron05/dron04/data /dron05/dron04/error /dron05/dron06/data /dron05/dron06/error /dron05/dron12/data /dron05/dron12/error /dron05/sphere/data /dron05/sphere/error /dron06/local_pose /dron06/local_pose_gt /dron06/goal_pose /dron06/global_error /dron06/mr_data_gt_mod /dron06/mr_data /dron06/mr_data_gt /dron06/mr_data_mod /dron06/dron05/data /dron06/dron05/error /dron06/dron07/data /dron06/dron07/error /dron06/dron12/data /dron06/dron12/error /dron06/dron13/data /dron06/dron13/error /dron06/sphere/data /dron06/sphere/error /dron07/local_pose /dron07/local_pose_gt /dron07/goal_pose /dron07/global_error /dron07/mr_data_gt_mod /dron07/mr_data /dron07/mr_data_gt /dron07/mr_data_mod /dron07/dron06/data /dron07/dron06/error /dron07/dron08/data /dron07/dron08/error /dron07/dron13/data /dron07/dron13/error /dron07/dron14/data /dron07/dron14/error /dron07/sphere/data /dron07/sphere/error /dron08/local_pose /dron08/local_pose_gt /dron08/goal_pose /dron08/global_error /dron08/mr_data_gt_mod /dron08/mr_data /dron08/mr_data_gt /dron08/mr_data_mod /dron08/dron01/data /dron08/dron01/error /dron08/dron07/data /dron08/dron07/error /dron08/dron09/data /dron08/dron09/error /dron08/dron14/data /dron08/dron14/error /dron08/sphere/data /dron08/sphere/error /dron09/local_pose /dron09/local_pose_gt /dron09/goal_pose /dron09/global_error /dron09/mr_data_gt_mod /dron09/mr_data /dron09/mr_data_gt /dron09/mr_data_mod /dron09/dron01/data /dron09/dron01/error /dron09/dron02/data /dron09/dron02/error /dron09/dron08/data /dron09/dron08/error /dron09/dron10/data /dron09/dron10/error /dron09/dron14/data /dron09/dron14/error /dron09/dron15/data /dron09/dron15/error /dron09/sphere/data /dron09/sphere/error /dron10/local_pose /dron10/local_pose_gt /dron10/goal_pose /dron10/global_error /dron10/mr_data_gt_mod /dron10/mr_data /dron10/mr_data_gt /dron10/mr_data_mod /dron10/dron02/data /dron10/dron02/error /dron10/dron03/data /dron10/dron03/error /dron10/dron09/data /dron10/dron09/error /dron10/dron11/data /dron10/dron11/error /dron10/dron15/data /dron10/dron15/error /dron10/sphere/data /dron10/sphere/error /dron11/local_pose /dron11/local_pose_gt /dron11/goal_pose /dron11/global_error /dron11/mr_data_gt_mod /dron11/mr_data /dron11/mr_data_gt /dron11/mr_data_mod /dron11/dron03/data /dron11/dron03/error /dron11/dron04/data /dron11/dron04/error /dron11/dron10/data /dron11/dron10/error /dron11/dron12/data /dron11/dron12/error /dron11/dron15/data /dron11/dron15/error /dron11/sphere/data /dron11/sphere/error /dron12/local_pose /dron12/local_pose_gt /dron12/goal_pose /dron12/global_error /dron12/mr_data_gt_mod /dron12/mr_data /dron12/mr_data_gt /dron12/mr_data_mod /dron12/dron04/data /dron12/dron04/error /dron12/dron05/data /dron12/dron05/error /dron12/dron06/data /dron12/dron06/error /dron12/dron11/data /dron12/dron11/error /dron12/dron13/data /dron12/dron13/error /dron12/dron15/data /dron12/dron15/error /dron12/sphere/data /dron12/sphere/error /dron13/local_pose /dron13/local_pose_gt /dron13/goal_pose /dron13/global_error /dron13/mr_data_gt_mod /dron13/mr_data /dron13/mr_data_gt /dron13/mr_data_mod /dron13/dron06/data /dron13/dron06/error /dron13/dron07/data /dron13/dron07/error /dron13/dron12/data /dron13/dron12/error /dron13/dron14/data /dron13/dron14/error /dron13/dron15/data /dron13/dron15/error /dron13/sphere/data /dron13/sphere/error /dron14/local_pose /dron14/local_pose_gt /dron14/goal_pose /dron14/global_error /dron14/mr_data_gt_mod /dron14/mr_data /dron14/mr_data_gt /dron14/mr_data_mod /dron14/dron07/data /dron14/dron07/error /dron14/dron08/data /dron14/dron08/error /dron14/dron09/data /dron14/dron09/error /dron14/dron13/data /dron14/dron13/error /dron14/dron15/data /dron14/dron15/error /dron14/sphere/data /dron14/sphere/error /dron15/local_pose /dron15/local_pose_gt /dron15/goal_pose /dron15/global_error /dron15/mr_data_gt_mod /dron15/mr_data /dron15/mr_data_gt /dron15/mr_data_mod /dron15/dron09/data /dron15/dron09/error /dron15/dron10/data /dron15/dron10/error /dron15/dron11/data /dron15/dron11/error /dron15/dron12/data /dron15/dron12/error /dron15/dron13/data /dron15/dron13/error /dron15/dron14/data /dron15/dron14/error /dron15/sphere/data /dron15/sphere/error
 
 Robots:
   Robot01:
     type: virtual
     name: dron01
     positioning: Intern
-    pose: 1.75, 0.00, 0.88
+    pose: 1.6, 0.00, 0.88
     uri: radio://0/80/2M/E7E7E7E701
     communication:
       type: Continuous
@@ -80,7 +80,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -92,7 +92,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_0.76537, dron08_0.76537, dron09_0.73268, origin_1.0
+      relationship: dron02_0.76537, dron08_0.76537, dron09_0.73268, sphere_1.0-0.0-0.0-0.6
 
   Robot02:
     type: virtual
@@ -121,7 +121,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -133,7 +133,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_0.76537, dron03_0.76537, dron09_0.98254, dron10_0.76595, origin_1.0
+      relationship: dron01_0.76537, dron03_0.76537, dron09_0.98254, dron10_0.76595, sphere_1.0-0.0-0.0-0.6
 
   Robot03:
     type: virtual
@@ -162,7 +162,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -174,7 +174,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_0.76537, dron04_0.76537, dron10_0.85607, dron11_0.85607, origin_1.0
+      relationship: dron02_0.76537, dron04_0.76537, dron10_0.85607, dron11_0.85607, sphere_1.0-0.0-0.0-0.6
 
   Robot04:
     type: virtual
@@ -203,7 +203,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -215,7 +215,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron03_0.76537, dron05_0.76537, dron11_0.76595, dron12_0.98254, origin_1.0
+      relationship: dron03_0.76537, dron05_0.76537, dron11_0.76595, dron12_0.98254, sphere_1.0-0.0-0.0-0.6
 
   Robot05:
     type: virtual
@@ -244,7 +244,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -256,7 +256,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron04_0.76537, dron06_0.76537, dron12_0.73268, origin_1.0
+      relationship: dron04_0.76537, dron06_0.76537, dron12_0.73268, sphere_1.0-0.0-0.0-0.6
 
   Robot06:
     type: virtual
@@ -285,7 +285,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -297,7 +297,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron05_0.76537, dron07_0.76537, dron12_0.98254, dron13_0.76595, origin_1.0
+      relationship: dron05_0.76537, dron07_0.76537, dron12_0.98254, dron13_0.76595, sphere_1.0-0.0-0.0-0.6
 
   Robot07:
     type: virtual
@@ -326,7 +326,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -338,7 +338,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron06_0.76537, dron08_0.76537, dron13_0.85607, dron14_0.85607, origin_1.0
+      relationship: dron06_0.76537, dron08_0.76537, dron13_0.85607, dron14_0.85607, sphere_1.0-0.0-0.0-0.6
 
   Robot08:
     type: virtual
@@ -367,7 +367,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -379,7 +379,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_0.76537, dron07_0.76537, dron09_0.98254, dron14_0.76595, origin_1.0
+      relationship: dron01_0.76537, dron07_0.76537, dron09_0.98254, dron14_0.76595, sphere_1.0-0.0-0.0-0.6
 
   Robot09:
     type: virtual
@@ -408,7 +408,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -420,7 +420,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron01_0.73268, dron02_0.98254, dron08_0.98254, dron10_0.73159, dron14_0.73159, dron15_0.79781, origin_1.0
+      relationship: dron01_0.73268, dron02_0.98254, dron08_0.98254, dron10_0.73159, dron14_0.73159, dron15_0.79781, sphere_1.0-0.0-0.0-0.6
 
   Robot10:
     type: virtual
@@ -449,7 +449,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -461,7 +461,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron02_0.76595, dron03_0.85607, dron09_0.73159, dron11_0.73159, dron15_0.79781, origin_1.0
+      relationship: dron02_0.76595, dron03_0.85607, dron09_0.73159, dron11_0.73159, dron15_0.79781, sphere_1.0-0.0-0.0-0.6
 
   Robot11:
     type: virtual
@@ -490,7 +490,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -502,7 +502,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron03_0.85607, dron04_0.76595, dron10_0.73159, dron12_0.73159, dron15_0.79781, origin_1.0
+      relationship: dron03_0.85607, dron04_0.76595, dron10_0.73159, dron12_0.73159, dron15_0.79781, sphere_1.0-0.0-0.0-0.6
 
   Robot12:
     type: virtual
@@ -531,7 +531,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -543,7 +543,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron04_0.98254, dron05_0.73268, dron06_0.98254, dron11_0.73159, dron13_0.73159, dron15_0.79781, origin_1.0
+      relationship: dron04_0.98254, dron05_0.73268, dron06_0.98254, dron11_0.73159, dron13_0.73159, dron15_0.79781, sphere_1.0-0.0-0.0-0.6
 
   Robot13:
     type: virtual
@@ -572,7 +572,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -584,7 +584,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron06_0.76595, dron07_0.85607, dron12_0.73159, dron14_0.73159, dron15_0.79781, origin_1.0
+      relationship: dron06_0.76595, dron07_0.85607, dron12_0.73159, dron14_0.73159, dron15_0.79781, sphere_1.0-0.0-0.0-0.6
 
   Robot14:
     type: virtual
@@ -613,7 +613,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -625,7 +625,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron07_0.85607, dron08_0.76595, dron09_0.73159, dron13_0.73159, dron15_0.79781, origin_1.0
+      relationship: dron07_0.85607, dron08_0.76595, dron09_0.73159, dron13_0.73159, dron15_0.79781, sphere_1.0-0.0-0.0-0.6
 
   Robot15:
     type: virtual
@@ -654,7 +654,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -666,7 +666,7 @@ Robots:
             ai: 0.0
       role: consensus
       type: distance
-      relationship: dron09_0.79781, dron10_0.79781, dron11_0.79781, dron12_0.79781, dron13_0.79781, dron14_0.79781, origin_1.0
+      relationship: dron09_0.79781, dron10_0.79781, dron11_0.79781, dron12_0.79781, dron13_0.79781, dron14_0.79781, sphere_1.0-0.0-0.0-0.6
 
 Supervisor:
   enable: True
@@ -674,7 +674,7 @@ Supervisor:
     executable: supervisor_node
     name: supervisor
     pkg: mars_supervisor_pkg
-    file: LagrangeMultipliers_N15_topics.yaml
+    file: LagrangeMultipliers_sphere_N15_topics.yaml
 
 Other:
   Agent00:

@@ -32,7 +32,7 @@ def get_ros2_nodes(context, *args):
     config_path = os.path.join(general_package_dir, 'resources', file_name)
     with open(config_path, 'r') as file:
             documents = yaml.safe_load(file)
-    
+
     #------------------------#
     #     Operation mode     #
     #------------------------#
@@ -86,7 +86,7 @@ def get_ros2_nodes(context, *args):
     #     Architecture     #
     #----------------------#
     if documents['Architecture']['mode'] == 'centralized':
-        controller_config_path = os.path.join(general_package_dir, 'resources', documents['Architecture']['node']['file'])
+        controller_config_path = os.path.join(general_package_dir, 'resources', file_name)
         node_list.append(Node(
             package=documents['Architecture']['node']['pkg'],
             executable=documents['Architecture']['node']['executable'],
@@ -100,7 +100,7 @@ def get_ros2_nodes(context, *args):
     elif documents['Architecture']['mode'] == 'distributed_ros2':
         print('TO-DO: Distributed control in nodes')
         distributed_architecture = True
-
+        
     #----------------#
     #     Robots     #
     #----------------#

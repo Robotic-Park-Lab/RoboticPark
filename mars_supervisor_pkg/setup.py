@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'supervisor_node = mars_supervisor_pkg.supervisor_node:main'
+            'supervisor_node = mars_supervisor_pkg.supervisor_node:main',
+            'affine_formation_node = mars_supervisor_pkg.affine_formation_node:main'
         ],
     },
 )

@@ -14,7 +14,7 @@ class AffineHerdingNode(Node):
         # =========================
         # Parameters
         # =========================
-        self.declare_parameter('num_agents', 13)
+        self.declare_parameter('num_agents', 5)
         self.declare_parameter('radius', 1.0)
         self.declare_parameter('diff_theta_deg', 60.0)
         self.declare_parameter('lambda_filter_gain', 1.0)
@@ -78,7 +78,7 @@ class AffineHerdingNode(Node):
         self.get_logger().info("Affine Herding Node Started")
 
     def initialize(self):
-        self.theta_min = np.pi + 0.8
+        self.theta_min = np.pi + 0.4
         self.theta_max = 2*np.pi - 2*np.pi/self.N
         self.theta_it = self.theta_max
 
@@ -89,7 +89,7 @@ class AffineHerdingNode(Node):
         self.k_c = np.min([self.k_a, self.k_b])
 
         self.alpha = 0.8
-        self.tau = self.alpha*(-1.0/self.k_c)
+        self.tau = 0.1 # self.alpha*(-1.0/self.k_c)
         self.diff_theta = self.theta_max - self.theta_min
         self.J = np.array([[0, -1], [1, 0]])
 
@@ -176,6 +176,7 @@ class AffineHerdingNode(Node):
             # Actualizamos ganancias y pasos
             self.A, aux = self.find_prp_gains_2d(self.N, self.theta_it)
             self.B, aux = self.find_t_gains_2d(2*np.pi-self.theta_it)
+            # self.get_logger().info('B: %s' % (str(self.B)))
             self.d = 2*self.radius*np.sin((2*np.pi-self.theta_it)/2)
             # Centro de seguridad
             if self.dist_sp>0.14:
@@ -372,41 +373,38 @@ class AffineHerdingNode(Node):
                         2*agent:2*agent+2,
                         2*neighbor:2*neighbor+2
                     ]
-                    dq[agent] += 4*Aij @ (qmat[neighbor] - qmat[agent])
+                    dq[agent] += Aij @ (qmat[neighbor] - qmat[agent])
 
-                self.get_logger().info('%d:: dq: %s' % ( agent, str(dq[agent])))
+                self.get_logger().debug('%d:: dq: %s' % ( agent, str(dq[agent])))
             # ------------------------------------------------
             # EXTREMO 0 (primer pastor)
             # ------------------------------------------------
             else:
-                B12 = B[0:2, 2:4]
-                B13 = B[0:2, 4:6]
                 B31 = B[4:6, 0:2]
                 B32 = B[4:6, 2:4]
                 B21 = B[2:4, 0:2]
                 B23 = B[2:4, 4:6]
 
                 if agent == 0:
-                    # Con vecino 1
+                    # Con vecino N
                     dq[agent] += B32 @ (qmat[N-1] - qmat[agent])
                     # Con oveja
                     dq[agent] += B31 @ (qmat[N] - qmat[agent])
                     # Término de distancia entre extremos
-                    dq_d = -(d_1n**2 - d**2) * (qmat[agent] - qmat[N-1])
+                    dq_d = -(d_1n**2 - self.d**2) * (qmat[agent] - qmat[N-1])
                     dq[agent] += dq_d
+                    self.get_logger().info('%d:: dq: %s' % ( agent, str(dq[agent])))
                 # ------------------------------------------------
                 # EXTREMO N-1 (último pastor)
                 # ------------------------------------------------
                 elif agent == N-1:
-                    # Con vecino N-2
+                    # Con vecino 1
                     dq[agent] += B23 @ (qmat[0] - qmat[agent])
                     # Con oveja
-                    B12 = B[2:4, 4:6]
                     dq[agent] += B21 @ (qmat[N] - qmat[agent])
                     # Término de distancia
-                    dq_d = -(d_1n**2 - d**2) * (qmat[agent] - qmat[0])
+                    dq_d = -(d_1n**2 - self.d**2) * (qmat[agent] - qmat[0])
                     dq[agent] += dq_d
-                
                 # ------------------------------------------------
                 # TÉRMINO DE ROTACIÓN (idéntico a MATLAB)
                 # ------------------------------------------------
@@ -421,14 +419,14 @@ class AffineHerdingNode(Node):
                     Omega = num / den
                 else:
                     Omega = 0.0
-                dq[agent] += 2* Omega * (self.J @ (qmat[agent] - qmat[N]))
-        
+                dq[agent] += Omega * (self.J @ (qmat[agent] - qmat[N]))
+
                 self.get_logger().info('%d:: dq: %s' % ( agent, str(dq[agent])))
 
         # =====================================
         # 4. Integración discreta (solo pastores)
         # =====================================
-        qmat[:N] += 0.1*dq # self.tau * dq
+        qmat[:N] += self.tau * dq
 
         # =====================================
         # 5. Construir targets

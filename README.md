@@ -6,8 +6,9 @@ Esta rama (`doc`) no contiene código: solo explica para qué sirve cada rama de
 
 | Rama | Propósito |
 |---|---|
-| `humble-dev` | Desarrollo activo, sobre ROS 2 Humble. Rama por defecto del repo. |
-| `benchmark` | **No se modifica ni se renombra.** Respalda un capítulo de libro sobre control publicado por Francisco Mañas. Cualquier actualización se reproduce reinstalando desde `install.sh`, nunca con push directo. |
+| `main` | Índice del repo — sin código de workspace, solo enlaza a las demás ramas. **Rama por defecto.** |
+| `humble-dev` | Desarrollo activo, sobre ROS 2 Humble. Aquí están `install.sh` y todos los paquetes. |
+| `benchmark` | **No se modifica ni se renombra.** Bloqueada en GitHub incluso para administradores (`lock_branch`). Respalda un capítulo de libro sobre control publicado por Francisco Mañas. Cualquier actualización se reproduce reinstalando desde `install.sh`, nunca con push directo. |
 | `doc` (esta) | Documentación de ramas y guía de contribución, común a todo el laboratorio. |
 
 ## Guía de contribución

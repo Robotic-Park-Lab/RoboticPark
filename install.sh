@@ -46,13 +46,16 @@ else
     echo -e "\tInstalled."
 fi
 
-echo -e "\nSwarm package:"
+echo -e "\nMulti-agent package:"
 
+# NOTE: the repo is now uned_multi_agent_ros_pkg (renamed from
+# uned_swarm_ros_pkg), but its internal ROS packages are still named
+# uned_swarm_* pending a future rename.
 var0="$(ros2 pkg prefix uned_swarm_config)"
 
 if [ -z "$var0" ]; then
     echo -e "\tInstalling ..."
-    git clone -b humble-dev https://github.com/Robotic-Park-Lab/uned_swarm_ros_pkg.git
+    git clone -b humble-dev https://github.com/Robotic-Park-Lab/uned_multi_agent_ros_pkg.git
 else
     echo -e "\tInstalled."
 fi

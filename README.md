@@ -1,5 +1,7 @@
 # RoboticPark
 
+> 📖 Para entender las ramas de este repo y la guía de contribución, consulta la rama [`doc`](https://github.com/Robotic-Park-Lab/RoboticPark/tree/doc).
+
 Repositorio principal de [Robotic Park Lab](https://github.com/Robotic-Park-Lab). Desde aquí se instala la infraestructura completa del laboratorio en un equipo nuevo — el resto de paquetes UNED, el sistema Vicon y las dependencias de simulación (Webots) — y se reproduce exactamente la configuración usada en publicaciones concretas del laboratorio.
 
 #### Estructura

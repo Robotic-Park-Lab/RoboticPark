@@ -1,6 +1,6 @@
 # RoboticPark
 
-> 📖 Para entender las ramas de este repo y la guía de contribución, consulta la rama [`doc`](https://github.com/Robotic-Park-Lab/RoboticPark/tree/doc).
+> 📖 Para entender las ramas de este repo y la guía de contribución, consulta la rama [`doc`](https://github.com/Robotic-Park-Lab/RoboticPark/tree/doc). Esta rama (`humble-dev`) es donde vive el código; la rama [`main`](https://github.com/Robotic-Park-Lab/RoboticPark/tree/main) es solo un índice.
 
 Repositorio principal de [Robotic Park Lab](https://github.com/Robotic-Park-Lab). Desde aquí se instala la infraestructura completa del laboratorio en un equipo nuevo — el resto de paquetes UNED, el sistema Vicon y las dependencias de simulación (Webots) — y se reproduce exactamente la configuración usada en publicaciones concretas del laboratorio.
 
@@ -24,9 +24,17 @@ chmod +x install.sh
 ./install.sh
 ```
 
+`install.sh` detecta el modo (desarrollo o benchmark) a partir de la rama en la que clonaste RoboticPark, pero también admite argumentos explícitos:
+```
+./install.sh [--ros-distro humble] [--benchmark|--dev] [--workspace DIR]
+```
+- `--ros-distro`: hoy solo `humble` tiene rama `*-dev` activa en los repos del laboratorio.
+- `--benchmark` / `--dev`: fuerza el modo sin depender de la rama actual.
+- `--workspace`: raíz del workspace, si no quieres `~/roboticpark_ws`.
+
 ## Reproducir un experimento publicado :paperclip:
 
-La rama `benchmark` respalda el capítulo de libro sobre control de Francisco Mañas y **no se modifica ni se renombra**. Para clonar exactamente esa configuración de RoboticPark:
+La rama `benchmark` respalda el capítulo de libro sobre control de Francisco Mañas y **no se modifica ni se renombra**. Para reproducir exactamente esa configuración:
 ```
 mkdir -p ~/roboticpark_benchmark_ws/src
 cd ~/roboticpark_benchmark_ws/src
@@ -35,7 +43,7 @@ cd RoboticPark
 chmod +x install.sh
 ./install.sh
 ```
-> **TO-DO**: `install.sh` todavía no es consciente de la rama desde la que se ejecuta — hoy siempre clona las ramas `humble-dev` de `uned_crazyflie_ros_pkg`, `ros2-vicon-receiver` y `uned_swarm_ros_pkg`, independientemente de si RoboticPark se clonó en `humble-dev` o en `benchmark`. Hasta que el instalador se parametrice (clonar también las ramas `benchmark` de esos tres repos cuando corresponda), reproducir el benchmark completo requiere clonar manualmente las ramas `benchmark` de `uned_kheperaIV_ros_pkg`, `uned_crazyflie_ros_pkg` y `uned_swarm_ros_pkg` en lugar de dejar que `install.sh` las traiga.
+`install.sh` detecta que RoboticPark está en `benchmark` y clona automáticamente las ramas `benchmark` de `uned_crazyflie_ros_pkg`, `uned_kheperaIV_ros_pkg` y `uned_multi_agent_ros_pkg` (no de `ros2-vicon-receiver`, que no tiene rama `benchmark` propia).
 
 ## Autores ✒️
 * **[Francisco José Mañas Álvarez](https://github.com/FranciscoJManasAlvarez)** :envelope: fjmanas@dia.uned.es

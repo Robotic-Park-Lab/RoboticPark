@@ -21,7 +21,7 @@ cmd00:
 cmd01:
   topic: khepera01/target_pose
   type: PoseStamped
-  value: -1.5 0.0 0.0
+  value: -1.0 0.0 0.0
   trigger:
     type: time
     name: swarm/status
@@ -41,7 +41,7 @@ cmd03:
   trigger:
     type: time
     name: swarm/status
-    value: 80.0
+    value: 100.0
 cmd04:
   topic: swarm/order
   type: String

@@ -3,7 +3,7 @@
 Operation:
   mode: virtual     # physical, virtual, hybrid
   tool: Webots              # Gazebo, Webots
-  world: IROS_AffineFormation_N05.wbt 
+  world: IROS_AffineFormation_N05_hybrid.wbt 
 
 Experience:
   type: herding           # identification, formation, navigation
@@ -54,7 +54,7 @@ Data_Logging:
 
 Robots:
   Robot01:
-    type: virtual
+    type: physical
     name: dron01
     positioning: Intern
     pose: 0.00, 1.00, 0.88
@@ -76,7 +76,7 @@ Robots:
       enable: True
       T: 50
     task: 
-      enable: True
+      enable: False
       T: 100
       Onboard: False
       controller:
@@ -95,7 +95,7 @@ Robots:
       relationship: dron02_1.1756, dron05_1.1756, khepera_1.0
 
   Robot02:
-    type: virtual
+    type: physical
     name: dron02
     positioning: Intern
     pose: 0.40, 0.91, 0.88
@@ -117,7 +117,7 @@ Robots:
       enable: True
       T: 50
     task: 
-      enable: True
+      enable: False
       T: 100
       Onboard: False
       controller:
@@ -136,7 +136,7 @@ Robots:
       relationship: dron01_1.1756, dron03_1.1756, khepera_1.0
 
   Robot03:
-    type: virtual
+    type: physical
     name: dron03
     positioning: Intern
     pose: 0.78, 0.62, 0.88
@@ -158,7 +158,7 @@ Robots:
       enable: True
       T: 50
     task: 
-      enable: True
+      enable: False
       T: 100
       Onboard: False
       controller:
@@ -177,7 +177,7 @@ Robots:
       relationship: dron02_1.1756, dron04_1.1756, khepera_1.0
       
   Robot04:
-    type: virtual
+    type: physical
     name: dron04
     positioning: Intern
     pose: 0.98, 0.18, 0.88
@@ -199,7 +199,7 @@ Robots:
       enable: True
       T: 50
     task: 
-      enable: True
+      enable: False
       T: 100
       Onboard: False
       controller:
@@ -218,7 +218,7 @@ Robots:
       relationship: dron03_1.1756, dron05_1.1756, khepera_1.0
       
   Robot05:
-    type: virtual
+    type: physical
     name: dron05
     positioning: Intern
     pose: 0.95, -0.28, 0.88
@@ -240,7 +240,7 @@ Robots:
       enable: True
       T: 50
     task: 
-      enable: True
+      enable: False
       T: 100
       Onboard: False
       controller:
@@ -264,7 +264,7 @@ Robots:
     positioning: Intern
     pose: 0.00 0.00 0.00
     control_mode: HighLevel
-    agent_ip: '192.168.0.21'
+    agent_ip: '192.168.0.19'
     port_number: 50000
     controller:
       type: ipc

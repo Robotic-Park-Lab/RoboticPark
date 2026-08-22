@@ -26,7 +26,7 @@ CPU_Monitoring:
 Interface: 
   enable: True
   rviz2: 
-    enable: False
+    enable: True
     node: 
       executable: rviz2
       name: rviz2

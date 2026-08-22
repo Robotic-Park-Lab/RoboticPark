@@ -14,7 +14,7 @@ class AffineHerdingNode(Node):
         # =========================
         # Parameters
         # =========================
-        self.declare_parameter('num_agents', 5)
+        self.declare_parameter('num_agents', 13)
         self.declare_parameter('radius', 1.0)
         self.declare_parameter('diff_theta_deg', 60.0)
         self.declare_parameter('lambda_filter_gain', 1.0)
@@ -26,6 +26,7 @@ class AffineHerdingNode(Node):
         self.diff_theta = np.deg2rad(self.get_parameter('diff_theta_deg').value)
         self.lambda_gain = self.get_parameter('lambda_filter_gain').value
         self.allow_full_closure = self.get_parameter('allow_full_closure').value
+        self.theta = 2*np.pi - 2*np.pi/self.N
 
         config_file = self.get_parameter('config_file').get_parameter_value().string_value
 
@@ -41,12 +42,11 @@ class AffineHerdingNode(Node):
         self.herders = {}
         self.herders_list = []
         self.status = False
-        self.formation = False
-        self.check_zone = False
-        self.check_order = False
+        self.init = False
+        self.check = False
         self.check_init = False
         self.dist_max = 0.0
-        self.control_type = True # False=Simple; True=IROS
+        self.test = False
 
         # =========================
         # Subscribers
@@ -72,60 +72,66 @@ class AffineHerdingNode(Node):
         self.pub_centroid = self.create_publisher(PoseStamped, '/virtual_centroid', 10)
         self.pub_agent = self.create_publisher(PoseStamped, '/khepera01/target_pose', 10)
         self.pub_theta = self.create_publisher(Float64, '/current_theta', 10)
-        self.pub_dist = self.create_publisher(Float64, '/dist_sp', 10)
 
-        self.initialize()
-        self.timer = self.create_timer(self.tau, self.update)
+        self.timer = self.create_timer(0.1, self.update)
         self.get_logger().info("Affine Herding Node Started")
 
     def initialize(self):
-        self.theta_min = np.pi + 0.1
-        self.theta_max = 2*np.pi - 2*np.pi/self.N
-        self.theta_it = self.theta_max
-
-        self.A, self.k_a = self.find_prp_gains_2d(self.N, self.theta_min)
-        self.B, self.k_b = self.find_t_gains_2d(2*np.pi-self.theta_min)
-
-        self.d = 2*self.radius*np.sin((2*np.pi-self.theta_max)/2)
-        self.k_c = np.min([self.k_a, self.k_b])
-
-        self.alpha = 0.8
-        self.tau = 0.1 # self.alpha*(-1.0/self.k_c)
-        self.diff_theta = self.theta_max - self.theta_min
-        self.J = np.array([[0, -1], [1, 0]])
-
-        # Grafo
         self.adj = np.zeros((self.N, self.N))
         for i in range(self.N-1):
             j = np.mod(i, self.N) + 1
             self.adj[i,j] = 1
             self.adj[j,i] = 1
         
-        self.get_logger().info('\nadj:%s \nka: %.2f kb: %.2f kc: %.2f tau: %.2f' % (str(self.adj), self.k_a, self.k_b, self.k_c, self.tau))
-        
+        self.get_logger().info('\n%s' % str(self.adj))
+
+        self.theta = 2*np.pi - 2*np.pi/self.N
+        self.theta_min = np.pi + 0.1
+        self.theta_max = 2*np.pi - 2*np.pi/self.N
+        self.k_omega = 1.0
+
+        self.A, self.k_c = self.find_prp_gains_2d(self.N, self.theta)
+        #self.A, self.k_a = self.find_prp_gains_2d(self.N, self.theta)
+        #self.B, self.k_b = self.find_t_gains_2d(self.theta)
+        # self.k_c = np.argmin([self.k_a, self.k_b])
+        self.alpha = 0.8
+        self.tau = self.alpha*(-1/self.k_c)
+
+        self.diff_theta = 60*np.pi/180
+        self.theta_end = self.theta - self.diff_theta
+
+        delta = np.array([
+            self.agent_position.pose.position.x - self.goal_position.pose.position.x,
+            self.agent_position.pose.position.y - self.goal_position.pose.position.y
+        ])
+        self.dist_max = np.linalg.norm(delta)
+
+        self.omega = 0.07
+        self.J = np.array([[0, -1], [1, 0]])
 
         self.check_init = True
-
     # =====================================================
     # Callbacks
     # =====================================================
     def order_callback(self, msg):
         if msg.data == 'formation_run':
-            self.formation = True
+            self.init = True
         elif msg.data == 'formation_stop':
-            self.formation = False
+            self.init = False
 
     def agent_callback(self, msg):
         self.agent_position = msg
 
     def goal_callback(self, msg):
         self.goal_position = msg
+        # self.pub_agent.publish(msg)
         delta = np.array([
             self.agent_position.pose.position.x - self.goal_position.pose.position.x,
             self.agent_position.pose.position.y - self.goal_position.pose.position.y
         ])
+        # if not self.status:
         self.dist_max = np.linalg.norm(delta)
-        self.check_order = False
+        self.check = False
         self.status = True
 
     def herder_callback(self, msg, name):
@@ -135,83 +141,70 @@ class AffineHerdingNode(Node):
     # Main update
     # =====================================================
     def update(self):
-        # =====================================================
-        # Comprobaciones iniciales
-        # =====================================================
-        if not self.status or not self.formation:
+        if not self.status or not self.init:
+            if self.status and not self.check_init:
+                self.initialize()
             return
 
         if len(self.herder_positions) < self.N:
             return
 
-        if not self.check_order:
+        if not self.check:
             self.opening_index, self.ordered_names = self.compute_opening_between()
             self.get_logger().info('IDX: %s. Orden: %s' % (str(self.opening_index), str(self.ordered_names)))
-            self.check_order = True
+            self.check = True
 
-        # =====================================================
-        # Bucle principal
-        # =====================================================
-        delta = np.array([
-            self.agent_position.pose.position.x - self.goal_position.pose.position.x, 
-            self.agent_position.pose.position.y - self.goal_position.pose.position.y
-            ])
-        self.dist_sp = np.linalg.norm(delta)
+        delta = np.array([self.agent_position.pose.position.x - self.goal_position.pose.position.x, self.agent_position.pose.position.y - self.goal_position.pose.position.y])
+        dist = np.linalg.norm(delta)
 
-        self.omega = np.min([1.0, self.dist_sp/self.dist_max])
+        if self.dist_max < 1e-6:
+            return
 
-        if self.dist_sp<0.05:
-            theta_it = self.theta_max
+        lambda_raw = 1.0 - dist/self.dist_max
+
+        if dist<0.2:
+            theta_it = self.theta+0.2
         else:
-            theta_it = self.theta_max - self.omega * self.diff_theta
-        
-        self.dtheta_dt = (theta_it - self.theta_it)/self.tau 
-        self.theta_it = theta_it
+            theta_it = self.theta - ((1 - lambda_raw) * self.diff_theta)
+        # self.theta = max(theta_it, theta_min)
+        self.get_logger().info('dist: %.3f' % dist)
+        self.get_logger().info('theta: %.3f' % theta_it)
 
-        self.get_logger().info('dist: %.3f theta: %.3f' % (self.dist_sp, theta_it), throttle_duration_sec=0.5)
-
-        # =====================================================
-        # Ley de control
-        # =====================================================
-        if self.control_type:
-            # Actualizamos ganancias y pasos
-            self.A, aux = self.find_prp_gains_2d(self.N, self.theta_it)
-            self.B, aux = self.find_t_gains_2d(2*np.pi-self.theta_it)
-            # self.get_logger().info('B: %s' % (str(self.B)))
-            self.d = 2*self.radius*np.sin((2*np.pi-self.theta_it)/2)
-            # Centro de seguridad
-            if self.check_zone:
-                if self.dist_sp<0.55:
-                    center=self.goal_position.pose
-                else:
-                    center=self.agent_position.pose
-                    self.check_zone = False
+        if not self.test:
+            self.A, self.k_c = self.find_prp_gains_2d(self.N, theta_it)
+            self.tau = self.alpha*(-1/self.k_c)
+            if dist>0.20:
+                center=self.agent_position.pose
             else:
-                if self.dist_sp>0.4:
-                    center=self.agent_position.pose
-                else:
-                    center=self.goal_position.pose
-                    self.check_zone = True
-            ###################################
+                center=self.goal_position.pose
+            
             targets = self.distributed_formation_control(
                 self.A,
-                self.B,
-                self.d,
+                np.array([
+                    center.position.x,
+                    center.position.y
+                ]),
+                self.radius,
+                omega=0.07,
+                check=False,
+                ordered_names=self.ordered_names
+            )
+            '''
+            targets = self.new_distributed_formation_control(
                 np.array([
                     center.position.x,
                     center.position.y
                 ])
             )
+            '''
             self.publish_outputs(targets, theta_it)
         
-        if not self.control_type:
-            # Centro de seguridad
-            if self.dist_sp>0.14:
+        if self.test:
+            if dist>0.2:
                 center=self.agent_position.pose
             else:
                 center=self.goal_position.pose
-                theta_it = self.theta_max
-            ###################################
+                theta_it = self.theta+0.4
             targets_arc = self.generate_arc(
                 center=center,
                 radius=self.radius,
@@ -225,6 +218,7 @@ class AffineHerdingNode(Node):
     # =====================================================
     # Apertura EXACTAMENTE entre dos drones
     # =====================================================
+
     def compute_opening_between(self):
         center = np.array([self.agent_position.pose.position.x, self.agent_position.pose.position.y])
 
@@ -265,19 +259,12 @@ class AffineHerdingNode(Node):
 
         ordered_names = ordered_names[-(self.N-idx):] + ordered_names[:-(self.N-idx)]
 
-        self.s0 = center
-        self.q0 = np.zeros((self.N, 2))
-        for agent_idx in range(self.N):
-            name = ordered_names[agent_idx]
-            pose = self.herder_positions[name]
-            self.q0[agent_idx, 0] = pose.pose.position.x
-            self.q0[agent_idx, 1] = pose.pose.position.y
-
         return idx, ordered_names
 
     # =====================================================
     # Arc generator (gap between drones)
     # =====================================================
+
     def generate_arc(self, center, radius, total_angle, opening_index, ordered_names):
         N = len(ordered_names)
 
@@ -333,110 +320,175 @@ class AffineHerdingNode(Node):
         theta_msg = Float64()
         theta_msg.data = float(theta)
         self.pub_theta.publish(theta_msg)
-        dist_msg = Float64()
-        dist_msg.data = float(self.dist_sp)
-        self.pub_dist.publish(dist_msg)
 
     # =====================================================
-    def distributed_formation_control(self, A, B, d, pt):
+    def distributed_formation_control(self, A, target_centroid, radio, omega, check, ordered_names=None):
+        if len(self.herder_positions) < self.N:
+            return None, None
+
+        if ordered_names is None:
+            names = sorted(self.herder_positions.keys())
+        else:
+            names = ordered_names
+
+        qmat = np.array([
+            [
+                self.herder_positions[name].pose.position.x,
+                self.herder_positions[name].pose.position.y
+            ]
+            for name in names
+        ])
+        
+        M = len(names)
+        dq = np.zeros((M, 2))
+        J = np.array([[0,-1],[1,0]])
+        for agent_idx in range(M):
+            for neighbor_idx in range(M):
+                if neighbor_idx == agent_idx:
+                    continue
+                Aij = A[2*agent_idx:2*agent_idx+2,
+                        2*neighbor_idx:2*neighbor_idx+2]
+                diff = (qmat[neighbor_idx] - qmat[agent_idx]).reshape(2,1)
+                dq[agent_idx] += (Aij @ diff).flatten()
+            
+            # -------- término radial --------
+            rho_vec = qmat[agent_idx] - target_centroid
+            dq_rad = -(np.linalg.norm(rho_vec)**2 - radio**2) * rho_vec
+            dq[agent_idx] += 7.0 * dq_rad
+
+            self.get_logger().debug('id: %s, dq: %s' % (names[agent_idx], str(dq[agent_idx])))
+             # -------- término rotacional --------
+            # dq[agent_idx] += omega * (J @ rho_vec.reshape(2,1)).flatten()
+
+        targets = {}
+            
+        for name, a in zip(ordered_names, dq):
+            pose = self.herder_positions[name]
+            self.get_logger().info('id: %s, x: %.2f y: %.2f tau: %.2f' % (name, a[0]*self.tau, a[1]*self.tau, self.tau))
+            targets[name] = np.array([
+                pose.pose.position.x + a[0]*(self.tau+0.2),
+                pose.pose.position.y + a[1]*(self.tau+0.2),
+                0.75
+        ])
+                
+        return targets
+
+    def new_distributed_formation_control(self, pt):
+        """
+        Implementa exactamente la ley híbrida:
+        - PRP interior
+        - T-gains en extremos
+        - Fijación distancia extremos
+        - Rotación adaptativa
+        """
 
         N = self.N
-        names = self.ordered_names  # Orden consistente con PRP
+        names = self.ordered_names
 
-        # =====================================
-        # 1. Construir matriz de estados
-        # =====================================
-        qmat = np.zeros((N+1, 2))
-
+        # ===============================
+        # 1) Construir matriz posiciones
+        # ===============================
+        qmat = np.zeros((N, 2))
         for i, name in enumerate(names):
             pose = self.herder_positions[name]
-            qmat[i] = [
-                pose.pose.position.x,
-                pose.pose.position.y
-            ]
+            qmat[i, 0] = pose.pose.position.x
+            qmat[i, 1] = pose.pose.position.y
 
-        # Última fila → oveja
-        qmat[N] = pt
+        # ===============================
+        # 2) Centroide actual
+        # ===============================
+        target_centroid = np.mean(qmat, axis=0)
 
-        # =====================================
-        # 2. Distancia entre líderes (1 y N)
-        # =====================================
-        delta_1n = qmat[0] - qmat[N-1]
-        d_1n = np.linalg.norm(delta_1n)
+        # ===============================
+        # 3) Calcular lambda y theta_it
+        # ===============================
+        dist_sp = np.linalg.norm(target_centroid - pt)
+        lambda_ = min(1.0, dist_sp / self.dist_max)
 
-        # =====================================
-        # 3. Dinámica PRP
-        # =====================================
+        theta_it = self.theta_max - lambda_ * (self.theta_max - self.theta_min)
+
+        # ===============================
+        # 4) Recalcular ganancias
+        # ===============================
+        A, k_new = self.find_prp_gains_2d(N, theta_it)
+        B, _ = self.find_t_gains_2d(2*np.pi - theta_it)
+
+        self.k_B = (self.N-1)/2
+        self.k_A = 2*self.k_B
+        tau = self.alpha * (-1.0 / k_new)
+
+        # Distancias objetivo
+        l = 2 * self.radius * np.sin((2*np.pi - theta_it) / 2)
+
+        # ===============================
+        # 5) Inicializar dq
+        # ===============================
         dq = np.zeros((N, 2))
 
+        # ===============================
+        # 6) Control distribuido
+        # ===============================
         for agent in range(N):
-            # ------------------------------------------------
-            # INTERIORES (1 ... N-2)
-            # ------------------------------------------------
+            # ---------------------------------
+            # INTERIORES (2 ... N-1)
+            # ---------------------------------
             if 0 < agent < N-1:
-                for neighbor in [agent-1, agent+1]:
-                    Aij = A[
-                        2*agent:2*agent+2,
-                        2*neighbor:2*neighbor+2
-                    ]
-                    dq[agent] += 6*Aij @ (qmat[neighbor] - qmat[agent])
+                for neighbor in [(agent-1), (agent+1)]:
+                    Aij = A[2*agent:2*agent+2, 2*neighbor:2*neighbor+2]
+                    dq[agent] += self.k_A * Aij @ (qmat[neighbor] - qmat[agent])
 
-                self.get_logger().debug('%d:: dq: %s' % ( agent, str(dq[agent])))
-            # ------------------------------------------------
-            # EXTREMO 0 (primer pastor)
-            # ------------------------------------------------
+            # ---------------------------------
+            # EXTREMOS (1 y N)
+            # ---------------------------------
             else:
-                B31 = B[4:6, 0:2]
-                B32 = B[4:6, 2:4]
-                B21 = B[2:4, 0:2]
-                B23 = B[2:4, 4:6]
-
                 if agent == 0:
-                    # Con vecino N
-                    dq[agent] += 3*B32 @ (qmat[N-1] - qmat[agent])
-                    # Con oveja
-                    dq[agent] += 3*B31 @ (qmat[N] - qmat[agent])
-                    # Término de distancia entre extremos
-                    dq_d = -(d_1n**2 - self.d**2) * (qmat[agent] - qmat[N-1])
-                    dq[agent] += dq_d
-                    self.get_logger().info('%d:: dq: %s' % ( agent, str(dq[agent])))
-                # ------------------------------------------------
-                # EXTREMO N-1 (último pastor)
-                # ------------------------------------------------
-                elif agent == N-1:
-                    # Con vecino 1
-                    dq[agent] += 3*B23 @ (qmat[0] - qmat[agent])
-                    # Con oveja
-                    dq[agent] += 3*B21 @ (qmat[N] - qmat[agent])
-                    # Término de distancia
-                    dq_d = -(d_1n**2 - self.d**2) * (qmat[agent] - qmat[0])
-                    dq[agent] += dq_d
-                # ------------------------------------------------
-                # TÉRMINO DE ROTACIÓN (idéntico a MATLAB)
-                # ------------------------------------------------
-                w = qmat[0] - qmat[N-1]
-                v = pt - qmat[N]
-                num = np.inner(v, w)
-                den = (
-                    np.linalg.norm(self.s0-pt) *
-                    np.linalg.norm(self.q0[0] - self.q0[N-1])
-                )
-                if den > 1e-6:
-                    Omega = num / den
+                    other = N-1
                 else:
-                    Omega = 0.0
-                dq[agent] += Omega * (self.J @ (qmat[agent] - qmat[N]))
+                    other = 0
 
-                self.get_logger().info('%d:: dq: %s' % ( agent, str(dq[agent])))
+            # --- Bloques B correctos ---
+            # (replica exactamente MATLAB estructura 3x3)
+            B12 = B[0:2, 2:4]
+            B13 = B[0:2, 4:6]
+            B21 = B[2:4, 0:2]
+            B23 = B[2:4, 4:6]
 
-        # =====================================
-        # 4. Integración discreta (solo pastores)
-        # =====================================
-        qmat[:N] += self.tau * dq
+            if agent == 0:
+                dq[agent] += self.k_B * B21 @ (qmat[N-1] - qmat[agent])
+                dq[agent] += self.k_B * B23 @ (target_centroid - qmat[agent])
+            else:
+                dq[agent] += self.k_B * B12 @ (qmat[0] - qmat[agent])
+                dq[agent] += self.k_B * B13 @ (target_centroid - qmat[agent])
 
-        # =====================================
-        # 5. Construir targets
-        # =====================================
+            # --- Fijación distancia extremos ---
+            d_1n = np.linalg.norm(qmat[0] - qmat[N-1])
+            dq_d = -(d_1n**2 - l**2) * (qmat[agent] - qmat[other])
+            dq[agent] += self.k_B * dq_d
+
+            # --- Rotación adaptativa ---
+            J = np.array([[0, -1],
+                          [1, 0]])
+
+            w = qmat[0] - qmat[N-1]
+            perp = np.array([-w[1], w[0]])
+            n = np.linalg.norm(perp)
+
+            if n > 1e-6:
+                u_perp = perp / n
+                v = pt - target_centroid
+
+                if np.linalg.norm(v) > 1e-6:
+                    omega = (v[0]*u_perp[1] - v[1]*u_perp[0]) / np.linalg.norm(v)
+                    dq[agent] += self.k_omega * omega * (J @ (qmat[agent] - target_centroid))
+
+        # ===============================
+        # 7) Integración discreta
+        # ===============================
+        qmat = qmat + tau * dq
+
+        # ===============================
+        # 8) Construir diccionario targets
+        # ===============================
         targets = {}
 
         for i, name in enumerate(names):

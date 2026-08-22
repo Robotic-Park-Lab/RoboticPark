@@ -80,7 +80,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -121,7 +121,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -162,7 +162,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -203,7 +203,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -244,7 +244,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -285,7 +285,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -326,7 +326,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -367,7 +367,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -408,7 +408,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -449,7 +449,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -490,7 +490,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3
@@ -531,7 +531,7 @@ Robots:
       T: 100
       Onboard: True
       controller:
-        type: ML2_v   # {gradient ML1 ML2 ML3}_{p v}
+        type: gradient_v   # {gradient ML1 ML2 ML3}_{p v}
         protocol: Continuous
         period: 0.2
         upperLimit: 0.3

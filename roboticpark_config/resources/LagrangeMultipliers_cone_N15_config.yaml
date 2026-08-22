@@ -85,7 +85,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -126,7 +126,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -167,7 +167,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -208,7 +208,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -249,7 +249,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -290,7 +290,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -331,7 +331,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -372,7 +372,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -413,7 +413,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -454,7 +454,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -495,7 +495,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -536,7 +536,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -577,7 +577,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -618,7 +618,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01
@@ -659,7 +659,7 @@ Robots:
         period: 0.2
         upperLimit: 0.3
         lowerLimit: -0.3
-        gain: 0.1
+        gain: 0.25
         threshold:
             type: Constant
             co: 0.01

@@ -2,7 +2,7 @@
 
 Esta rama (`doc`) no contiene código: solo explica para qué sirve cada rama del repositorio y cómo contribuir. El código vive en `humble-dev` (desarrollo activo) y `benchmark` (publicación congelada) — consulta sus propios README.
 
-📋 **[AUDIT.md](AUDIT.md)** — checklist de la auditoría de `humble-dev`/`main` (2026-08-23).
+📋 **[AUDIT.md](AUDIT.md)** — checklist de la auditoría de `humble-dev` (2026-08-23, revisada tras la fusión de `main` en `humble-dev`).
 
 💡 **[IDEAS_FUTURAS.md](IDEAS_FUTURAS.md)** — documento vivo para ideas y trabajo futuro que no son bugs pendientes de la auditoría.
 
@@ -10,8 +10,7 @@ Esta rama (`doc`) no contiene código: solo explica para qué sirve cada rama de
 
 | Rama | Propósito |
 |---|---|
-| `main` | Índice del repo — sin código de workspace, solo enlaza a las demás ramas. **Rama por defecto.** |
-| `humble-dev` | Desarrollo activo, sobre ROS 2 Humble. Aquí están `install.sh` y todos los paquetes. |
+| `humble-dev` | Desarrollo activo, sobre ROS 2 Humble. Aquí están `install.sh` y todos los paquetes. **Rama por defecto.** (Hasta el 2026-08-23 existía también `main`, pensada como índice pero desincronizada del código real — ver punto 2 de `AUDIT.md`. Se eliminó `humble-dev` y se renombró `main` a `humble-dev`, recuperando además el único commit que la antigua `humble-dev` tenía y `main` no, `"Update AffineFormation"`, mediante cherry-pick.) |
 | `benchmark` | **No se modifica ni se renombra.** Bloqueada en GitHub incluso para administradores (`lock_branch`). Respalda un capítulo de libro sobre control publicado por Francisco Mañas. Cualquier actualización se reproduce reinstalando desde `install.sh`, nunca con push directo. |
 | `doc` (esta) | Documentación de ramas y guía de contribución, común a todo el laboratorio. |
 

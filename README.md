@@ -2,6 +2,10 @@
 
 Esta rama (`doc`) no contiene código: solo explica para qué sirve cada rama del repositorio y cómo contribuir. El código vive en `humble-dev` (desarrollo activo) y `benchmark` (publicación congelada) — consulta sus propios README.
 
+📋 **[AUDIT.md](AUDIT.md)** — checklist de la auditoría de `humble-dev`/`main` (2026-08-23).
+
+💡 **[IDEAS_FUTURAS.md](IDEAS_FUTURAS.md)** — documento vivo para ideas y trabajo futuro que no son bugs pendientes de la auditoría.
+
 ## Ramas de este repositorio
 
 | Rama | Propósito |

@@ -1,0 +1,17 @@
+# multi_agent_pkg
+
+Paquete `ament_python` con las matemáticas de control de formación geométrico compartidas entre los experimentos multi-agente del laboratorio, más el nodo activo de control de pastoreo/formación afín del laboratorio. Su módulo `lagrange_multipliers` actúa además como **dependencia de librería**: `uned_crazyflie_driver` y `uned_kheperaiv_webots` importan directamente `multi_agent_pkg.lagrange_multipliers` por sus clases de geometría, en vez de ejecutar ningún nodo de este paquete.
+
+## Estructura
+
+- **`lagrange_multipliers.py`**: `Line`, `Curve`, `Sphere`, `Cone`, `Ellipsoid` — primitivas geométricas (cada una con `distance()`/`value()`/`projection()`, usadas por controladores de formación basados en gradiente para mantener la forma de un enjambre restringida a una superficie objetivo) vía optimización con multiplicadores de Lagrange (`scipy.optimize.minimize`, ver `Cone.cone_constraint()`). Esto es a lo que realmente se resuelven las "geometrías de formación esfera/cono/elipsoide" de los drivers Webots de Crazyflie/Khepera IV (documentadas en sus propios READMEs). También define `LagrangeMultipliers(Node)` (script de consola `lagrange_multipliers`), un nodo de ejemplo/demo ligero (`example_callback`) — no es lo que realmente usan los demás repositorios; ellos importan las clases de geometría como un simple módulo Python.
+- **`affine_formation_node.py`** (script de consola `affine_formation_node`, nombre de nodo `affine_herding_node`): `AffineHerdingNode`, la ley de control activa del laboratorio para arrear un grupo de robots "pastores" (Crazyflies, identificados por `dron` en el nombre del robot desde una sección de configuración `Robots`) alrededor de un agente "oveja" en movimiento (fijado a los topics `local_pose`/`target_pose` de `khepera01`) — máquina de estados con fases `formation`/`check_zone`/`check_order`, un interruptor `control_type` entre dos leyes de control activas, un cambio de zona de seguridad por distancia, y un publicador `dist_sp`. Coincide con los ficheros de experiencia `IROS_AffineFormation_*` de `roboticpark_config/resources/`. Una copia divergente y sin mantener de una versión anterior de este nodo vivía también en `mars_supervisor_pkg` — eliminada el 2026-08-23 en favor de esta, que es la desarrollada más recientemente y la que realmente se usa.
+- **`basic_node.py`** (script de consola `basic_node`): un stub de plantilla de `ros2 pkg create` (`print('Hi from multi_agent_pkg.')`), nunca rellenado.
+
+## Dependencias
+
+`rclpy`, `std_msgs`, `geometry_msgs`, `visualization_msgs`, `tf2_ros`, `nav_msgs`, `builtin_interfaces` — declaradas en `package.xml`. También `scipy` (para el `minimize` de `Cone.cone_constraint()`), una dependencia de terceros no resoluble por rosdep — instalar aparte, p. ej. `pip install scipy`.
+
+## Tests
+
+Sin tests funcionales, y los tests de lint estándar `ament_flake8`/`ament_pep257` están de verdad **en rojo** — verificado con un `colcon test` real y aislado: 153 avisos de estilo de flake8 y un fallo de `pep257` (ver `AUDIT.md` en la rama `doc` para el panorama completo de todos los paquetes de RoboticPark). Ninguna de las matemáticas de geometría de `lagrange_multipliers.py` (`distance()`/`value()`/`projection()` de `Sphere`/`Cone`/`Ellipsoid`) se ha extraído a algo testeable independientemente de un nodo en ejecución — pese a ser matemáticas puras sin dependencia real de ROS, lo que las convierte en una candidata fuerte para el mismo tipo de test unitario ya aplicado a `PIDController` en `uned_crazyflie_driver`/`uned_kheperaiv_driver`.

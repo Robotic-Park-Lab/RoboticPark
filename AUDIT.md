@@ -1,6 +1,8 @@
 # Auditoría — RoboticPark (2026-08-23, revisada el mismo día)
 
-**Segunda pasada el mismo día, tras una decisión tuya sobre la estructura de ramas.** Diste por buena la lectura del punto 2 de abajo (rama por defecto desincronizada) y decidiste: eliminar `humble-dev`, renombrar `main` a `humble-dev` (ahora rama única y por defecto), y en ella resolver directamente los puntos 3 (`.gitignore`), 4/5 (metadatos y dependencias) y 6 (`roboticpark_interfaces`). Esta revisión documenta ese trabajo y vuelve a comprobar el estado real con `colcon build`/`colcon test` aislados sobre la rama resultante. La primera pasada (más abajo) queda como registro histórico de lo encontrado antes de esta decisión.
+**Segunda pasada el mismo día, tras una decisión tuya sobre la estructura de ramas.** Diste por buena la lectura del punto 2 de abajo (rama por defecto desincronizada) y decidiste: eliminar `humble-dev`, renombrar `main` a `humble-dev` (ahora rama única y por defecto), y en ella resolver directamente los puntos 3 (`.gitignore`), 4/5 (metadatos y dependencias) y 6 (`roboticpark_interfaces`). Esta revisión documenta ese trabajo y vuelve a comprobar el estado real con `colcon build`/`colcon test` aislados sobre la rama resultante.
+
+**Tercera pasada, mismo día, con cinco decisiones más tuyas.** Rehecho el punto 1 (documentación) directamente sobre `humble-dev`; recortado el boilerplate de generación de interfaces de `roboticpark_config` (punto 4); resuelta la duplicación de `affine_formation_node.py` quedándonos con la versión de `multi_agent_pkg` (punto 8); limpiado el stash de ficheros generados/binarios que quedaba pendiente; y el lint en rojo (punto 7) se deja explícitamente **sin marcar y sin trasladar a `IDEAS_FUTURAS.md`** — no es prioritario ahora mismo, pero sigue siendo un hallazgo de auditoría, no una idea de trabajo futuro. Detalle en cada punto de abajo. La primera pasada (más abajo del todo) queda como registro histórico de lo encontrado antes de la primera decisión sobre ramas.
 
 `benchmark` sigue bloqueada y fuera de alcance — no se ha tocado en ninguna de las dos pasadas.
 
@@ -8,13 +10,13 @@
 
 - [x] **`humble-dev` (antigua) eliminada, `main` renombrada a `humble-dev`** (local + remoto), y cambiada la rama por defecto de GitHub de `main` a `humble-dev` antes de borrar `main` (GitHub no permite borrar la rama por defecto). `origin/main` ya no existe.
 - [x] **Recuperado el commit `"Update AffineFormation"`** (2026-08-22, autor `FranciscoJManasAlvarez`): antes de borrar la antigua `humble-dev`, se comprobó que ambas ramas divergían de un mismo punto (`4d67bed`) con exactamente un commit propio cada una — `main` solo tenía el commit `"main: convertir en índice del repo"` (el que causaba el punto 2 de la primera pasada), y la antigua `humble-dev` tenía este `"Update AffineFormation"`: ajustes reales de ganancias/lógica de zona de seguridad en `multi_agent_pkg/affine_formation_node.py`, más un fichero que **faltaba por completo**, `mars_supervisor_pkg/affine_formation_node.py` (608 líneas) — que el propio `setup.py` de `mars_supervisor_pkg` ya declaraba como entry point (`affine_formation_node = mars_supervisor_pkg.affine_formation_node:main`) **sin que el fichero existiera** en `main`. Se aplicó con `git cherry-pick` sobre la nueva `humble-dev`, limpio, sin conflictos, y verificado con `colcon build` aislado. Sin este paso se habría perdido trabajo real y quedado un entry point roto.
-- [ ] **La rama `docs/bilingual-readmes-audit`** (READMEs bilingües del punto 1 de abajo) sigue existiendo pero **no se ha tocado**: se creó a partir de la punta de la antigua `humble-dev`, que ya no es la base de la nueva `humble-dev` — fusionarla directamente arrastraría de vuelta el estado antiguo. **Decisión pendiente tuya**: descartarla, o volver a aplicar/rehacer ese trabajo de documentación sobre la `humble-dev` actual.
+- [x] **La rama `docs/bilingual-readmes-audit`**: rehecho su trabajo directamente sobre la nueva `humble-dev` (ver punto 1) y eliminada la rama (local + remoto) — quedaba huérfana, basada en la antigua `humble-dev` ya descartada.
 
-## 1 — Documentación (de la primera pasada — sigue sin fusionar, ver punto 0)
+## 1 — Documentación — RESUELTO, rehecho sobre `humble-dev`
 
-- [x] **README raíz solo en español, sin secciones de Uso ni Publicaciones**: ahora en inglés con `README_es.md` en español, más las nuevas secciones "Usage"/"Uso" y "Related publications"/"Publicaciones relacionadas" (estructura y una tabla lista para que las vayas rellenando tú — ver ambos README). **Este trabajo vive solo en `docs/bilingual-readmes-audit`, no en `humble-dev`** — ver punto 0.
+- [x] **README raíz solo en español, sin secciones de Uso ni Publicaciones**: ahora en inglés con `README_es.md` en español, más las secciones "Usage"/"Uso" y "Related publications"/"Publicaciones relacionadas" (estructura y una tabla lista para que las vayas rellenando tú — ver ambos README). Ya en `humble-dev`, no en una rama aparte.
 - [x] **`roboticpark_interfaces` mal descrito en el README raíz**: ya no aplica — el paquete se ha eliminado (punto 6).
-- [x] **Ningún paquete tenía README propio**: los 6 originales (`mars_supervisor_pkg`, `measure_process_ros2_pkg`, `multi_agent_pkg`, `roboticpark_config`, `roboticpark_interfaces`, `scripts`) tienen `README.md`/`README_es.md` en `docs/bilingual-readmes-audit`, no en `humble-dev` (y ese branch documentaba un paquete, `roboticpark_interfaces`, que ya no existe).
+- [x] **Ningún paquete tenía README propio**: los 5 paquetes que quedan (`mars_supervisor_pkg`, `measure_process_ros2_pkg`, `multi_agent_pkg`, `roboticpark_config`, `scripts`) tienen ahora `README.md`/`README_es.md` en `humble-dev` — adaptados al estado actual, no una copia literal de la pasada anterior: `mars_supervisor_pkg` ya no menciona `affine_formation_node.py` (punto 8), `roboticpark_config` ya no menciona el boilerplate de rosidl (punto 4), y las menciones a metadatos "TODO" se quitaron en los que ya se rellenaron (punto 4/5 de la pasada anterior).
 
 ## 2 — `main` (rama por defecto) no era solo un índice, y estaba desincronizada de `humble-dev` — RESUELTO (punto 0)
 
@@ -28,7 +30,7 @@
 
 - [x] `description`/`license` rellenados en `mars_supervisor_pkg`, `measure_process_ros2_pkg`, `multi_agent_pkg`, `roboticpark_config` (en `package.xml` y, donde aplica, `setup.py`). Licencia: `BSD-3-Clause`, coherente con el `LICENSE` de la raíz.
 - [x] Maintainer unificado a `Francisco Jose Manas` / `fjmanas@dia.uned.es` en los 4 paquetes (antes: `kiko`/`fma527@ual.es` en 3 de ellos, y una variante acentuada distinta en el `setup.py` de `multi_agent_pkg`).
-- [ ] **`roboticpark_config` sigue declarando** `rosidl_default_generators`/`rosidl_default_runtime`/`<member_of_group>rosidl_interface_packages</member_of_group>` sin tener ningún `msg/`/`srv/` real — no se ha tocado, es un cambio de build config más allá de "rellenar metadatos que faltan". **Decisión pendiente tuya** si quieres que se recorte.
+- [x] **`roboticpark_config`** ya no declara `rosidl_default_generators`/`rosidl_default_runtime`/`<member_of_group>rosidl_interface_packages</member_of_group>` — confirmaste que se recortara. Quitado de `package.xml` y del `find_package(rosidl_default_generators REQUIRED)` en `CMakeLists.txt`. Verificado con `colcon build` aislado, sigue compilando limpio.
 
 ## 5 — Dependencias no declaradas — RESUELTO para los paquetes que quedan
 
@@ -39,28 +41,28 @@
 
 - [x] Confirmaste que no es útil ahora mismo. Se comprobó primero que ningún otro paquete lo referenciaba (`grep` en todo el repo) y se eliminó por completo (`git rm -r`): el nombre era engañoso (nada de `.msg`/`.srv`/`.action`; el único punto de entrada ROS 2 real era un stub de plantilla) y su código funcional real, una app PyQt5 de 909 líneas para diseñar `.yaml` de experiencia, nunca se instalaba (`setup.py` la dejaba fuera de `find_packages()`).
 
-## 7 — Compila limpio; el lint sigue en rojo en los 3 paquetes Python (no se ha tocado, fuera del alcance de esta pasada)
+## 7 — Compila limpio; el lint sigue en rojo en los 3 paquetes Python — **no prioritario ahora mismo, hallazgo abierto (no es trabajo futuro)**
 
-Los 4 paquetes que quedan **compilan limpio** (`colcon build` aislado, sin errores; el commit recuperado del punto 0 no rompió nada). `colcon test` aislado, ya sobre la `humble-dev` actual:
+Dijiste que esto no importa ahora mismo, pero que quede reflejado en la auditoría sin marcar como resuelto, y explícitamente **no** como una idea de `IDEAS_FUTURAS.md` — sigue siendo un hallazgo de esta auditoría, solo que de baja prioridad. No se ha tocado ningún código de estilo.
+
+Los 4 paquetes que quedan **compilan limpio** (`colcon build` aislado, sin errores). `colcon test`/`ament_flake8`/`ament_pep257` aislados, ya sobre la `humble-dev` actual (tras los puntos 0/4/8 de esta pasada):
 
 | Paquete | `ament_flake8` | `ament_pep257` |
 |---|---|---|
-| `mars_supervisor_pkg` | ❌ falla (creció tras recuperar `affine_formation_node.py`, punto 0) | ❌ falla |
-| `measure_process_ros2_pkg` | ❌ falla | ✅ pasa |
-| `multi_agent_pkg` | ❌ falla | ❌ falla |
+| `mars_supervisor_pkg` | ❌ 46 avisos (bajó de 100 al quitar `affine_formation_node.py`, punto 8) | ✅ pasa (antes fallaba) |
+| `measure_process_ros2_pkg` | ❌ 11 avisos | ✅ pasa |
+| `multi_agent_pkg` | ❌ 153 avisos | ❌ falla |
 | `roboticpark_config` | — sigue sin generar ningún resultado de test, pese a declarar `ament_lint_auto`/`ament_lint_common` (mismo hallazgo que la primera pasada, no investigado) | |
 
 (`ament_copyright` sigue sin resultado claro de pasa/falla en los 3 paquetes `ament_python` — "skipped" en `colcon test-result`, no investigado.)
 
-## 8 — Código muerto/divergente en `affine_formation_node.py` (dos copias, dos estados distintos) — sin tocar
+## 8 — Código muerto/divergente en `affine_formation_node.py` (dos copias, dos estados distintos) — RESUELTO
 
-- [ ] **`mars_supervisor_pkg/affine_formation_node.py`**: existe de nuevo tras el cherry-pick del punto 0 (antes de esta pasada, faltaba en `main`/nueva `humble-dev` pese a que su `setup.py` lo declaraba como entry point — un bug real que este mismo cherry-pick corrige de rebote). `self.test` sigue fijado a `False` y nunca se cambia — la rama `if self.test:` de `update()` (`generate_arc`) es código muerto en la práctica. La llamada a su variante `new_distributed_formation_control`/`find_t_gains_2d` sigue comentada (envuelta en comillas triples) junto a la llamada real.
-- [ ] **`multi_agent_pkg/affine_formation_node.py`**: versión más reciente y en desarrollo activo de la misma ley de control de pastoreo — máquina de estados distinta, interruptor `control_type` real entre dos leyes de control (ambas alcanzables), zona de seguridad, publicador `dist_sp`. Coincide con los ficheros `IROS_AffineFormation_*` de `roboticpark_config/resources/` y es la que tocó el commit `"Update AffineFormation"` recuperado en el punto 0.
-- [ ] No está claro si `mars_supervisor_pkg/affine_formation_node.py` es la versión que se dejó de mantener a propósito cuando se creó la de `multi_agent_pkg`, o si sigue teniendo algún uso. **Decisión pendiente tuya** — no se ha tocado ninguna de las dos copias.
+- [x] Confirmaste quedarte con la más reciente, la de `multi_agent_pkg`. Eliminado `mars_supervisor_pkg/affine_formation_node.py` (el que tenía la rama muerta `if self.test:`/`generate_arc` y la llamada comentada a `new_distributed_formation_control`) junto con su entry point roto en `setup.py`, y recortada la descripción del paquete. `multi_agent_pkg/affine_formation_node.py` (máquina de estados `formation`/`check_zone`/`check_order`, interruptor `control_type` real, zona de seguridad, publicador `dist_sp`) queda como la única versión — coincide con los ficheros `IROS_AffineFormation_*` de `roboticpark_config/resources/` y es la que tocó el commit `"Update AffineFormation"` recuperado en el punto 0. Verificado con `colcon build` aislado; de propina, `mars_supervisor_pkg` pasó de fallar `ament_pep257` a pasarlo (punto 7).
 
-## Otros cabos sueltos de esta pasada
+## Otros cabos sueltos — RESUELTO
 
-- [ ] Había cambios locales sin commitear en el working tree usado para esta auditoría (un `.ui` de `roboticpark_interfaces` ya eliminado, y ficheros generados de `roboticpark_config`/`multi_agent_pkg`) — se guardaron con `git stash` antes de tocar ramas, sin aplicar ni descartar. Están en el stash local de esa máquina si los necesitas; si no, se pueden descartar sin más.
+- [x] Había cambios locales sin commitear en el working tree usado para la auditoría, guardados en `git stash` sin aplicar ni descartar: un `.pyc` (binario generado, ya cubierto por `.gitignore`), un `.wbproj` de Webots (generado por la propia app), un `.ui` de `roboticpark_interfaces` (paquete ya eliminado, irrelevante), y una edición real (no generada) de `roboticpark_config/resources/crazyflie.urdf` — parametrización de tres campos de `<ros>` con tokens de plantilla (`CameraAlwayOn`/`CameraEnable`/`CameraUpdateRate`/`name_id_value/...`) que parece un cambio deliberado a medias, no ruido. Confirmaste que los binarios/generados no deben estar en el repo: se restauró primero la edición real de `crazyflie.urdf` al árbol de trabajo (quedó commiteada, sin querer, dentro de 1270b1f junto con la limpieza de rosidl del punto 4 — el contenido es correcto, pero el mensaje de ese commit no la menciona) y se descartó el resto del stash (`git stash drop`).
 
 ## No verificado en este sandbox (de la primera pasada, sigue aplicando)
 

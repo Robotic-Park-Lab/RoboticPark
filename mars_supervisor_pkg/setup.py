@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='kiko',
-    maintainer_email='fma527@ual.es',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer='Francisco Jose Manas',
+    maintainer_email='fjmanas@dia.uned.es',
+    description='Supervisor node that orchestrates RoboticPark multi-robot experiments from a YAML config: spawning/monitoring agents and running herding/affine-formation control.',
+    license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

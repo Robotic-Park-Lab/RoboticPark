@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='kiko',
-    maintainer_email='fma527@ual.es',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer='Francisco Jose Manas',
+    maintainer_email='fjmanas@dia.uned.es',
+    description='ROS 2 node that publishes CPU and memory usage statistics for monitored system processes.',
+    license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

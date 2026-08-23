@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Francisco José Mañas Álvarez',
+    maintainer='Francisco Jose Manas',
     maintainer_email='fjmanas@dia.uned.es',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Multi-agent control package for RoboticPark: affine-formation (herding) control, Lagrange-multiplier-based formation control, and supporting agent nodes.',
+    license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

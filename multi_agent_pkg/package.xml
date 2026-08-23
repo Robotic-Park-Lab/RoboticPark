@@ -3,9 +3,17 @@
 <package format="3">
   <name>multi_agent_pkg</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="fma527@ual.es">kiko</maintainer>
-  <license>TODO: License declaration</license>
+  <description>Multi-agent control package for RoboticPark: affine-formation (herding) control, Lagrange-multiplier-based formation control, and supporting agent nodes.</description>
+  <maintainer email="fjmanas@dia.uned.es">Francisco Jose Manas</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>visualization_msgs</depend>
+  <depend>builtin_interfaces</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

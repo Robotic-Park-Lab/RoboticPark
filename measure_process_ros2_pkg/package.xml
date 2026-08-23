@@ -3,9 +3,12 @@
 <package format="3">
   <name>measure_process_ros2_pkg</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="fma527@ual.es">kiko</maintainer>
-  <license>TODO: License declaration</license>
+  <description>ROS 2 node that publishes CPU and memory usage statistics for monitored system processes.</description>
+  <maintainer email="fjmanas@dia.uned.es">Francisco Jose Manas</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

@@ -3,7 +3,7 @@
 <package format="3">
   <name>mars_supervisor_pkg</name>
   <version>0.0.0</version>
-  <description>Supervisor node that orchestrates RoboticPark multi-robot experiments from a YAML config: spawning/monitoring agents and running herding/affine-formation control.</description>
+  <description>Supervisor node that orchestrates RoboticPark multi-robot experiments from a YAML config: spawning and monitoring agents.</description>
   <maintainer email="fjmanas@dia.uned.es">Francisco Jose Manas</maintainer>
   <license>BSD-3-Clause</license>
 

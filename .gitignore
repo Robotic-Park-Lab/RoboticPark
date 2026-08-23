@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# colcon / ROS 2 workspace artifacts (in case a workspace is nested here)
+build/
+install/
+log/
+
+# Webots
+*.wbproj
+
+# Editors / OS
+*~
+.vscode/
+.DS_Store

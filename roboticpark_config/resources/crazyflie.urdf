@@ -3,16 +3,16 @@
     <webots>
         <device reference="camera" type="Camera">
             <ros>
-                <alwaysOn>false</alwaysOn>
-                <enabled>false</enabled>
-                <update_rate>10</update_rate>
+                <alwaysOn>CameraAlwayOn</alwaysOn>
+                <enabled>CameraEnable</enabled>
+                <update_rate>CameraUpdateRate</update_rate>
             </ros>
         </device>
         <plugin type="webots_ros2_driver::Ros2IMU">
             <enabled>true</enabled>
             <topicName>imu</topicName>
             <alwaysOn>true</alwaysOn>
-            <frameName>base_link/imu_link</frameName>
+            <frameName>name_id_value/base_link/imu_link</frameName>
             <inertialUnitName>inertial unit</inertialUnitName>
             <gyroName>gyro</gyroName>
         </plugin>

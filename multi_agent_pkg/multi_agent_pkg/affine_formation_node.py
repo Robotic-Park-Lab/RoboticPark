@@ -46,7 +46,7 @@ class AffineHerdingNode(Node):
         self.sheep_name = None
         self.herders_list = []
         for robot in documents['Robots'].values():
-            role = robot.get('role')
+            role = robot.get('task', {}).get('role')
             name = robot['name']
             if role == 'herder':
                 self.herders_list.append(name)

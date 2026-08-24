@@ -16,7 +16,7 @@
             <inertialUnitName>inertial unit</inertialUnitName>
             <gyroName>gyro</gyroName>
         </plugin>
-        <plugin type="uned_crazyflie_webots.crazyflie_driver.CrazyflieWebotsDriver">
+        <plugin type="uned_crazyflie_driver.webots_driver.CrazyflieWebotsDriver">
             <name_id>name_id_value</name_id>
             <config_file>config_file_path</config_file>
         </plugin>

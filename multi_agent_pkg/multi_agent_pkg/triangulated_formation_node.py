@@ -65,9 +65,10 @@ class TriangulatedFormationNode(Node):
         # a fixed order matching eq 46)
         # =========================
         robots_cfg = documents['Robots']
-        self.leader_names = [r['name'] for r in robots_cfg.values() if r.get('role') == 'leader']
+        self.leader_names = [
+            r['name'] for r in robots_cfg.values() if r.get('task', {}).get('role') == 'leader']
         self.follower_names = [
-            r['name'] for r in robots_cfg.values() if r.get('role') == 'follower']
+            r['name'] for r in robots_cfg.values() if r.get('task', {}).get('role') == 'follower']
         if len(self.leader_names) != 2:
             raise ValueError(
                 f"Need exactly 2 robots with role: leader, found {len(self.leader_names)}")

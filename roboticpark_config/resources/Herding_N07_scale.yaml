@@ -90,7 +90,6 @@ Robots:
       role: herder
       type: herding
       relationship: dron07_1.1756, dron02_1.1756, khepera_1.0
-    role: herder
   Robot02:
     type: virtual
     name: dron02
@@ -131,7 +130,6 @@ Robots:
       role: herder
       type: herding
       relationship: dron01_1.1756, dron03_1.1756, khepera_1.0
-    role: herder
   Robot03:
     type: virtual
     name: dron03
@@ -172,7 +170,6 @@ Robots:
       role: herder
       type: herding
       relationship: dron02_1.1756, dron04_1.1756, khepera_1.0
-    role: herder
   Robot04:
     type: virtual
     name: dron04
@@ -213,7 +210,6 @@ Robots:
       role: herder
       type: herding
       relationship: dron03_1.1756, dron05_1.1756, khepera_1.0
-    role: herder
   Robot05:
     type: virtual
     name: dron05
@@ -254,7 +250,6 @@ Robots:
       role: herder
       type: herding
       relationship: dron04_1.1756, dron06_1.1756, khepera_1.0
-    role: herder
   Robot06:
     type: virtual
     name: dron06
@@ -295,7 +290,6 @@ Robots:
       role: herder
       type: herding
       relationship: dron05_1.1756, dron07_1.1756, khepera_1.0
-    role: herder
   Robot07:
     type: virtual
     name: dron07
@@ -336,7 +330,6 @@ Robots:
       role: herder
       type: herding
       relationship: dron06_1.1756, dron01_1.1756, khepera_1.0
-    role: herder
   Robot08:
     type: virtual
     name: khepera01
@@ -391,7 +384,6 @@ Robots:
       role: herd
       type: reactive
       relationship: dron01_1.0, dron02_1.0, dron03_1.0, dron04_1.0, dron05_1.0
-    role: herd
 Supervisor:
   enable: true
   node:

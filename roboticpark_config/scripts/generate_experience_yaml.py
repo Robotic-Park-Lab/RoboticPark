@@ -24,7 +24,9 @@ def herder_robot(name, pose_xyz, neighbours, uri_suffix, role='herder', task_typ
     r['name'] = name
     r['pose'] = f"{pose_xyz[0]:.3f}, {pose_xyz[1]:.3f}, {pose_xyz[2]:.3f}"
     r['uri'] = f'radio://0/80/2M/E7E7E7E7{uri_suffix:02d}'
-    r['role'] = role
+    # role lives under task.role, matching the pre-existing N05 schema --
+    # affine_formation_node.py/triangulated_formation_node.py read it from
+    # there, not from a top-level Robots.<X>.role field.
     r['task']['role'] = role
     r['task']['type'] = task_type
     r['task']['relationship'] = neighbours
@@ -35,7 +37,7 @@ def khepera_robot(name, agent_ip):
     r = copy.deepcopy(BASE['Robots']['Robot06'])
     r['name'] = name
     r['agent_ip'] = agent_ip
-    r['role'] = 'herd'
+    r['task']['role'] = 'herd'
     return r
 
 
@@ -77,8 +79,7 @@ def leader_or_follower_robot(name, role, pose_xyz, uri_suffix):
     r['name'] = name
     r['pose'] = f"{pose_xyz[0]:.4f}, {pose_xyz[1]:.4f}, {pose_xyz[2]:.4f}"
     r['uri'] = f'radio://0/80/2M/E7E7E7E7{uri_suffix:02d}'
-    r['role'] = role
-    r['task']['role'] = role
+    r['task']['role'] = role  # read by triangulated_formation_node.py, not a top-level field
     r['task']['type'] = 'triangulated_formation'
     r['task']['relationship'] = ''  # unused by triangulated_formation_node (mesh comes from Mesh:)
     return r

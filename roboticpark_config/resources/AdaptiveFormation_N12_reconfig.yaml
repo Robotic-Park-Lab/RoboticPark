@@ -92,7 +92,6 @@ Robots:
       role: leader
       type: triangulated_formation
       relationship: ''
-    role: leader
   Robot02:
     type: virtual
     name: dron02
@@ -133,7 +132,6 @@ Robots:
       role: leader
       type: triangulated_formation
       relationship: ''
-    role: leader
   Robot03:
     type: virtual
     name: dron03
@@ -174,7 +172,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot04:
     type: virtual
     name: dron04
@@ -215,7 +212,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot05:
     type: virtual
     name: dron05
@@ -256,7 +252,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot06:
     type: virtual
     name: dron06
@@ -297,7 +292,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot07:
     type: virtual
     name: dron07
@@ -338,7 +332,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot08:
     type: virtual
     name: dron08
@@ -379,7 +372,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot09:
     type: virtual
     name: dron09
@@ -420,7 +412,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot10:
     type: virtual
     name: dron10
@@ -461,7 +452,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot11:
     type: virtual
     name: dron11
@@ -502,7 +492,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
   Robot12:
     type: virtual
     name: dron12
@@ -543,7 +532,6 @@ Robots:
       role: follower
       type: triangulated_formation
       relationship: ''
-    role: follower
 Supervisor:
   enable: true
   node:

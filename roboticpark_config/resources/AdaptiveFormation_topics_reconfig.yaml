@@ -1,0 +1,94 @@
+# Supervisor command sequence for AdaptiveFormation_N12_reconfig (E2):
+# same take-off + convergence-to-reference-mesh as the static experience,
+# then a SECOND leader command mid-run that reconfigures the whole formation
+# (translate (0.5,0.3,0.2) m, rotate 30deg about z, scale x-y by 1.3 and z by
+# 1.15 -- v = [a,b,c,d,e,f] = [1.1258, 0.6500, 1.1500, 0.5, 0.3, 0.2], eq 2),
+# demonstrating the paper's headline scale-flexibility claim: followers must
+# continuously track the deforming mesh, not just converge once.
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: dron01/target_pose
+      type: PoseStamped
+    topic02:
+      name: dron02/target_pose
+      type: PoseStamped
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+cmd00:
+  topic: swarm/order
+  type: String
+  value: take_off
+  trigger:
+    type: time
+    name: swarm/status
+    value: 10.0
+cmd01:
+  topic: dron01/target_pose
+  type: PoseStamped
+  value: 0.9000 0.0000 1.1000
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.0
+cmd02:
+  topic: dron02/target_pose
+  type: PoseStamped
+  value: 1.2990 0.7500 0.3500
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.5
+cmd03:
+  topic: swarm/order
+  type: String
+  value: formation_run
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd04:
+  topic: dron01/target_pose
+  type: PoseStamped
+  value: 1.5132 0.8850 1.4650
+  trigger:
+    type: time
+    name: swarm/status
+    value: 40.0
+cmd05:
+  topic: dron02/target_pose
+  type: PoseStamped
+  value: 1.4750 1.9887 0.6025
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.5
+cmd06:
+  topic: swarm/order
+  type: String
+  value: formation_stop
+  trigger:
+    type: time
+    name: swarm/status
+    value: 50.0
+cmd07:
+  topic: swarm/order
+  type: String
+  value: land
+  trigger:
+    type: time
+    name: swarm/status
+    value: 5.0
+cmd08:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 10.0

@@ -1,0 +1,76 @@
+# Supervisor command sequence for AdaptiveFormation_N12_{static,uncertainty,gainsweep_low,real}.
+# Take off, drive the two leaders to their reference mesh position (this is
+# what defines v = identity transform, eq 2 of "Distributed control of
+# triangulated 3D multirobot formations with scale flexibility"), then let
+# the followers converge under the control law and hold for observation.
+config:
+  publisher:
+    topic00:
+      name: swarm/order
+      type: String
+    topic01:
+      name: dron01/target_pose
+      type: PoseStamped
+    topic02:
+      name: dron02/target_pose
+      type: PoseStamped
+  subscription:
+    topic00:
+      name: swarm/status
+      type: String
+cmd00:
+  topic: swarm/order
+  type: String
+  value: take_off
+  trigger:
+    type: time
+    name: swarm/status
+    value: 10.0
+cmd01:
+  topic: dron01/target_pose
+  type: PoseStamped
+  value: 0.9000 0.0000 1.1000
+  trigger:
+    type: time
+    name: swarm/status
+    value: 3.0
+cmd02:
+  topic: dron02/target_pose
+  type: PoseStamped
+  value: 1.2990 0.7500 0.3500
+  trigger:
+    type: time
+    name: swarm/status
+    value: 0.5
+cmd03:
+  topic: swarm/order
+  type: String
+  value: formation_run
+  trigger:
+    type: time
+    name: swarm/status
+    value: 1.0
+cmd04:
+  topic: swarm/order
+  type: String
+  value: formation_stop
+  trigger:
+    type: time
+    name: swarm/status
+    value: 90.0
+cmd05:
+  topic: swarm/order
+  type: String
+  value: land
+  trigger:
+    type: time
+    name: swarm/status
+    value: 5.0
+cmd06:
+  topic: swarm/order
+  type: String
+  value: end
+  trigger:
+    type: time
+    name: swarm/status
+    value: 10.0

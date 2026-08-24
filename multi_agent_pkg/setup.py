@@ -22,7 +22,8 @@ setup(
         'console_scripts': [
             'basic_node = multi_agent_pkg.basic_node:main',
             'lagrange_multipliers = multi_agent_pkg.lagrange_multipliers:main',
-            'affine_formation_node = multi_agent_pkg.affine_formation_node:main'
+            'affine_formation_node = multi_agent_pkg.affine_formation_node:main',
+            'triangulated_formation_node = multi_agent_pkg.triangulated_formation_node:main'
         ],
     },
 )

@@ -8,6 +8,10 @@ Paquete `ament_cmake` con la configuración de lanzamiento y entorno compartida 
 - **`resources/`**: cerca de 90 ficheros `.yaml` de experiencia (ver la tabla "Experiencias disponibles" del README raíz), el URDF de los dos robots (`crazyflie.urdf`, `kheperaiv.urdf`), y `models/RoboticLab/` — un modelo SDF nativo de Gazebo del espacio del laboratorio (`model.sdf`/`model.config`).
 - **`rviz/`, `rqt/`**: configuraciones de RViz y perspectivas de RQT, un conjunto por familia de experiencia (`ControlFormation*`, `LagrangeMultipliers_*`, `IROS_AffineFormation_*`, ...).
 - **`worlds/`**: mundos de Webots para las mismas familias de experiencia, más sus mallas compartidas.
+- **`scripts/`**: utilidades de desarrollo (no instaladas por el paquete) para generar ficheros Webots/RViz/experiencia de una nueva variante con N robots, en vez de editarlos a mano. Se ejecutan manualmente, desde `scripts/`:
+  - `generate_formation_assets.py` — mundos `.wbt` de Webots y configuraciones `.rviz`, a partir de una lista de robots (nombre/tipo/posición). Los ficheros RViz se generan clonando el bloque de Display por robot de un fichero ya existente y probado (`rviz/IROS_AffineFormation_N05.rviz`), en vez de escribir el YAML de RViz desde cero.
+  - `generate_experience_yaml.py` — configs `.yaml` de experiencia, usando `resources/IROS_AffineFormation_config_N05.yaml` como plantilla estructural.
+  Para añadir una N nueva, editar las listas de robots al final de cada script y volver a ejecutar; ambos son idempotentes (re-ejecutar sobrescribe sus propios ficheros de salida).
 
 ## Tests
 

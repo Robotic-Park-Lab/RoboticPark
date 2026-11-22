@@ -134,3 +134,11 @@ Los 5 paquetes ROS **compilan limpio** (`colcon build` real, sin errores). `colc
 
 - El submódulo/paquete de mensajes `tello_msgs` y el resto de dependencias cruzadas de otros repositorios (`multi_agent_pkg` es en sí mismo una de esas dependencias, consumida por `uned_crazyflie_driver`/`uned_kheperaiv_webots`) no se han vuelto a verificar desde el otro lado en esta pasada — solo se ha auditado este repositorio en aislamiento.
 - `install.sh` no se ha ejecutado de verdad en esta pasada (instalaría el resto del laboratorio completo) — su contenido solo se ha leído para el hallazgo del punto 2.
+
+## 2026-11-22 — LED en los mundos y catálogo de experiencias
+
+- [x] **LED `led_ring` en todos los mundos**: el driver de Webots de `uned_crazyflie_ros_pkg` lo necesita al arrancar y el PROTO estándar no lo trae. → `765d29d`: disco de 1 mm bajo cada Crazyflie (sin `boundingObject`) en los 39 mundos de `roboticpark_config/worlds/` y en `scripts/generate_formation_assets.py`, conservando los finales de línea CRLF de los `.wbt`.
+- [x] **Tabla de experiencias «por rellenar» del README** → `72f0c6e`: `LAUNCHES.md`/`LAUNCHES_es.md` con las 65 experiencias agrupadas por línea de investigación (modo, robots, ley, nodos), generadas a partir del contenido de cada `.yaml`.
+- [ ] **Ficheros referenciados que no están en el repositorio**: `Khepera_rele.yaml` → `LagrangeMultiplier_topics.yaml`; `demo_benchmark.yaml` → supervisor `test_file`.
+- [ ] Las formaciones por distancias en Webots necesitan la rama `fix/formaciones-webots` de `uned_crazyflie_ros_pkg` (ver su `AUDIT.md`) hasta que se fusione en `humble-dev`.
+- [x] **Configurador web** (`Robotic-Park-Lab.github.io/configurador/`): genera experiencias para `experience.launch.py`. Corregido que en la cúpula dos drones chocaban de camino a la formación (asignación de huecos con el algoritmo húngaro) y que en el pastoreo el Khepera empezaba sobre el anillo.

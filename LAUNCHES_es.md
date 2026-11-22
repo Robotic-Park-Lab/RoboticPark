@@ -167,8 +167,8 @@ Configuración por defecto, benchmark y pruebas.
 - Todos los mundos `.wbt` incluyen el LED `led_ring` en cada Crazyflie: `uned_crazyflie_driver/webots_driver.py`
   lo usa al arrancar y sin él el driver no se inicializa.
 - Las formaciones por distancias en Webots (`ControlFormation*`, `LagrangeMultipliers_*`, `SphereFormation*`,
-  `Morphing_*`, …) necesitan `uned_crazyflie_ros_pkg` con la migración de formaciones (rama
-  `fix/formaciones-webots`, ver su `AUDIT.md` en la rama `doc`). Con `humble-dev` anterior el driver falla en
+  `Morphing_*`, …) necesitan `uned_crazyflie_ros_pkg` en `humble-dev` desde `a49b93e` (migración de
+  formaciones, ver su `AUDIT.md` en la rama `doc`). Con versiones anteriores el driver falla en
   `load_formation_params()`.
 - Las relaciones con el formato antiguo `origin_R` (sin centro) se interpretan con centro en (0, 0, 0).
 - No se han vuelto a ejecutar una por una todas las experiencias de esta tabla; sí las seis plantillas del

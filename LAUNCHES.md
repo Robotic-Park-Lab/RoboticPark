@@ -167,8 +167,8 @@ Default configuration, benchmark and tests.
 - Every `.wbt` world includes the `led_ring` LED on each Crazyflie: `uned_crazyflie_driver/webots_driver.py` uses
   it at start-up and the driver does not initialise without it.
 - Distance-based formations in Webots (`ControlFormation*`, `LagrangeMultipliers_*`, `SphereFormation*`,
-  `Morphing_*`, …) need `uned_crazyflie_ros_pkg` with the formation migration (branch `fix/formaciones-webots`,
-  see its `AUDIT.md` on the `doc` branch). With the earlier `humble-dev` the driver fails in `load_formation_params()`.
+  `Morphing_*`, …) need `uned_crazyflie_ros_pkg` `humble-dev` at `a49b93e` or later (formation migration, see its
+  `AUDIT.md` on the `doc` branch). With earlier versions the driver fails in `load_formation_params()`.
 - Relationships in the old `origin_R` format (no centre) are read with the centre at (0, 0, 0).
 - Not every experience in this table has been re-run one by one; the six web-builder templates have (ML2 dome,
   event-based ring, hybrid fleet, herding, triangulated shield and single drone).

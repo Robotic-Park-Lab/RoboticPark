@@ -16,7 +16,7 @@
             <inertialUnitName>inertial unit</inertialUnitName>
             <gyroName>gyro</gyroName>
         </plugin>
-        <plugin type="uned_kheperaiv_webots.khepera_driver.KheperaWebotsDriver">
+        <plugin type="uned_kheperaiv_driver.webots_driver.KheperaWebotsDriver">
             <name_id>name_id_value</name_id>
             <config_file>config_file_path</config_file>
         </plugin>

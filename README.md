@@ -43,11 +43,21 @@ See [roboticpark_config/README.md](roboticpark_config/README.md) for the full se
 
 ### Available experiences
 
-`roboticpark_config/resources/` currently holds close to 90 experience `.yaml` files, grouped by research line (`ControlFormation*`, `LagrangeMultipliers_{cone,sphere}*`, `IROS_AffineFormation*`, `Morphing_*`, `Gimbal*`/`gimbal_*` identification and relay-tuning configs, `CoverageBenchmark*`, `OpenLoop_Crazyflie_*`, `SphereFormation*`, `Crazyflie_Demo*`, `Khepera_rele*`, plus `default_config.yaml`/`test.yaml`). This table is meant to be filled in incrementally by Francisco as each experience gets (re)documented — add a row per experience you want documented here:
+`roboticpark_config/resources/` holds 65 experience `.yaml` files (the `*_topics.yaml` files next to them are supervisor scripts, not experiences). The full catalogue — one row per experience with its mode, robots, formation law and extra nodes, grouped by research line — is in **[LAUNCHES.md](LAUNCHES.md)**:
 
-| `config_file` | Description |
+| Research line | `config_file` prefix |
 |---|---|
-| _(to be filled in)_ | |
+| Leader-based triangulated formation (mesh, 12 drones) | `AdaptiveFormation_N12_*` |
+| Distance-based formation with an origin reference (7–20 drones) | `ControlFormation*` |
+| Formations on surfaces — Lagrange multipliers (sphere/cone) | `LagrangeMultipliers_*` |
+| Affine formation and herding with a Khepera IV | `IROS_AffineFormation_*`, `Herding_*` |
+| Mixed-fleet morphing (sphere ↔ ellipsoid) | `Morphing_*` |
+| Sphere formation (real/hybrid) | `SphereFormation*` |
+| Scalability benchmark (50 drones) | `CoverageBenchmark_config` |
+| Crazyflie / Khepera IV demos, gimbal and identification | `Crazyflie_*`, `KheperaIV_*`, `Khepera_rele` |
+| Templates and tests | `default_config`, `demo_benchmark*`, `test` |
+
+New experiences can be generated from the [web experiment builder](https://robotic-park-lab.github.io/configurador/).
 
 ### Matlab benchmark scripts
 

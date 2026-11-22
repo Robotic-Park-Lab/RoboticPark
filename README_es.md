@@ -43,11 +43,21 @@ Ver [roboticpark_config/README_es.md](roboticpark_config/README_es.md) para el e
 
 ### Experiencias disponibles
 
-`roboticpark_config/resources/` tiene actualmente cerca de 90 ficheros `.yaml` de experiencia, agrupados por línea de investigación (`ControlFormation*`, `LagrangeMultipliers_{cone,sphere}*`, `IROS_AffineFormation*`, `Morphing_*`, configuraciones de identificación y ajuste por relé `Gimbal*`/`gimbal_*`, `CoverageBenchmark*`, `OpenLoop_Crazyflie_*`, `SphereFormation*`, `Crazyflie_Demo*`, `Khepera_rele*`, más `default_config.yaml`/`test.yaml`). Esta tabla está pensada para que Francisco la vaya rellenando de forma incremental a medida que (re)documente cada experiencia — añade una fila por cada experiencia que quieras documentar aquí:
+`roboticpark_config/resources/` tiene 65 ficheros `.yaml` de experiencia (los `*_topics.yaml` que los acompañan son guiones del supervisor, no experiencias). El catálogo completo — una fila por experiencia con su modo, robots, ley de formación y nodos adicionales, agrupado por línea de investigación — está en **[LAUNCHES_es.md](LAUNCHES_es.md)**:
 
-| `config_file` | Descripción |
+| Línea de investigación | Prefijo de `config_file` |
 |---|---|
-| _(por rellenar)_ | |
+| Formación triangulada con líderes (malla, 12 drones) | `AdaptiveFormation_N12_*` |
+| Formación por distancias con referencia al origen (7–20 drones) | `ControlFormation*` |
+| Formaciones sobre superficies — multiplicadores de Lagrange (esfera/cono) | `LagrangeMultipliers_*` |
+| Formación afín y pastoreo de un Khepera IV | `IROS_AffineFormation_*`, `Herding_*` |
+| Morphing con flota mixta (esfera ↔ elipsoide) | `Morphing_*` |
+| Formación esférica (real/híbrida) | `SphereFormation*` |
+| Benchmark de escalabilidad (50 drones) | `CoverageBenchmark_config` |
+| Demos de Crazyflie / Khepera IV, gimbal e identificación | `Crazyflie_*`, `KheperaIV_*`, `Khepera_rele` |
+| Plantillas y pruebas | `default_config`, `demo_benchmark*`, `test` |
+
+Las experiencias nuevas se pueden generar con el [configurador web](https://robotic-park-lab.github.io/configurador/).
 
 ### Scripts de benchmark en Matlab
 

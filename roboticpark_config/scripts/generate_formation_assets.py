@@ -86,12 +86,37 @@ Solid {{
 }}
 """
 
+# LED "led_ring": uned_crazyflie_driver (webots_bootstrap/webots_driver) lo usa al
+# iniciar y el PROTO estándar del Crazyflie no lo trae. Disco fino bajo la placa
+# (como el LED-ring deck real), sin boundingObject ni physics: no colisiona.
 CRAZYFLIE_BLOCK = """Crazyflie {{
 \ttranslation {x:.3f} {y:.3f} {z:.3f}
 \tname "{name}"
 \tcontroller "<extern>"
 {supervisor}  extensionSlot [
     InertialUnit {{
+    }}
+    LED {{
+      translation 0 0 0.001
+      children [
+        Shape {{
+          appearance PBRAppearance {{
+            baseColor 0.15 0.15 0.15
+            roughness 0.6
+            metalness 0
+          }}
+          geometry Cylinder {{
+            height 0.001
+            radius 0.017
+          }}
+        }}
+      ]
+      name "led_ring"
+      color [
+        0 1 0,
+        1 0 0,
+        0 0 1
+      ]
     }}
   ]
 }}
